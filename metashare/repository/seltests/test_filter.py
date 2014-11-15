@@ -20,7 +20,7 @@ class FilterTest(SeleniumTestCase):
         import_dir(TESTFIXTURE_XML)
 
         super(FilterTest, self).setUp()
-        self.base_url = 'http://{}/{}'.format(DJANGO_URL, DJANGO_BASE)
+        self.base_url = '{0}/{1}'.format(DJANGO_URL, DJANGO_BASE)
 
 
     def tearDown(self):

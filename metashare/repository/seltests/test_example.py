@@ -27,7 +27,7 @@ class ExampleSeleniumTest(SeleniumTestCase):
         User.objects.create_user('normaluser', 'normal@example.com', 'secret')
 
         super(ExampleSeleniumTest, self).setUp()
-        self.base_url = 'http://{}/{}'.format(DJANGO_URL, DJANGO_BASE)
+        self.base_url = '{0}/{1}'.format(DJANGO_URL, DJANGO_BASE)
 
     def test_login_logout(self):
         driver = self.driver

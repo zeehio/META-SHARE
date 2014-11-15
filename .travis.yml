@@ -12,6 +12,7 @@ script:
   - metashare/start-solr.sh
   - sleep 10
   - source "venv/bin/activate"
+  - pip install coverage
   - coverage run --source=metashare manage.py manage.py test --selenium
   - deactivate
   - metashare/stop-solr.sh
