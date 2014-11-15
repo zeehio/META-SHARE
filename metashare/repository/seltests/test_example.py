@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django_selenium.testcases import SeleniumTestCase
 from metashare import test_utils
 from metashare.repository.models import resourceInfoType_model
-from metashare.settings import ROOT_PATH, DJANGO_BASE
+from metashare.settings import ROOT_PATH, DJANGO_BASE, DJANGO_URL
 from selenium.common.exceptions import NoSuchElementException
 
 class ExampleSeleniumTest(SeleniumTestCase):
@@ -27,8 +27,7 @@ class ExampleSeleniumTest(SeleniumTestCase):
         User.objects.create_user('normaluser', 'normal@example.com', 'secret')
 
         super(ExampleSeleniumTest, self).setUp()
-        self.base_url = 'http://{}:{}/{}' \
-            .format(self.testserver_host, self.testserver_port, DJANGO_BASE)
+        self.base_url = 'http://{}/{}'.format(DJANGO_URL, DJANGO_BASE)
 
     def test_login_logout(self):
         driver = self.driver
