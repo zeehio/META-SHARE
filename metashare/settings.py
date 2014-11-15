@@ -112,6 +112,7 @@ MEDIA_URL = '/{0}site_media/'.format(DJANGO_BASE)
 # cf. http://stackoverflow.com/questions/1081596/django-serving-admin-media-files
 ADMIN_MEDIA_PREFIX = '{0}/site_media/admin/'.format(DJANGO_URL)
 
+STATIC_URL = '/static/'
 
 #ADMIN_MEDIA_ROOT = '{0}/media/admin/'.format(ROOT_PATH)
 
@@ -162,6 +163,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.humanize',
     'django.contrib.sitemaps',
+    'django.contrib.staticfiles',
 
     'haystack',
     'analytical',
