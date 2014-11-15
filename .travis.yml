@@ -8,11 +8,11 @@ install:
   - "./install-dependencies.sh"
 # command to run tests
 script:
-  - "./run-testsuite.sh" || exit 1
-  - metashare/start-solr.sh || exit 1
+  - "./run-testsuite.sh"
+  - metashare/start-solr.sh
   - sleep 10
   - source "venv/bin/activate"
-  - coverage run --source=metashare manage.py manage.py test --selenium || exit 1
-  - deactivate || exit 1
-  - metashare/stop-solr.sh || exit 1
+  - coverage run --source=metashare manage.py manage.py test --selenium
+  - deactivate
+  - metashare/stop-solr.sh
 after_success: coveralls
