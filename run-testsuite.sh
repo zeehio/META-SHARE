@@ -43,5 +43,4 @@ sleep 10
 python metashare/manage.py test --selenium || exit 1
 deactivate || exit 1
 metashare/stop-solr.sh || exit 1
-rm -rf "$PWD/firefox_profile"
 
