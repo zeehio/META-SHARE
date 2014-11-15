@@ -2,7 +2,7 @@ from django_selenium.testcases import SeleniumTestCase
 from metashare import settings, test_utils
 from metashare.repository.seltests.test_utils import setup_screenshots_folder, \
     import_dir, click_and_wait
-from metashare.settings import DJANGO_BASE, ROOT_PATH
+from metashare.settings import DJANGO_URL, DJANGO_BASE, ROOT_PATH
 import time
 from django.core.management import call_command
 from selenium.webdriver.support.select import Select
@@ -20,8 +20,7 @@ class FilterTest(SeleniumTestCase):
         import_dir(TESTFIXTURE_XML)
 
         super(FilterTest, self).setUp()
-        self.base_url = 'http://{}:{}/{}' \
-            .format(self.testserver_host, self.testserver_port, DJANGO_BASE)
+        self.base_url = 'http://{}/{}'.format(DJANGO_URL, DJANGO_BASE)
 
 
     def tearDown(self):

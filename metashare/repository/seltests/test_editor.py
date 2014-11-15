@@ -10,7 +10,7 @@ from metashare.accounts.models import EditorGroup, EditorGroupManagers
 from metashare.repository.models import resourceInfoType_model
 from metashare.repository.seltests.test_utils import login_user, mouse_over, \
     setup_screenshots_folder, click_menu_item, save_and_close, cancel_and_close
-from metashare.settings import DJANGO_BASE, ROOT_PATH
+from metashare.settings import DJANGO_URL, DJANGO_BASE, ROOT_PATH
 
 
 TESTFIXTURE_XML = '{}/repository/fixtures/ILSP10.xml'.format(ROOT_PATH)
@@ -47,8 +47,7 @@ class BasicEditorTests(SeleniumTestCase):
                      using=settings.TEST_MODE_NAME)
 
         super(BasicEditorTests, self).setUp()
-        self.base_url = 'http://{}:{}/{}' \
-            .format(self.testserver_host, self.testserver_port, DJANGO_BASE)
+        self.base_url = 'http://{}/{}'.format(DJANGO_URL, DJANGO_BASE)
         self.verification_errors = []
 
 
