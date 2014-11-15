@@ -47,7 +47,7 @@ class BasicEditorTests(SeleniumTestCase):
                      using=settings.TEST_MODE_NAME)
 
         super(BasicEditorTests, self).setUp()
-        self.base_url = 'http://{}/{}'.format(DJANGO_URL, DJANGO_BASE)
+        self.base_url = '{0}/{1}'.format(DJANGO_URL, DJANGO_BASE)
         self.verification_errors = []
 
 
