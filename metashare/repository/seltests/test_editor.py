@@ -1,7 +1,6 @@
 import time
 
 from django.core.management import call_command
-from django_selenium.testcases import SeleniumTestCase
 
 from selenium.webdriver.support.ui import Select
 
@@ -9,14 +8,15 @@ from metashare import settings, test_utils
 from metashare.accounts.models import EditorGroup, EditorGroupManagers
 from metashare.repository.models import resourceInfoType_model
 from metashare.repository.seltests.test_utils import login_user, mouse_over, \
-    setup_screenshots_folder, click_menu_item, save_and_close, cancel_and_close
+    setup_screenshots_folder, click_menu_item, save_and_close, \
+    cancel_and_close, MetashareSeleniumTestCase
 from metashare.settings import DJANGO_URL, DJANGO_BASE, ROOT_PATH
 
 
 TESTFIXTURE_XML = '{}/repository/fixtures/ILSP10.xml'.format(ROOT_PATH)
 
 
-class BasicEditorTests(SeleniumTestCase):
+class BasicEditorTests(MetashareSeleniumTestCase):
     """
     Basic tests for the metadata editor which are meant to be run in every
     Jenkins build.

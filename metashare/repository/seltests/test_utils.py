@@ -1,12 +1,16 @@
 """
 Utility functions for Selenium unit tests.
 """
+from metashare import settings
 from metashare.settings import ROOT_PATH, TEST_MODE_NAME
 import os
 from metashare import test_utils
 import time
+from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
-
+from django_selenium import settings as dj_settings
+from django_selenium.testcases import MyDriver, SeleniumTestCase
+import copy
 
 def login_user(driver, user_name, user_passwd):
     """
@@ -122,3 +126,31 @@ def import_dir(path):
     os.environ['DISABLE_INDEXING_DURING_IMPORT'] = 'False'
     from django.core.management import call_command
     call_command('rebuild_index', interactive=False, using=TEST_MODE_NAME)
+
+class MetashareMyDriver(MyDriver):
+    def __init__(self):
+        driver = getattr(webdriver, dj_settings.SELENIUM_DRIVER, None)
+        assert driver, "dj_settings.SELENIUM_DRIVER contains non-existing driver"
+        driver_opts = getattr(dj_settings, "SELENIUM_DRIVER_OPTS", dict())
+        if "firefox_profile" in driver_opts.keys():
+            driver_opts["firefox_profile"] = webdriver.FirefoxProfile(driver_opts["firefox_profile"])
+        if driver is webdriver.Remote:
+            if isinstance(dj_settings.SELENIUM_CAPABILITY, dict):
+                capability = dj_settings.SELENIUM_CAPABILITY
+            else:
+                capability = getattr(webdriver.DesiredCapabilities, dj_settings.SELENIUM_CAPABILITY, None)
+                assert capability, 'dj_settings.SELENIUM_CAPABILITY contains non-existing capability'
+            self.driver = driver('http://%s:%d/wd/hub' % (dj_settings.SELENIUM_HOST, dj_settings.SELENIUM_PORT), capability, **driver_opts)
+        else:
+            self.driver = driver(**driver_opts)
+        self.live_server_url = 'http://%s:%s' % (dj_settings.SELENIUM_TESTSERVER_HOST , str(dj_settings.SELENIUM_TESTSERVER_PORT))
+        self.text = ''
+
+
+class MetashareSeleniumTestCase(SeleniumTestCase):
+
+    def setUp(self):
+        import socket
+        socket.setdefaulttimeout(dj_settings.SELENIUM_TIMEOUT)
+        self.driver = MetashareMyDriver()
+
