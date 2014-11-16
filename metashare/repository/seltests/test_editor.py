@@ -121,6 +121,7 @@ class BasicEditorTests(SeleniumTestCase):
         self.manager_user.get_profile().default_editor_groups.clear()
 
         driver = self.driver
+        driver.implicitly_wait(5) # wait for 5 seconds
         driver.get(self.base_url)
         ss_path = setup_screenshots_folder(
           "PNG-metashare.repository.seltests.test_editor.EditorTest",
@@ -192,8 +193,6 @@ class BasicEditorTests(SeleniumTestCase):
         # characters in some fields:
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertTrue(driver.find_element_by_xpath(
             "//div[@id='form-0']/fieldset/div/ul/li").text.startswith(
@@ -220,8 +219,6 @@ class BasicEditorTests(SeleniumTestCase):
         # save tool
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Tool\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -266,6 +263,7 @@ class BasicEditorTests(SeleniumTestCase):
         used in the Editor
         """
         driver = self.driver
+        driver.implicitly_wait(10) # wait for 10 seconds
         driver.get(self.base_url)
         ss_path = setup_screenshots_folder(
           "PNG-metashare.repository.seltests.test_editor.EditorTest",
@@ -1762,8 +1760,6 @@ def _ingest(driver):
     Select(driver.find_element_by_name("action")) \
         .select_by_visible_text("Ingest selected internal resources")
     driver.find_element_by_name("index").click()
-    # TODO remove this workaround when Selenium starts working again as intended
-    time.sleep(1)
 
 
 def _publish(driver):
@@ -1774,8 +1770,6 @@ def _publish(driver):
     Select(driver.find_element_by_name("action")) \
         .select_by_visible_text("Publish selected ingested resources")
     driver.find_element_by_name("index").click()
-    # TODO remove this workaround when Selenium starts working again as intended
-    time.sleep(1)
 
 
 def _delete(driver):
@@ -1787,5 +1781,3 @@ def _delete(driver):
         .select_by_visible_text("Mark selected resources as deleted")
     driver.find_element_by_name("index").click()
     driver.find_element_by_css_selector("input[type=\"submit\"]").click()
-    # TODO remove this workaround when Selenium starts working again as intended
-    time.sleep(1)
