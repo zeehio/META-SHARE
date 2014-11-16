@@ -1,7 +1,6 @@
 import time
 
 from django.core.management import call_command
-from django_selenium.testcases import SeleniumTestCase
 
 from selenium.webdriver.support.ui import Select
 
@@ -17,11 +16,11 @@ from metashare.repository.seltests.test_editor import _delete, _publish, \
     _fill_corpusLanguageDescriptionTextInfo_popup
 from metashare.repository.seltests.test_utils import login_user, mouse_over, \
     setup_screenshots_folder, click_menu_item, save_and_close, \
-    cancel_and_close, cancel_and_continue
+    cancel_and_close, cancel_and_continue, MetashareSeleniumTestCase
 from metashare.settings import DJANGO_BASE
 
 
-class NightlyEditorTests(SeleniumTestCase):
+class NightlyEditorTests(MetashareSeleniumTestCase):
     """
     Metadata editor tests that take some time to run and which are therefore
     meant to be run in nightly Jenkins builds only.
