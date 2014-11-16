@@ -110,9 +110,11 @@ MEDIA_URL = '/{0}site_media/'.format(DJANGO_BASE)
 # Examples: "http://foo.com/media/", "/media/".
 # ADMIN_MEDIA_PREFIX must use full URL or else our custom admin will not be used,
 # cf. http://stackoverflow.com/questions/1081596/django-serving-admin-media-files
-ADMIN_MEDIA_PREFIX = '{0}/site_media/admin/'.format(DJANGO_URL)
 
 STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '{0}admin/'.format(STATIC_URL)
+
+STATICFILES_DIRS = ( '{0}/media/'.format(ROOT_PATH), )
 
 #ADMIN_MEDIA_ROOT = '{0}/media/admin/'.format(ROOT_PATH)
 
