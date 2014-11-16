@@ -47,6 +47,7 @@ class NightlyEditorTests(SeleniumTestCase):
         self.base_url = 'http://{}:{}/{}' \
             .format(self.testserver_host, self.testserver_port, DJANGO_BASE)
         self.verification_errors = []
+        self.driver.implicitly_wait(5) # wait for 5 seconds
 
 
     def tearDown(self):
@@ -87,8 +88,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save text corpus
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -150,8 +149,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save audio corpus
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -213,8 +210,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save video corpus
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -276,8 +271,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save image corpus
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -340,8 +333,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save text numerical corpus
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -403,8 +394,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save ngram corpus
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -470,8 +459,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save language description text
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Resource Name\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -583,8 +570,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save language description text - video
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Video Language Description\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -696,8 +681,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save language description text - image
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Image Language Description\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -801,8 +784,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save lexical resource text
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Lexical Resource Text\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -914,8 +895,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save lexical resource text - audio
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Lexical Resource Audio\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -1028,8 +1007,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save lexical resource text - video
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Lexical Resource Video\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -1141,8 +1118,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save lexical resource text - image
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual("The Resource \"Test Lexical Resource Image\" was added successfully.", 
           driver.find_element_by_css_selector("li.info").text)
@@ -2125,8 +2100,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save tool
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual(
           u"The Person \"Smith John john.smith@institution.org Organization \u2013 department: Department\" was added successfully.", 
@@ -2200,8 +2173,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save tool
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual(
           u"The Organization \"Organization \u2013 department: Department\" was added successfully.", 
@@ -2265,8 +2236,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save tool
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual(
           u"The Project \"Project (Short name)\" was added successfully.", 
@@ -2347,8 +2316,6 @@ class NightlyEditorTests(SeleniumTestCase):
         # save tool
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         driver.find_element_by_name("_save").click()
-        # TODO remove this workaround when Selenium starts working again as intended
-        time.sleep(1)
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         self.assertEqual(
           u"The Document \"John Smith: Document title\" was added successfully.", 
