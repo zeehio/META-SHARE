@@ -35,10 +35,10 @@ class FilterTest(MetashareSeleniumTestCase):
           "test_filter")
 
         driver = self.driver
+        driver.implicitly_wait(60)  # seconds
         driver.get(self.base_url)
         # TODO remove this workaround when Selenium starts working again as intended
         driver.set_window_size(3250, 2600)
-        driver.implicitly_wait(60)  # seconds
         # click 'browse'
         driver.find_element_by_xpath("//div[@id='header']/ul/li[1]/a").click()
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))

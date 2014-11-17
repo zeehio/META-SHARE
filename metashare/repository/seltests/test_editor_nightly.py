@@ -46,7 +46,7 @@ class NightlyEditorTests(MetashareSeleniumTestCase):
         self.base_url = 'http://{}:{}/{}' \
             .format(self.testserver_host, self.testserver_port, DJANGO_BASE)
         self.verification_errors = []
-        self.driver.implicitly_wait(5) # wait for 5 seconds
+        self.driver.implicitly_wait(60) # wait for 5 seconds
 
 
     def tearDown(self):

@@ -10,7 +10,6 @@ from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from django_selenium import settings as dj_settings
 from django_selenium.testcases import MyDriver, SeleniumTestCase
-import copy
 
 def login_user(driver, user_name, user_passwd):
     """
@@ -49,6 +48,7 @@ def save_and_close(driver, target_id):
     Clicks the save button in the current window, waits until it is closed and
     then changes to the window with the given target id is closed.
     """
+    time.sleep(10)
     current_id = driver.current_window_handle
     driver.find_element_by_name("_save").click()
     wait_till_closed_and_switch(driver, current_id, target_id)
@@ -56,15 +56,16 @@ def save_and_close(driver, target_id):
 
 def wait_till_closed_and_switch(driver, closing_id, target_id):
     """
-    Waits ~10 seconds until the window with the given `closing_id` is closed or
+    Waits ~40 seconds until the window with the given `closing_id` is closed or
     throws a `TimeoutException`. If closing was successful, the driver switches
     to the window with the given `target_id`.
     """
-    max_wait = 10
+    max_wait = 60
     while closing_id in driver.window_handles and max_wait:
         time.sleep(1)
         max_wait -= 1
     if not max_wait:
+        print driver.get_screenshot_as_base64()
         raise TimeoutException('Window was not closed in time.')
     driver.switch_to_window(target_id)
 
@@ -75,10 +76,13 @@ def cancel_and_close(driver, target_id):
     waits until it is closed and then changes to the window with the given target id
     is closed.
     """
+    time.sleep(10)
     current_id = driver.current_window_handle
     driver.find_element_by_name("_cancel").click()
     alert = driver.switch_to_alert()
     alert.accept()
+    # TODO remove this workaround when Selenium starts working again as intended
+    time.sleep(1)
     wait_till_closed_and_switch(driver, current_id, target_id)
 
 
@@ -148,9 +152,19 @@ class MetashareMyDriver(MyDriver):
 
 
 class MetashareSeleniumTestCase(SeleniumTestCase):
-
     def setUp(self):
         import socket
         socket.setdefaulttimeout(dj_settings.SELENIUM_TIMEOUT)
         self.driver = MetashareMyDriver()
+
+    def spin_assert(self, assertion):
+        for i in xrange(60):
+            try:
+                assertion()
+                return
+            except Exception, e:
+                if i == 59:
+                    raise
+            time.sleep(1)
+
 

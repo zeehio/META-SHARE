@@ -33,14 +33,16 @@ rm -rf firefox_profile_template
 
 
 # Initialize database
+rm -f metashare/testing.db
 source venv/bin/activate || exit 1
+pip install coverage || exit 1
 python metashare/manage.py syncdb --noinput || exit 1
 rm metashare/initial_data.json || exit 1
 
 # Run testsuite:
 metashare/start-solr.sh || exit 1
 sleep 10
-python metashare/manage.py test --selenium || exit 1
+(cd metashare && coverage run --source=metashare manage.py test $1) || exit 1
 deactivate || exit 1
 metashare/stop-solr.sh || exit 1
 

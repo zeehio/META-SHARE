@@ -1,19 +1,15 @@
 language: python
+env:
+  - TEST_SUITE=
+  - TEST_SUITE="--selenium-only"
 python:
   - "2.7"
 # command to install dependencies
 install:
-  - "sudo apt-get install libpq-dev xvfb chromium-browser firefox"
-  - "sudo ln -s /usr/lib/chromium-browser/chromium-browser /usr/bin/google-chrome"
+  - "sudo apt-get update"
+  - "sudo apt-get install libpq-dev xvfb firefox"
   - "./install-dependencies.sh"
 # command to run tests
 script:
-  - "./run-testsuite.sh"
-  - metashare/start-solr.sh
-  - sleep 10
-  - source "venv/bin/activate"
-  - pip install coverage
-  - coverage run --source=metashare manage.py manage.py test --selenium
-  - deactivate
-  - metashare/stop-solr.sh
+  - "./run-testsuite.sh ${TEST_SUITE}"
 after_success: coveralls
