@@ -31,6 +31,7 @@ class ExampleSeleniumTest(MetashareSeleniumTestCase):
 
     def test_login_logout(self):
         driver = self.driver
+        driver.implicitly_wait(60) # wait for 60 seconds
         # check start site
         driver.get(self.base_url)
         self.assertEqual("META-SHARE", driver.title)

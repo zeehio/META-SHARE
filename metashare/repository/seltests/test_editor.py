@@ -71,6 +71,7 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         resource.save()
 
         driver = self.driver
+        driver.implicitly_wait(60) # wait for 60 seconds
         driver.get(self.base_url)
         # login user
         login_user(driver, "manageruser", "secret")
@@ -114,15 +115,15 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         except AssertionError as e: 
             self.verification_errors.append(str(e))
 
-
     def test_LR_creation_tool(self):
         # set up the current manager user profile so that it doesn't have any
         # default editor groups
         self.manager_user.get_profile().default_editor_groups.clear()
 
         driver = self.driver
-        driver.implicitly_wait(5) # wait for 5 seconds
+        driver.implicitly_wait(60) # wait for 60 seconds
         driver.get(self.base_url)
+        self.spin_assert(lambda: self.assertEqual(driver.title, "META-SHARE"))
         ss_path = setup_screenshots_folder(
           "PNG-metashare.repository.seltests.test_editor.EditorTest",
           "LR_creation_tool")
@@ -132,29 +133,36 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         # make sure login was successful
         self.assertEqual("Logout", 
           driver.find_element_by_xpath("//div[@id='inner']/div[2]/a/div").text)
+        self.spin_assert(lambda: self.assertEqual(driver.title, "META-SHARE"))
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         # Manage Resources -> Manage all resources
         mouse_over(driver, driver.find_element_by_link_text("Manage Resources"))
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         click_menu_item(driver, driver.find_element_by_link_text("Manage all resources"))
+        self.spin_assert(lambda: self.assertTrue(driver.title.startswith("Select Resource to change")))
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         # Add resource
         driver.find_element_by_link_text("Add Resource").click()
+        self.spin_assert(lambda: driver.title.startswith("Add Resource"))
         # create tool
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         Select(driver.find_element_by_id("id_resourceType")).select_by_visible_text(
           "Tool / Service")
         driver.find_element_by_id("id_submit").click()
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
-        self.assertEqual("Add Resource", 
-          driver.find_element_by_css_selector("#content > h1").text)
+        self.spin_assert(lambda: self.assertEqual("Add Resource", 
+          driver.find_element_by_css_selector("#content > h1").text))
         # remember root window id
         root_id = driver.current_window_handle
         # add required fields
         # (add an invalid character in the resource name to verify that invalid
         # characters are found in DictField values)
+        driver.find_element_by_name("key_form-0-resourceName_0").click()
         driver.find_element_by_name("key_form-0-resourceName_0").clear()
         driver.find_element_by_name("key_form-0-resourceName_0").send_keys("en")
+        #self.spin_assert(lambda: self.assertEqual("en",
+        #      driver.find_element_by_name("key_form-0-resourceName_0").text))
+        driver.find_element_by_name("val_form-0-resourceName_0").click()
         driver.find_element_by_name("val_form-0-resourceName_0").clear()
         driver.find_element_by_name("val_form-0-resourceName_0").send_keys(u"Test\u000b Tool")
         driver.find_element_by_name("key_form-0-description_0").clear()
@@ -164,10 +172,10 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
         # distribution popup
         driver.find_element_by_css_selector("img[alt=\"Add information\"]").click()
-        _fill_distribution_popup(driver, ss_path, root_id)
+        _fill_distribution_popup(self, driver, ss_path, root_id)
         # contact person popup
         driver.find_element_by_css_selector("img[alt=\"Add Another\"]").click()
-        _fill_contactPerson_popup(driver, ss_path, root_id)
+        _fill_contactPerson_popup(self, driver, ss_path, root_id)
 
         # tool info popup
         driver.find_element_by_id("edit_id_toolServiceInfo").click()
@@ -263,7 +271,7 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         used in the Editor
         """
         driver = self.driver
-        driver.implicitly_wait(10) # wait for 10 seconds
+        driver.implicitly_wait(60) # wait for 60 seconds
         driver.get(self.base_url)
         ss_path = setup_screenshots_folder(
           "PNG-metashare.repository.seltests.test_editor.EditorTest",
@@ -344,6 +352,7 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         tests the usage of the FilteredSelectMultiple widget for multi select fields
         """
         driver = self.driver
+        driver.implicitly_wait(60) # wait for 60 seconds
         driver.get(self.base_url)
         ss_path = setup_screenshots_folder(
           "PNG-metashare.repository.seltests.test_editor.EditorTest",
@@ -416,7 +425,7 @@ def _add_new_resource(driver, ss_path, resource_type, media_types):
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
 
 
-def _fill_administrativeInformation_forms(driver, ss_path, root_id):
+def _fill_administrativeInformation_forms(test, driver, ss_path, root_id):
     """
     fills the different administrative information forms with required,
     recommended and optional information
@@ -425,12 +434,12 @@ def _fill_administrativeInformation_forms(driver, ss_path, root_id):
     _fill_identification_form(driver, ss_path, "form-0-")
     # distribution popup
     driver.find_element_by_css_selector("img[alt=\"Add information\"]").click()  
-    _fill_distribution_popup(driver, ss_path, root_id)
+    _fill_distribution_popup(test, driver, ss_path, root_id)
     # contact person popup
     driver.find_element_by_css_selector("img[alt=\"Add Another\"]").click()
-    _fill_contactPerson_popup(driver, ss_path, root_id)
+    _fill_contactPerson_popup(test, driver, ss_path, root_id)
     # metadata fields
-    _fill_metadata_form(driver, ss_path, "form-2-0-")
+    _fill_metadata_form(test, driver, ss_path, "form-2-0-")
 
     # recommended page
     driver.find_element_by_css_selector("a[href=\"#field-2\"]").click()
@@ -439,14 +448,14 @@ def _fill_administrativeInformation_forms(driver, ss_path, root_id):
     _fill_version_form(driver, ss_path, "form-3-0-")
     # validations fields
     driver.find_element_by_id("fieldsetcollapser0").click()
-    _fill_validations_form(driver, ss_path, "validationinfotype_model_set-0-")
+    _fill_validations_form(test, driver, ss_path, "validationinfotype_model_set-0-")
     # usage popup
     driver.find_element_by_xpath("//a[@id='add_id_usageInfo']/img").click()  
     _fill_usage_popup(driver, ss_path, root_id)
     # resource documentation fields 
     _fill_resourceDocumentation_form(driver, ss_path, "form-4-0-")
     # resource creation fields 
-    _fill_resourceCreation_form(driver, ss_path, "form-5-0-")
+    _fill_resourceCreation_form(test, driver, ss_path, "form-5-0-")
     # relations fields
     driver.find_element_by_id("fieldsetcollapser1").click()
     _fill_relations_form(driver, ss_path, "relationinfotype_model_set-0-")
@@ -477,7 +486,7 @@ def _fill_identification_form(driver, ss_path, id_infix):
     driver.find_element_by_name("{}identifier".format(id_infix)).send_keys("A-123")
 
 
-def _fill_metadata_form(driver, ss_path, id_infix):
+def _fill_metadata_form(test, driver, ss_path, id_infix):
     """
     fills the metadata form with required, recommended and optional information
     """
@@ -485,7 +494,7 @@ def _fill_metadata_form(driver, ss_path, id_infix):
     current_id = driver.current_window_handle
     # contact metadata creator popup
     driver.find_element_by_xpath("//a[@id='add_id_{}metadataCreator']/img".format(id_infix)).click()
-    _fill_metadataCreator_popup(driver, ss_path, current_id)
+    _fill_metadataCreator_popup(test, driver, ss_path, current_id)
     driver.find_element_by_name("{}source".format(id_infix)).clear()
     driver.find_element_by_name("{}source".format(id_infix)).send_keys("catalogue")
     driver.find_element_by_name("{}originalMetadataSchema".format(id_infix)).clear()
@@ -557,7 +566,7 @@ def _fill_characterEncodings_form(driver, ss_path, id_infix):
     _fill_sizePerCharacterEncodings_popup(driver, ss_path, current_id)
 
 
-def _fill_annotations_form(driver, ss_path, id_infix):
+def _fill_annotations_form(test, driver, ss_path, id_infix):
     """
     fills the annotations form with required, recommended and optional information
     """
@@ -616,7 +625,7 @@ def _fill_annotations_form(driver, ss_path, id_infix):
     # annotator popup
     Select(driver.find_element_by_xpath("//div[@class='form-row annotator']/div/select")) \
       .select_by_visible_text("personInfoType")
-    _fill_annotator_popup(driver, ss_path, current_id)
+    _fill_annotator_popup(test, driver, ss_path, current_id)
 
 
 def _fill_domains_form(driver, ss_path, id_infix):
@@ -745,7 +754,7 @@ def _fill_resourceDocumentation_form(driver, ss_path, id_infix):
       .click()
 
 
-def _fill_resourceCreation_form(driver, ss_path, id_infix):
+def _fill_resourceCreation_form(test, driver, ss_path, id_infix):
     """
     fills the resource creation form with required, recommended and optional information
     """
@@ -754,7 +763,7 @@ def _fill_resourceCreation_form(driver, ss_path, id_infix):
     # resource creator popup
     Select(driver.find_element_by_xpath("//div[@class='form-row resourceCreator']/div/select")) \
       .select_by_visible_text("personInfoType")
-    _fill_resourceCreator_popup(driver, ss_path, current_id)
+    _fill_resourceCreator_popup(test, driver, ss_path, current_id)
     # funding project popup
     driver.find_element_by_xpath("//a[@id='add_id_{}fundingProject']/img".format(id_infix)).click()  
     _fill_fundingProject_popup(driver, ss_path, current_id)
@@ -779,7 +788,7 @@ def _fill_relations_form(driver, ss_path, id_infix):
     _fill_relatedResource_popup(driver, ss_path, current_id)
 
 
-def _fill_validations_form(driver, ss_path, id_infix):
+def _fill_validations_form(test, driver, ss_path, id_infix):
     """
     fills the validations form with required, recommended and optional information
     """
@@ -815,15 +824,17 @@ def _fill_validations_form(driver, ss_path, id_infix):
     # validator popup
     Select(driver.find_element_by_xpath("//div[@class='form-row validator']/div/select")) \
       .select_by_visible_text("personInfoType")
-    _fill_validator_popup(driver, ss_path, current_id)
+    _fill_validator_popup(test, driver, ss_path, current_id)
 
 
-def _fill_distribution_popup(driver, ss_path, parent_id):
+def _fill_distribution_popup(test, driver, ss_path, parent_id):
     """
     fills the distribution popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_distributionInfo")
+    test.spin_assert(lambda: test.assertEqual("Add Distribution",
+        driver.find_element_by_css_selector("#content > h1").text))
     # remember current window id
     current_id = driver.current_window_handle
     Select(driver.find_element_by_id("id_availability")).select_by_visible_text(
@@ -863,11 +874,15 @@ def _fill_distribution_popup(driver, ss_path, parent_id):
     # licensor popup
     Select(driver.find_element_by_xpath("//div[@class='form-row licensor']/div/select")) \
       .select_by_visible_text("personInfoType")
-    _fill_licensor_popup(driver, ss_path, current_id)
+    _fill_licensor_popup(test, driver, ss_path, current_id)
+    test.spin_assert(lambda: test.assertEqual("Add Distribution",
+        driver.find_element_by_css_selector("#content > h1").text))
     # distribution rights holder popup
     Select(driver.find_element_by_xpath("//div[@class='form-row distributionRightsHolder']/div/select")) \
       .select_by_visible_text("personInfoType")
-    _fill_distributionRightsHolder_popup(driver, ss_path, current_id)
+    _fill_distributionRightsHolder_popup(test, driver, ss_path, current_id)
+    test.spin_assert(lambda: test.assertEqual("Add Distribution",
+        driver.find_element_by_css_selector("#content > h1").text))
     Select(driver.find_element_by_name(
       "licenceinfotype_model_set-0-userNature_old")).select_by_visible_text("Academic")
     driver.find_element_by_xpath(
@@ -880,7 +895,7 @@ def _fill_distribution_popup(driver, ss_path, parent_id):
     # ipr holder popup
     Select(driver.find_element_by_xpath("//div[@class='form-row iprHolder']/div/select")) \
       .select_by_visible_text("personInfoType")
-    _fill_iprHolder_popup(driver, ss_path, current_id)
+    _fill_iprHolder_popup(test, driver, ss_path, current_id)
     driver.find_element_by_name("availabilityStartDate").clear()
     driver.find_element_by_name("availabilityStartDate").send_keys("2012-10-02")
     driver.find_element_by_name("availabilityEndDate").clear()
@@ -890,22 +905,24 @@ def _fill_distribution_popup(driver, ss_path, parent_id):
     save_and_close(driver, parent_id)
 
 
-def _fill_contactPerson_popup(driver, ss_path, parent_id):
+def _fill_contactPerson_popup(test, driver, ss_path, parent_id):
     """
     fills the contact person popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_contactPerson")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_personInfo_form(driver, ss_path, id_infix):
+def _fill_personInfo_form(test, driver, ss_path, id_infix):
     """
     fills the person info form with required, recommended and optional information
     """
+    test.spin_assert(lambda: test.assertEqual("Add Person",
+        driver.find_element_by_css_selector("#content > h1").text))
     # remember current window id
     current_id = driver.current_window_handle
     driver.find_element_by_name("key_surname_0").clear()
@@ -941,17 +958,21 @@ def _fill_personInfo_form(driver, ss_path, id_infix):
     driver.find_element_by_name("position").send_keys("Professor")
     # affiliation popup
     driver.find_element_by_css_selector("img[alt=\"Add Another\"]").click()
-    _fill_affiliation_popup(driver, ss_path, current_id)
+    _fill_affiliation_popup(test, driver, ss_path, current_id)
 
 
-def _fill_affiliation_popup(driver, ss_path, parent_id):
+def _fill_affiliation_popup(test, driver, ss_path, parent_id):
     """
     fills the affiliation popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_affiliation")
+    test.spin_assert(lambda: test.assertEqual("Add Organization",
+        driver.find_element_by_css_selector("#content > h1").text))
     driver.find_element_by_name("key_organizationName_0").clear()
     driver.find_element_by_name("key_organizationName_0").send_keys("en")
+    #test.spin_assert(lambda: test.assertEqual("en",
+    #    driver.find_element_by_name("key_organizationName_0").text))
     driver.find_element_by_name("val_organizationName_0").clear()
     driver.find_element_by_name("val_organizationName_0").send_keys("Organization")
     driver.find_element_by_xpath("//div[@class='form-row organizationShortName']/div/ul/li/a").click()
@@ -1289,85 +1310,90 @@ def _fill_projectInfo_form(driver, ss_path):
     driver.find_element_by_name("projectEndDate").send_keys("2012-09-27")
 
 
-def _fill_metadataCreator_popup(driver, ss_path, parent_id):
+def _fill_metadataCreator_popup(test, driver, ss_path, parent_id):
     """
     fills the metadata creator popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_form__dash__2__dash__0__dash__metadataCreator")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_resourceCreator_popup(driver, ss_path, parent_id):
+def _fill_resourceCreator_popup(test, driver, ss_path, parent_id):
     """
     fills the resource creator popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_form__dash__5__dash__0__dash__resourceCreator")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_annotator_popup(driver, ss_path, parent_id):
+def _fill_annotator_popup(test, driver, ss_path, parent_id):
     """
     fills the annotator popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_annotationinfotype_model_set__dash__0__dash__annotator")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_iprHolder_popup(driver, ss_path, parent_id):
+def _fill_iprHolder_popup(test, driver, ss_path, parent_id):
     """
     fills the ipr holder popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_iprHolder")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_licensor_popup(driver, ss_path, parent_id):
+def _fill_licensor_popup(test, driver, ss_path, parent_id):
     """
     fills the licensor popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_licenceinfotype_model_set__dash__0__dash__licensor")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    test.spin_assert(lambda: test.assertEqual("Add Person",
+        driver.find_element_by_css_selector("#content > h1").text))
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_validator_popup(driver, ss_path, parent_id):
+def _fill_validator_popup(test, driver, ss_path, parent_id):
     """
     fills the validator popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_validationinfotype_model_set__dash__0__dash__validator")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
-
+    time.sleep(20)
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
+    time.sleep(20)
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
 
 
-def _fill_distributionRightsHolder_popup(driver, ss_path, parent_id):
+def _fill_distributionRightsHolder_popup(test, driver, ss_path, parent_id):
     """
     fills the distributino rights holder popup with all required, recommended and optional
     information and returns to the parent window
     """
     driver.switch_to_window("id_licenceinfotype_model_set__dash__0__dash__distributionRightsHolder")
-    _fill_personInfo_form(driver, ss_path, "form-0-")
+    test.spin_assert(lambda: test.assertEqual("Add Person | META-SHARE backend",
+        driver.get_title()))
+    _fill_personInfo_form(test, driver, ss_path, "form-0-")
 
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     save_and_close(driver, parent_id)
@@ -1390,7 +1416,7 @@ def _fill_membership_popup(driver, ss_path, parent_id):
     save_and_close(driver, parent_id)
 
 
-def _fill_corpusTextInfo_popup(driver, ss_path, parent_id):
+def _fill_corpusTextInfo_popup(test, driver, ss_path, parent_id):
     """
     fills the corpus text info popup with all required, recommended and optional
     information and returns to the parent window
@@ -1414,7 +1440,7 @@ def _fill_corpusTextInfo_popup(driver, ss_path, parent_id):
     # show annotations
     driver.find_element_by_id("fieldsetcollapser0").click()
     # corpus text info / annotations
-    _fill_annotations_form(driver, ss_path, "annotationinfotype_model_set-0-")
+    _fill_annotations_form(test, driver, ss_path, "annotationinfotype_model_set-0-")
     # corpus text info / domains
     _fill_domains_form(driver, ss_path, "domaininfotype_model_set-0-")
     # show text classifications
