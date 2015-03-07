@@ -15,7 +15,6 @@ from metashare.settings import DJANGO_URL, DJANGO_BASE, ROOT_PATH
 
 TESTFIXTURE_XML = '{}/repository/fixtures/ILSP10.xml'.format(ROOT_PATH)
 
-
 class BasicEditorTests(MetashareSeleniumTestCase):
     """
     Basic tests for the metadata editor which are meant to be run in every
@@ -58,7 +57,6 @@ class BasicEditorTests(MetashareSeleniumTestCase):
 
         super(BasicEditorTests, self).tearDown()
         self.assertEqual([], self.verification_errors)
-
 
     def test_status_after_saving(self):
         # load test fixture and set its status to 'published'
@@ -264,7 +262,6 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         self.assertEqual("Successfully deleted 1 resource.", 
          driver.find_element_by_css_selector("ul.messagelist>li").text)
 
-
     def test_sorting(self):
         """
         tests the sorting of controlled vocabulary in some examplary CharFields
@@ -345,7 +342,6 @@ class BasicEditorTests(MetashareSeleniumTestCase):
         # skip to end of list 
         self.assertEqual("Words", driver.find_element_by_xpath(
           "//select[@id='id_sizeinfotype_model_set-0-sizeUnit']/option[50]").text)
-
 
     def test_multi_select_widget(self):
         """
@@ -971,6 +967,7 @@ def _fill_affiliation_popup(test, driver, ss_path, parent_id):
         driver.find_element_by_css_selector("#content > h1").text))
     driver.find_element_by_name("key_organizationName_0").clear()
     driver.find_element_by_name("key_organizationName_0").send_keys("en")
+    time.sleep(10)
     #test.spin_assert(lambda: test.assertEqual("en",
     #    driver.find_element_by_name("key_organizationName_0").text))
     driver.find_element_by_name("val_organizationName_0").clear()
@@ -979,14 +976,18 @@ def _fill_affiliation_popup(test, driver, ss_path, parent_id):
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     driver.find_element_by_name("key_organizationShortName_0").clear()
     driver.find_element_by_name("key_organizationShortName_0").send_keys("en")
+    time.sleep(10)
     driver.find_element_by_name("val_organizationShortName_0").clear()
     driver.find_element_by_name("val_organizationShortName_0").send_keys("Short name")
+    time.sleep(10)
     driver.find_element_by_xpath("//div[@class='form-row departmentName']/div/ul/li/a").click()
     driver.get_screenshot_as_file('{0}/{1}.png'.format(ss_path, time.time()))
     driver.find_element_by_name("key_departmentName_0").clear()
     driver.find_element_by_name("key_departmentName_0").send_keys("en")
+    time.sleep(10)
     driver.find_element_by_name("val_departmentName_0").clear()
     driver.find_element_by_name("val_departmentName_0").send_keys("Department")
+    time.sleep(10)
     driver.find_element_by_name("form-0-email").clear()
     driver.find_element_by_name("form-0-email").send_keys("john.smith@institution.org")
     driver.find_element_by_name("form-0-url").clear()

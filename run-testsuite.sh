@@ -19,18 +19,6 @@ echo $(pwd)
 cp metashare/local_settings.test metashare/local_settings.py || exit 1
 cp metashare/initial_data.test.json metashare/initial_data.json || exit 1
 
-# Start Xvfb
-export DISPLAY=":99.0"
-Xvfb "$DISPLAY" -ac -screen 0 1024x768x16 &
-sleep 10
-
-# Prepare firefox profile
-rm -rf "$PWD/firefox_profile"
-firefox -CreateProfile "firefox_profile $PWD/firefox_profile" || exit 1
-tar xzf firefox_profile_template.tgz || exit 1
-cp -pr firefox_profile_template/* "$PWD/firefox_profile" || exit 1
-rm -rf firefox_profile_template
-
 
 # Initialize database
 rm -f metashare/testing.db

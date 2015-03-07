@@ -65,7 +65,6 @@ def wait_till_closed_and_switch(driver, closing_id, target_id):
         time.sleep(1)
         max_wait -= 1
     if not max_wait:
-        print driver.get_screenshot_as_base64()
         raise TimeoutException('Window was not closed in time.')
     driver.switch_to_window(target_id)
 

@@ -1,6 +1,8 @@
 META-SHARE SOFTWARE
 ===================
 
+[![Build Status](https://travis-ci.org/zeehio/META-SHARE.svg?branch=master)](https://travis-ci.org/zeehio/META-SHARE)
+
 META-SHARE Software is the software powering META-SHARE.
 
 META-SHARE is a sustainable network of repositories of language data, tools and
