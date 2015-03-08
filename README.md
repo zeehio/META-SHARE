@@ -2,6 +2,7 @@ META-SHARE SOFTWARE
 ===================
 
 [![Build Status](https://travis-ci.org/zeehio/META-SHARE.svg?branch=master)](https://travis-ci.org/zeehio/META-SHARE)
+[![Coverage Status](https://coveralls.io/repos/zeehio/META-SHARE/badge.svg?branch=master)](https://coveralls.io/r/zeehio/META-SHARE?branch=master)
 
 META-SHARE Software is the software powering META-SHARE.
 
