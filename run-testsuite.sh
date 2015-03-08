@@ -30,7 +30,9 @@ rm metashare/initial_data.json || exit 1
 # Run testsuite:
 metashare/start-solr.sh || exit 1
 sleep 10
-coverage run --source=metashare metashare/manage.py test $1 || exit 1
+coverage run --source=metashare \
+             --omit=metashare/repository/seltests,metashare/repository/tests,metashare/repository/test_fixtures \
+         metashare/manage.py test $1 || exit 1
 deactivate || exit 1
 metashare/stop-solr.sh || exit 1
 
