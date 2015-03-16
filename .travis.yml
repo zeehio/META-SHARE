@@ -89,4 +89,5 @@ addons:
 branches:
   only:
     - master
+    - using_django1.4
 
