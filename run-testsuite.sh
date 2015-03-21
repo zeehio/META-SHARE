@@ -24,12 +24,12 @@ if [ "x$TRAVIS_JOB_NUMBER" = "x" ]; then
 fi
 
 if [ "$LOCAL_TEST" = "yes" ]; then
-  cp metashare/local_settings.test_local metashare/local_settings.py || exit 1
+  cp misc/test-ci/local_settings.test_local metashare/local_settings.py || exit 1
 else
-  cp metashare/local_settings.test_travis metashare/local_settings.py || exit 1
+  cp misc/test-ci/local_settings.test_travis metashare/local_settings.py || exit 1
 fi
 
-cp metashare/initial_data.test.json metashare/initial_data.json || exit 1
+cp misc/test-ci/initial_data.test.json metashare/initial_data.json || exit 1
 
 
 if [ "$LOCAL_TEST" = "yes" ]; then
@@ -40,7 +40,7 @@ if [ "$LOCAL_TEST" = "yes" ]; then
   # Prepare firefox profile
   rm -rf "$PWD/firefox_profile"
   firefox -CreateProfile "firefox_profile $PWD/firefox_profile" || exit 1
-  tar xzf firefox_profile_template.tgz || exit 1
+  tar xzf misc/test-ci/firefox_profile_template.tgz || exit 1
   cp -pr firefox_profile_template/* "$PWD/firefox_profile" || exit 1
   rm -rf firefox_profile_template
 fi
