@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>META-SHARE Provider Manual &mdash; META-SHARE 3.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="META-SHARE 3.0.1 documentation" href="index.html" />
+    <link rel="next" title="META-SHARE Provider Manual" href="META-SHARE_User_Manual.html" />
+    <link rel="prev" title="META-SHARE Installation Manual" href="META-SHARE_Installation_Manual.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="META-SHARE_User_Manual.html" title="META-SHARE Provider Manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="META-SHARE_Installation_Manual.html" title="META-SHARE Installation Manual"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">META-SHARE 3.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="meta-share-provider-manual">
+<h1><a class="toc-backref" href="#id3">META-SHARE Provider Manual</a><a class="headerlink" href="#meta-share-provider-manual" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center">
+<img alt="METANET logo" src="_images/metanet_logo.png" />
+<p class="caption"><em>A Network of Excellence forging the Multilingual Europe Technology Alliance</em></p>
+</div>
+<p>Authors: Victoria Arranz, Christian Federmann, Ioanna Giannopoulou,
+Olivier Hamon, Marc Schröder, Christian Spurk</p>
+<p>Date: November 8, 2012</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#meta-share-provider-manual" id="id3">META-SHARE Provider Manual</a><ul>
+<li><a class="reference internal" href="#executive-summary" id="id4">Executive Summary</a></li>
+<li><a class="reference internal" href="#user-and-access-rights-management" id="id5">User and Access Rights Management</a><ul>
+<li><a class="reference internal" href="#basic-user-roles-and-permissions" id="id6">Basic User Roles and Permissions</a></li>
+<li><a class="reference internal" href="#resource-ownership-and-access" id="id7">Resource Ownership and Access</a><ul>
+<li><a class="reference internal" href="#resource-owners" id="id8">Resource Owners</a></li>
+<li><a class="reference internal" href="#editor-groups-for-resources" id="id9">Editor Groups for Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-user-accounts" id="id10">Managing User Accounts</a><ul>
+<li><a class="reference internal" href="#managing-editor-users" id="id11">Managing Editor Users</a><ul>
+<li><a class="reference internal" href="#creating-and-managing-editor-groups" id="id12">Creating and Managing Editor Groups</a></li>
+<li><a class="reference internal" href="#applying-for-editor-group-memberships" id="id13">Applying for Editor Group Memberships</a></li>
+<li><a class="reference internal" href="#directly-adding-a-user-account-to-an-existing-editor-group" id="id14">Directly Adding a User Account to an Existing Editor Group</a></li>
+<li><a class="reference internal" href="#removing-users-from-editor-groups" id="id15">Removing Users from Editor Groups</a></li>
+<li><a class="reference internal" href="#managing-editor-group-managers" id="id16">Managing Editor Group Managers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-organizations" id="id17">Managing Organizations</a><ul>
+<li><a class="reference internal" href="#creating-and-managing-organizations" id="id18">Creating and Managing Organizations</a></li>
+<li><a class="reference internal" href="#applying-for-organization-memberships" id="id19">Applying for Organization Memberships</a></li>
+<li><a class="reference internal" href="#directly-adding-a-user-account-to-an-existing-organization" id="id20">Directly Adding a User Account to an Existing  Organization</a></li>
+<li><a class="reference internal" href="#removing-users-from-organizations" id="id21">Removing Users from Organizations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-organization-managers" id="id22">Managing Organization Managers</a></li>
+<li><a class="reference internal" href="#managing-superusers" id="id23">Managing Superusers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#granting-permissions" id="id24">Granting Permissions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#provider-oriented-documentation" id="id25">Provider-Oriented Documentation</a><ul>
+<li><a class="reference internal" href="#add-a-language-resource" id="id26">Add a Language Resource</a><ul>
+<li><a class="reference internal" href="#edit-language-resources" id="id27">Edit Language Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-other-metadata-entities" id="id28">Add Other Metadata Entities</a></li>
+<li><a class="reference internal" href="#manage-language-resources" id="id29">Manage Language Resources</a></li>
+<li><a class="reference internal" href="#export-lr-descriptions-to-xml" id="id30">Export LR Descriptions to XML</a></li>
+<li><a class="reference internal" href="#details-of-adding-and-editing-metadata-information" id="id31">Details of Adding and Editing Metadata Information</a><ul>
+<li><a class="reference internal" href="#metadata-fields" id="id32">Metadata Fields</a></li>
+<li><a class="reference internal" href="#input-types" id="id33">Input Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#import-language-resources" id="id34">Import Language Resources</a><ul>
+<li><a class="reference internal" href="#prepare-the-import-file" id="id35">Prepare the Import File</a></li>
+<li><a class="reference internal" href="#upload-using-the-import-script" id="id36">Upload Using the Import Script</a></li>
+<li><a class="reference internal" href="#upload-using-the-web-interface" id="id37">Upload Using the Web Interface</a></li>
+<li><a class="reference internal" href="#conversion-of-existing-lrs" id="id38">Conversion of Existing LRs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-downloadable-content-to-resources" id="id39">Add  Downloadable Content to Resources</a><ul>
+<li><a class="reference internal" href="#adding-downloadable-content" id="id40">Adding Downloadable content</a><ul>
+<li><a class="reference internal" href="#upload-via-the-web-interface" id="id41">Upload via the Web Interface</a></li>
+<li><a class="reference internal" href="#upload-using-the-command-line-storage-admin-py-script" id="id42">Upload Using the Command Line <tt class="docutils literal"><span class="pre">storage_admin.py</span></tt> Script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#known-limitations" id="id43">Known Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#glossary" id="id44">4  Glossary</a></li>
+<li><a class="reference internal" href="#funding" id="id45">Funding</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="executive-summary">
+<h2><a class="toc-backref" href="#id4">Executive Summary</a><a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
+<p>This document is a guide for those who are interested in providing
+Language Resources (LRs) with META-SHARE. It also explains user and
+access rights management of the META-SHARE web editor.</p>
+</div>
+<div class="section" id="user-and-access-rights-management">
+<h2><a class="toc-backref" href="#id5">User and Access Rights Management</a><a class="headerlink" href="#user-and-access-rights-management" title="Permalink to this headline">¶</a></h2>
+<p>Version 3.0 of the META-SHARE web application introduced a fine-grained
+user and access rights management system which determines who may do
+what on a META-SHARE node. For example, LR providers have more rights
+than a normal user who just wants to download LRs, some non-provider
+users may be members of an organization which grants special download
+rights, etc.</p>
+<p>This section describes the META-SHARE user and access rights management
+system.</p>
+<div class="section" id="basic-user-roles-and-permissions">
+<h3><a class="toc-backref" href="#id6">Basic User Roles and Permissions</a><a class="headerlink" href="#basic-user-roles-and-permissions" title="Permalink to this headline">¶</a></h3>
+<p>META-SHARE knows the following user roles:</p>
+<ul class="simple">
+<li><strong>anonymous user</strong>: used for non-logged in users; no user account;
+may browse published LR descriptions and can download free LRs; can
+see node statistics.</li>
+<li><strong>registered user</strong>: personalized user account tied to an e-mail address;
+in addition to the rights of an anonymous user, a registered user may
+also contact LR maintainers for obtaining LRs which are not freely
+downloadable; can apply for editor group membership and for
+organization membership.</li>
+<li><strong>editor member</strong>: a registered user who is a member of one or more
+editor groups; may create his/her own LR descriptions and may upload
+smaller data files for them; may alter LR entries belonging to
+his/her editor group; may add owned resources to the editor groups
+(s)he is member of.</li>
+<li><strong>editor group manager</strong>: a registered user who manages a certain editor
+group; may accept or turn down applications for the managed editor
+group; may ingest, publish, unpublish and delete LRs belonging
+to the managed editor group.</li>
+<li><em>organization member</em>: a registered user who is member of an internally
+known organization; get the rights of the organization.</li>
+<li><strong>organization manager</strong>: a registered user who manages an
+internally known
+organization; may add and remove registered users to/from the managed
+organization group.</li>
+<li><strong>superuser</strong>: a registered user who implicitly has all possible
+permissions of the META-SHARE web application; a superuser account is
+usually created during the installation of a node; superusers are
+especially needed for creating editor groups, for making registered users
+editor managers, for creating organizations and for making registered
+users organization managers.</li>
+<li><strong>node administrator</strong>: the person who administers the META-SHARE node
+installation; not a META-SHARE web application role but the administrator
+should have a superuser account; apart from the node installation, a node
+administrator may be needed for uploading larger LR data sets.</li>
+</ul>
+<p>In addition, there are the following permissions which can be granted to
+a group or to individual user accounts:</p>
+<ul class="simple">
+<li><strong>META-SHARE associate member</strong>: this permission currently has no effect
+in the META-SHARE web application, however, it is expected to have
+in the future.</li>
+<li><strong>META-SHARE full member</strong>: this permission grants the right to freely
+download LRs with a META-SHARE Commons license.</li>
+</ul>
+<p><em>Note</em>: there are further permissions and a few more user roles in the
+META-SHARE software. For example, one or more sync user accounts are
+required for the node synchronization to work. These additional permissions
+and roles are considered to be internal, though: resource providers will
+not need to care about them and node administrators need only care where
+these roles and permissions are explicitly mentioned in the META-SHARE
+manuals.</p>
+</div>
+<div class="section" id="resource-ownership-and-access">
+<h3><a class="toc-backref" href="#id7">Resource Ownership and Access</a><a class="headerlink" href="#resource-ownership-and-access" title="Permalink to this headline">¶</a></h3>
+<p>META-SHARE is all about LRs. Consequently, the META-SHARE <a class="reference internal" href="#basic-user-roles-and-permissions">Basic User Roles and Permissions</a> are centered
+around creating, modifying, accessing and otherwise managing these LRs.</p>
+<div class="section" id="resource-owners">
+<h4><a class="toc-backref" href="#id8">Resource Owners</a><a class="headerlink" href="#resource-owners" title="Permalink to this headline">¶</a></h4>
+<p>A LR has zero or more owners, i.e., users who own the resource. The user
+who creates a LR is usually the first owner of a LR. Owned LRs are listed
+when going to “Manage Resources” → “Manage your own resources” in the
+web editor. Additional owners can be added on that page, too. Only
+superusers can withdraw LR ownership.</p>
+<p>Owners may always edit their LRs, no matter if they are in an editor
+group of that LR (explained at <a class="reference internal" href="#editor-groups-for-resources">Editor Groups for Resources</a>) or not.</p>
+</div>
+<div class="section" id="editor-groups-for-resources">
+<h4><a class="toc-backref" href="#id9">Editor Groups for Resources</a><a class="headerlink" href="#editor-groups-for-resources" title="Permalink to this headline">¶</a></h4>
+<p>A LR belongs to zero or more editor groups. As can be expected, editors
+of these editor groups may edit such LRs. The user who creates a LR
+determines what editor groups a LR gets by default (see below).
+Additional editor groups can be added on the “My Resources” page of the
+web editor (“Manage Resources” → “Manage your own resources”). Only
+superusers can remove editor groups from a LR again.</p>
+<p>Every user can choose the editor groups that newly created LRs shall get
+by default. Only those editor groups can be chosen, of which the user is
+a member. The user profile page (“Your Profile” → “Edit your profile”)
+shows which editor groups these are (if any). Adding and removing default
+editor groups can be achieved via the “Add default editor groups” and
+“Remove default editor groups” menu items of the “Your Profile” menu in
+the web editor.</p>
+</div>
+</div>
+<div class="section" id="managing-user-accounts">
+<h3><a class="toc-backref" href="#id10">Managing User Accounts</a><a class="headerlink" href="#managing-user-accounts" title="Permalink to this headline">¶</a></h3>
+<p>The META-SHARE User Manual explains how web application users can
+register for a new user account. This section details how existing
+META-SHARE user accounts can be provided with the different roles that
+we introduced in <a class="reference internal" href="#basic-user-roles-and-permissions">Basic User Roles and Permissions</a>.</p>
+<div class="section" id="managing-editor-users">
+<h4><a class="toc-backref" href="#id11">Managing Editor Users</a><a class="headerlink" href="#managing-editor-users" title="Permalink to this headline">¶</a></h4>
+<p>An editor user is a user who is member of one or more editor groups.</p>
+<div class="section" id="creating-and-managing-editor-groups">
+<h5><a class="toc-backref" href="#id12">Creating and Managing Editor Groups</a><a class="headerlink" href="#creating-and-managing-editor-groups" title="Permalink to this headline">¶</a></h5>
+<p>In a new META-SHARE installation there are no editor groups in the system
+at all. A superuser first has to create them. Whenever a new editor
+group is needed, it has to be created by a superuser.</p>
+<p>You can ask the META-SHARE node superusers to create new editor
+groups by going to <tt class="docutils literal"><span class="pre">&lt;META_SHARE_NODE_URL&gt;/accounts/contact/</span></tt> (e.g.,
+<a class="reference external" href="http://metashare.dfki.de/accounts/contact/">http://metashare.dfki.de/accounts/contact/</a>) and sending them a message.</p>
+<p>To create or manage editor groups, choose “Editor groups” from the
+“Administration” menu of the web editor. Creating new editor groups can
+be accomplished with the “Add editor group” button in the top right
+corner of the “Select editor group to change” page. You basically only
+need to specify a meaningful name (such as “XYZ Corpus editors”) and
+then save.</p>
+</div>
+<div class="section" id="applying-for-editor-group-memberships">
+<span id="id1"></span><h5><a class="toc-backref" href="#id13">Applying for Editor Group Memberships</a><a class="headerlink" href="#applying-for-editor-group-memberships" title="Permalink to this headline">¶</a></h5>
+<p>Every registered user may <strong>apply for membership</strong> in one or more editor
+groups, i.e., for being an editor user. Such an application is possible
+from the “Your Profile” menu and then choosing the “Apply for editor
+group membership”. Editor group managers of the applied-for group and
+superusers will be notified of the application.</p>
+<p>As an editor group manager (or superuser) you can <strong>accept or turn down
+an editor group membership application</strong> by first choosing “Editor group
+applications” from the “Administration” menu of the web editor. From
+the editor group application list choose the application that you would
+like to accept or to turn down. Choose the relevant action at the top
+of the list and click the “Go” button.</p>
+</div>
+<div class="section" id="directly-adding-a-user-account-to-an-existing-editor-group">
+<h5><a class="toc-backref" href="#id14">Directly Adding a User Account to an Existing Editor Group</a><a class="headerlink" href="#directly-adding-a-user-account-to-an-existing-editor-group" title="Permalink to this headline">¶</a></h5>
+<p>Superusers can directly add existing user accounts to an editor group.
+To do this, go to the web editor and choose “Users” from the
+“Administration” menu. Click the user you would like to add to an
+existing editor group. At the bottom of the “Change user” page in the
+“Groups” section, select the editor group you would like the selected
+user to be a member of.</p>
+<p>Before you save your changes, make sure that the user has “Staff
+status” in the “Permissions” section.</p>
+</div>
+<div class="section" id="removing-users-from-editor-groups">
+<h5><a class="toc-backref" href="#id15">Removing Users from Editor Groups</a><a class="headerlink" href="#removing-users-from-editor-groups" title="Permalink to this headline">¶</a></h5>
+<p>Only superusers can remove users from editor groups. To do this, go to
+the web editor and choose “Users” from the “Administration” menu. Click
+the user you would like to remove from an editor group. At the bottom
+of the “Change user” page in the “Groups” section, deselect the editor
+group from which you would like to remove the selected user.</p>
+</div>
+<div class="section" id="managing-editor-group-managers">
+<h5><a class="toc-backref" href="#id16">Managing Editor Group Managers</a><a class="headerlink" href="#managing-editor-group-managers" title="Permalink to this headline">¶</a></h5>
+<p>Only superusers can manage editor group managers. Technically, a
+manager for some editor group is a user who is member of a so-called
+“editor group managers group” which manages that editor group. Thus,
+before you can make a user an editor group manager, you have to have a
+corresponding editor group managers group.</p>
+<p>To <strong>create a manager group</strong>, choose “Editor group managers” from the
+“Administration” menu of the web editor and then click the “Add editor
+group managers group” button in the top right corner of the page. You
+need to specify a meaningful name (such as “XYZ Corpus editor group
+managers”) and select the editor group that shall be managed by the new
+manager group. Then save.</p>
+<p>To <strong>add members to a manager group</strong>, you can either use the same
+method as described in <a class="reference internal" href="#directly-adding-a-user-account-to-an-existing-editor-group">Directly Adding a User Account to an Existing
+Editor Group</a>
+for editor groups. Or you can choose “Editor group managers groups” from
+the “Administration” menu of
+the web editor, then select the editor group managers groups to which
+you would like to add new members, then choose the “Add users to
+selected editor group managers” action, then click the “Go” button and
+on the following page choose the users that you would like to have as
+members of the selected manager groups.</p>
+<p>To <strong>remove members from a manager group again</strong>, you can either use
+the same method as described in <a class="reference internal" href="#removing-users-from-editor-groups">Removing Users from Editor Groups</a>
+for editor groups. Or you can choose “Editor group managers” from the
+“Administration” menu of the web editor, then select the editor group
+managers groups from which you would like to remove members, then choose
+the “Remove users from selected editor group managers” action, then click
+the “Go” button and on the following page choose the users that you would
+like to not be members of the selected manager groups anymore.</p>
+</div>
+</div>
+<div class="section" id="managing-organizations">
+<h4><a class="toc-backref" href="#id17">Managing Organizations</a><a class="headerlink" href="#managing-organizations" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="creating-and-managing-organizations">
+<h5><a class="toc-backref" href="#id18">Creating and Managing Organizations</a><a class="headerlink" href="#creating-and-managing-organizations" title="Permalink to this headline">¶</a></h5>
+<p>In a new META-SHARE installation there are no organizations in the system
+at all. A superuser first has to create them. Whenever a new organization
+is needed, it has to be created by a superuser.</p>
+<p>You can ask the META-SHARE node superusers to create new
+organizations by going to &lt;META_SHARE_NODE_URL&gt;/accounts/contact/
+(e.g., <a class="reference external" href="http://metashare.dfki.de/accounts/contact/">http://metashare.dfki.de/accounts/contact/</a>) and sending them
+a message.</p>
+<p>To create or manage organizations, choose “Organizations” from the
+“Administration” menu of the web editor. Creating new organizations can
+be accomplished with the “Add organization” button in the top right
+corner of the “Select organization to change” page. You basically only
+need to specify a meaningful name (such as “ACME Corp.”) and then save;
+usually you will not want to  change the preselected permissions except
+for the cases described in <a class="reference internal" href="#granting-permissions">Granting Permissions</a> or if you really know
+what you are doing.</p>
+</div>
+<div class="section" id="applying-for-organization-memberships">
+<span id="id2"></span><h5><a class="toc-backref" href="#id19">Applying for Organization Memberships</a><a class="headerlink" href="#applying-for-organization-memberships" title="Permalink to this headline">¶</a></h5>
+<p>Every registered user may <strong>apply for membership</strong> in one or more
+organizations. Such an application is possible from the “Your Profile”
+menu and then choosing the “Apply for organization membership”.
+Organization managers of the applied-for organization and superusers
+will be notified of the application.</p>
+<p>As an organization manager (or superuser) you can <strong>accept or turn down an
+organization membership application</strong> by first choosing “Organization
+applications” from the “Administration” menu of the web editor. From the
+organization application list choose the application that you would like to
+accept or to turn down. Choose the relevant action at the top of the list
+and click the “Go” button.</p>
+</div>
+<div class="section" id="directly-adding-a-user-account-to-an-existing-organization">
+<h5><a class="toc-backref" href="#id20">Directly Adding a User Account to an Existing  Organization</a><a class="headerlink" href="#directly-adding-a-user-account-to-an-existing-organization" title="Permalink to this headline">¶</a></h5>
+<p>Superusers can directly add existing user accounts to an organization. To do
+this, go to the web editor and choose “Users” from the “Administration” menu.
+Click the user you would like to add to an existing organization. At the
+bottom of the “Change user” page in the “Groups” section, select the
+organization you would like the selected user to be a member of.</p>
+</div>
+<div class="section" id="removing-users-from-organizations">
+<h5><a class="toc-backref" href="#id21">Removing Users from Organizations</a><a class="headerlink" href="#removing-users-from-organizations" title="Permalink to this headline">¶</a></h5>
+<p>Only superusers can remove users from organizations. To do this, go to the
+web editor and choose “Users” from the “Administration” menu. Click the user
+you would like to remove from an organization. At the bottom of the “Change
+user” page in the “Groups” section, deselect the organization from which you
+would like to remove the selected user.</p>
+</div>
+</div>
+<div class="section" id="managing-organization-managers">
+<h4><a class="toc-backref" href="#id22">Managing Organization Managers</a><a class="headerlink" href="#managing-organization-managers" title="Permalink to this headline">¶</a></h4>
+<p>Only superusers can manage organization managers. Technically, a manager for
+some organization is a user who is member of a so-called “organization
+managers group” which manages that organization. Thus, before you can make a
+user an organization manager, you have to have a corresponding organization
+managers group.</p>
+<p>To <strong>create a manager group</strong>, choose “Organization managers” from the
+“Administration” menu of the web editor and then click the “Add organization
+managers group” button in the top right corner of the page. You need to
+specify a meaningful name (such as “ACME Corp. managers”) and select the
+organization that shall be managed by the new manager group. Then save;
+usually you will not want to change the preselected permissions except for
+the cases described in <a class="reference internal" href="#granting-permissions">Granting Permissions</a> or if you really know what
+you are doing.</p>
+<p>To <strong>add members to a manager group</strong>, you can either use the same method as
+described in <a class="reference internal" href="#directly-adding-a-user-account-to-an-existing-editor-group">Directly Adding a User Account to an Existing Editor Group</a>
+for editor groups. Or you can choose
+“Organization managers” from the “Administration” menu of the web editor,
+then select the organization managers groups to which you would like to add
+new members, then choose the “Add users to selected organization managers”
+action, then click the “Go” button and on the following page choose the users
+that you would like to have as members of the selected manager groups.</p>
+<p>To <strong>remove members from a manager group</strong> again, you can either use the same
+method as described in
+<a class="reference internal" href="#removing-users-from-editor-groups">Removing Users from Editor Groups</a>
+for editor groups. Or you can choose “Organization managers” from the
+“Administration” menu of the web editor, then select the organization
+managers groups from which you would like to remove members, then choose
+the “Remove users from selected organization managers” action, then click
+the “Go” button and on the following page choose the users that you would
+like to not be members of the selected manager groups anymore.</p>
+</div>
+<div class="section" id="managing-superusers">
+<h4><a class="toc-backref" href="#id23">Managing Superusers</a><a class="headerlink" href="#managing-superusers" title="Permalink to this headline">¶</a></h4>
+<p>In most cases it will probably suffice to have the single superuser account
+which was created during the installation of your META-SHARE node. However,
+if you should still want to grant further user accounts superuser
+permissions, you can proceed as follows: as a superuser, go to the web editor
+and choose “Users” from the “Administration” menu. Click the user whom you
+would like to make a superuser. On the “Change user” page in the
+“Permissions” section, make sure that “Superuser status” is activated and
+“Save”.</p>
+<p>With the above procedure, the chosen user account will <em>implicitly</em> be
+granted all available permissions. You should never manually assign all
+permissions to a user account in order to make it a superuser; while this may
+partly give you the desired results, it will certainly not work in general.</p>
+</div>
+</div>
+<div class="section" id="granting-permissions">
+<h3><a class="toc-backref" href="#id24">Granting Permissions</a><a class="headerlink" href="#granting-permissions" title="Permalink to this headline">¶</a></h3>
+<p>Permissions are very fine-grained flags which control what users and groups
+may or mustn’t do in the META-SHARE web application. Only superusers can
+manage permissions. However, when using the mechanisms described in
+<a class="reference internal" href="#managing-user-accounts">Managing User Accounts</a>, you will usually
+<em>not</em> need to care about permissions at all – with one exception:
+META-SHARE memberships. Aside from META-SHARE memberships
+you should usually never change any of the built-in permissions – unless you
+really know what you are doing.</p>
+<p>At some point you may want to make single users or organizations META-SHARE
+members. As noted in
+<a class="reference internal" href="#basic-user-roles-and-permissions">Basic User Roles and Permissions</a>,
+META-SHARE membership is controlled with
+two permissions (“META-SHARE associate member” and “META-SHARE full member”.
+To <strong>grant one of these permissions to a single user</strong>, go to the web editor
+and choose “Users” from the “Administration” menu. Click the user whom
+you would like to give the permission. On the “Change user” page in the
+“Permissions” section, make sure that either the “accounts | user profile |
+Is a META-SHARE associate member.” permission or the “accounts | user profile |
+Is a META-SHARE full member.” permission is selected. Then save.</p>
+<p>To <strong>grant one of the permissions to a group of users</strong> (usually to an
+organization), go to <a class="reference external" href="http:/">http:/</a>/&lt;YOUR_NODE&gt;/editor/auth/group/ of the web editor
+and click the group to which you would like to give the permission. On the
+“Change group” page under “Permissions”, make sure that either the “accounts
+| user profile | Is a META-SHARE associate member.” permission or the
+“accounts | user profile | Is a META-SHARE full member.” permission is
+selected. Then save.</p>
+</div>
+</div>
+<div class="section" id="provider-oriented-documentation">
+<h2><a class="toc-backref" href="#id25">Provider-Oriented Documentation</a><a class="headerlink" href="#provider-oriented-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-a-language-resource">
+<h3><a class="toc-backref" href="#id26">Add a Language Resource</a><a class="headerlink" href="#add-a-language-resource" title="Permalink to this headline">¶</a></h3>
+<p>An editor user can add a new LR by inserting the <em>metadata</em> that describes
+this LR. The editor user must be registered and logged in so as to add new
+LRs, and then do as follows:</p>
+<ol class="arabic simple">
+<li>Click on the “Manage Resources” button in the top menu, then “Manage your
+own resources”.</li>
+<li>In the result page, click on the “Add Resource” button at the top right
+corner of the page (see Figure 1). From the drop-down menu that appears,
+click on “Resource”. The result page presents a drop-down menu, listing all
+the available <em>resource types</em> (see Figure 2).</li>
+</ol>
+<div class="align-center figure">
+<img alt="META-SHARE backend for resource providers" src="_images/fig01.png" />
+<p class="caption">Figure 1: META-SHARE backend for resource providers</p>
+</div>
+<div class="align-center figure">
+<img alt="Choose one of the available resource types" src="_images/fig02.png" />
+<p class="caption">Figure 2: Choose one of the available resource types</p>
+</div>
+<ol class="arabic" start="3">
+<li><p class="first">Choose a resource type for the LR (a LR can only have one resource type).
+If your choice is “tool / service”, go directly to step 4.
+If your choice is of the other three resource types, select from the
+appearing check-box list, the <em>media type(s)</em> for the LR (see Figure 3).</p>
+<p><strong>Note:</strong> In the case of “lexical conceptual resource” and “language description”
+resource types, “text” is a required media type and, as such, it is selected by
+default and cannot be unselected.</p>
+</li>
+<li><p class="first">Click on the “proceed” button.</p>
+</li>
+</ol>
+<p>In the result page (see Figures 4 &amp; 5), all the metadata information to be
+filled in, is summarized under a left hand side menu (see
+<a class="reference internal" href="#metadata-fields">Metadata Fields</a> for the
+description of the metadata fields). On the top of this menu, there is the
+administrative information categorized as required, recommended and optional, if
+any. A click on any of these options, will lead in expanding the appropriate
+metadata block on the right hand side.</p>
+<div class="align-center figure">
+<img alt="Choose media types for the selected resource type" src="_images/fig03.png" />
+<p class="caption">Figure 3: Choose media types for the selected resource type</p>
+</div>
+<div class="align-center figure">
+<img alt="Administrative Information metadata block (Required)" src="_images/fig04.png" />
+<p class="caption">Figure 4: Administrative Information metadata block (Required)</p>
+</div>
+<div class="align-center figure">
+<img alt="Administrative Information metadata block (Recommended)" src="_images/fig05.png" />
+<p class="caption">Figure 5: Administrative Information metadata block (Recommended)</p>
+</div>
+<ol class="arabic simple" start="5">
+<li>Fill in the administrative metadata fields (Only the required information
+-appearing as bold- is necessary for a LR to be successfully saved).</li>
+</ol>
+<p>On the same level of the left hand side menu as the administrative information,
+there are the resource-type-specific information. Clicking on one of these, will
+lead in opening a pop-up window, containing the blocks of metadata to be filled in
+(see Figure 6 for an example). These pop-up windows follow a similar menu structure
+(required / recommended / optional) as the main page.</p>
+<div class="align-center figure">
+<img alt="Resource-type-specific pop-up window (here for a Lexical-Conceptual Resource)" src="_images/fig06.png" />
+<p class="caption">Figure 6: Resource-type-specific pop-up window (here for a Lexical-Conceptual Resource)</p>
+</div>
+<ol class="arabic simple" start="6">
+<li>For each one of the pop-up windows, fill in the metadata fields (again, only the
+required information is necessary for a LR to be successfully saved). Once done
+with filling in information within a pop-up window, click on the “Save” button at
+the bottom of the page. In case of errors, a message will be displayed on the top
+of the page, the errors will be reflected on the menu options and the problematic
+fields (i.e., fields which either contain an error or are empty) will be
+highlighted in red (see Figure 7 for an example). If there are no errors, the
+“Save” button will close the pop-up window, returning to the previous page.</li>
+</ol>
+<div class="align-center figure">
+<img alt="Errors in pop-up window: the media field has not been filled-in" src="_images/fig07.png" />
+<p class="caption">Figure 7: Errors in pop-up window: the media field has not been filled-in</p>
+</div>
+<ol class="arabic simple" start="7">
+<li>Once done with filling in information both in the main page and in all the
+pop-up windows, click on the “Save” button at the bottom of the main page.
+If there are errors, they will be indicated in a similar way as in the
+pop-up windows (see Figure 8 for an example). If there are no errors,
+clicking on “Save” will result in a new page, displaying the message “The
+Resource &#8216;resource name&#8217; was added successfully”, and listing all the LRs
+added in META-SHARE, included the newly created one (see Figure 9).</li>
+</ol>
+<div class="align-center figure">
+<img alt="Errors in main page: the resource name and the description have not been filled-in, errors also in General Info and Text Info tabs" src="_images/fig08.png" />
+<p class="caption">Figure 8: Errors in main page: the resource name and the description have not been filled-in, errors also in General Info and Text Info tabs</p>
+</div>
+<div class="align-center figure">
+<img alt="Successfully saved LR" src="_images/fig09.png" />
+<p class="caption">Figure 9: Successfully saved LR</p>
+</div>
+<div class="section" id="edit-language-resources">
+<h4><a class="toc-backref" href="#id27">Edit Language Resources</a><a class="headerlink" href="#edit-language-resources" title="Permalink to this headline">¶</a></h4>
+<p>As described in
+<a class="reference internal" href="#basic-user-roles-and-permissions">Basic User Roles and Permissions</a>,
+an editor user can edit all LRs within the specific META-SHARE node which he owns
+or which belong to the editor group of which (s)he is a member. In the menu, the
+editor user can click on the “Manage Resources” button, where (s)he can view a list
+of all the LRs / Person / Organizations / Projects / Documents for the specific
+META-SHARE node. The editor user can also click on the “My Resources” link, where
+(s)he can only view a list of the LRs (s)he has provided on META-SHARE himself (or
+more precisely: the LRs of which (s)he is set as an owner).</p>
+<p>If the provider wishes to edit a LR, (s)he can click on its name. This will result
+in a page where all the metadata fields can be edited for this resource, which will
+appear in exactly the same view as described in
+<a class="reference internal" href="#add-a-language-resource">Add a Language Resource</a>.</p>
+</div>
+</div>
+<div class="section" id="add-other-metadata-entities">
+<h3><a class="toc-backref" href="#id28">Add Other Metadata Entities</a><a class="headerlink" href="#add-other-metadata-entities" title="Permalink to this headline">¶</a></h3>
+<p>As shown in Figure 1, the editor user has a choice of creating other entities as
+well. The point of creating these types of metadata (namely Person, Organization,
+Project, Document) apart/independently from a resource, is that they can be
+reused in many LR descriptions. So, if for example a provider creates a project
+description first, then all (s)he has to do when creating a LR description, is to
+select the project from the list of existing projects, instead of creating it
+from scratch.</p>
+</div>
+<div class="section" id="manage-language-resources">
+<h3><a class="toc-backref" href="#id29">Manage Language Resources</a><a class="headerlink" href="#manage-language-resources" title="Permalink to this headline">¶</a></h3>
+<p>An editor group manager can delete, ingest, publish and unpublish all LRs that
+belong to his managed editor group. He can select the LRs to which (s)he wishes
+to apply one of these actions and then select an action from the drop-down menu
+of actions (delete, publish, unpublish or ingest). Clicking on the “Go” button
+will execute the selected action.</p>
+</div>
+<div class="section" id="export-lr-descriptions-to-xml">
+<h3><a class="toc-backref" href="#id30">Export LR Descriptions to XML</a><a class="headerlink" href="#export-lr-descriptions-to-xml" title="Permalink to this headline">¶</a></h3>
+<p>An editor user is able to export the description of a LR to META-SHARE XML
+format. One way of performing the exporting is through the “export” action on the
+Update page for one or more LRs – as described in the previous section. Another
+way of exporting is through the metadata editing page, by clicking on the
+relevant button on the top right of the page (see Figure 10).</p>
+<div class="align-center figure">
+<img alt="Exporting a LR description to XML" src="_images/fig10.png" />
+<p class="caption">Figure 10: Exporting a LR description to XML</p>
+</div>
+</div>
+<div class="section" id="details-of-adding-and-editing-metadata-information">
+<h3><a class="toc-backref" href="#id31">Details of Adding and Editing Metadata Information</a><a class="headerlink" href="#details-of-adding-and-editing-metadata-information" title="Permalink to this headline">¶</a></h3>
+<p>Metadata information for LRs are organised in two levels, the first being
+Administrative / Type-specific, and the second being required / recommended /
+optional.</p>
+<div class="section" id="metadata-fields">
+<h4><a class="toc-backref" href="#id32">Metadata Fields</a><a class="headerlink" href="#metadata-fields" title="Permalink to this headline">¶</a></h4>
+<p>The tabbed menu described in <a class="reference internal" href="#add-a-language-resource">Add a Language Resource</a>
+shows the two levels (see Figures 2, 3 &amp; 4). A description of the metadata
+fields follows:</p>
+<ul class="simple">
+<li><strong>Common fields:</strong><ol class="arabic">
+<li>Administrative<ol class="lowerroman">
+<li>Required: contains information on identification, distribution,
+contact person, metadata of the resource, etc.</li>
+<li>Recommended: contains information on version/release, validation,
+usage, documentation, creation, relations of the resource, etc.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>Resource type: Corpus</strong><ol class="arabic" start="2">
+<li>Corpus Text Info: Information on the text component of the resource,
+such as the language, the text format, the encoding, the annotation, etc.</li>
+<li>Corpus Audio Info: Information on the audio component of the resource, such
+as the language, the audio format, the size, the recording, the capture, etc.</li>
+<li>Corpus Video Info: Information on the video component of the resource, such
+as the size, the video format, the content, the language, etc.</li>
+<li>Corpus Image Info: Information on the image component of the resource, such
+as the size, the image format, the content, etc.</li>
+<li>Corpus Text Numerical Info: Information on the numerical text component of
+the resource, such as the size, the content, the creation, etc.</li>
+<li>Corpus Text n-gram Info: Information on the text n-gram component of the
+resource, such as the base item (word, syllable, letter, etc.), the language,
+the size, the text format, the encoding, etc.</li>
+</ol>
+</li>
+<li><strong>Resource type: Language Description</strong><ol class="arabic" start="2">
+<li>Language Description General Info: Information on the specific type of
+the resource (e.g. grammar), the encoding, the performance, etc.</li>
+<li>Language Description Text Info: Information on the text component of
+the resource, such as the language, the linguality (monolingual, bilingual,
+etc.), the text format, the encoding, the size, etc.</li>
+<li>Language Description Video Info: Information on the video component of the
+resource, such as the creation, the size, the content, the video format, the
+language, etc.</li>
+<li>Language Description Image Info: Information on the image component of the
+resource, such as the creation, the size, the content, the image format, etc.</li>
+</ol>
+</li>
+<li><strong>Resource type: Lexical Conceptual Resource</strong><ol class="arabic" start="2">
+<li>Lexical Conceptual Resource General Info: Information on the specific type of
+the resource (thesaurus, terminology, etc.), the encoding, as well as further
+details about the creation of the resource.</li>
+<li>Lexical Conceptual Resource Text Info: Information on the text component of
+the resource, such as the languages, the linguality (monolingual, bilingual,
+etc.), the text format, the encoding, the size, etc.</li>
+<li>Lexical Conceptual Resource Audio Info: Information on the audio component of
+the resource, such as the size, the audio format, the content, the language, etc.</li>
+<li>Lexical Conceptual Resource Video Info: Information on the video component of
+the resource, such as the video content, the size, the video format, the
+language, etc.</li>
+<li>Lexical Conceptual Resource Image Info: Information on the image component of
+the resource, such as the image format, the size, the content, etc.</li>
+</ol>
+</li>
+<li><strong>Resource type: Tool / Service</strong><ol class="arabic" start="2">
+<li>Tool / Service Info: Information on the specific type of the resource (tool,
+service, platform, infrastructure, etc.), details about the input and output
+types,  information on the operating systems and running environments, etc.</li>
+</ol>
+</li>
+</ul>
+<p><em>Note:</em> All these fields are divided in blocks required / recommended / optional.</p>
+</div>
+<div class="section" id="input-types">
+<h4><a class="toc-backref" href="#id33">Input Types</a><a class="headerlink" href="#input-types" title="Permalink to this headline">¶</a></h4>
+<p>In order to insert or modify metadata, the web application provides different kinds of input types:</p>
+<ul class="simple">
+<li>Text field: the editor user may add/modify free text that corresponds to
+the description of the metadata elements;</li>
+</ul>
+<img alt="Text field" class="align-center" src="_images/fig10b1.png" />
+<ul class="simple">
+<li>Drop-down list box: the editor user may choose one item from the list provided;</li>
+</ul>
+<img alt="Drop-down list box" class="align-center" src="_images/fig10b2.png" />
+<ul class="simple">
+<li>Multiple-choice Drop-down list box: the provider may chose one or several
+items from the list provided;</li>
+</ul>
+<img alt="Multiple-choice Drop-down list box" class="align-center" src="_images/fig10b3.png" />
+<ul class="simple">
+<li>Repeatable text field: the editor user may add or delete all the text
+field he wants to by clicking on the “+” or “x“ buttons, respectively.</li>
+</ul>
+<img alt="Repeatable text field" class="align-center" src="_images/fig10b4.png" />
+<ul class="simple">
+<li>Calendar text field: the editor user may write a full date on his own
+or select a date from a pop-up calendar.</li>
+</ul>
+<img alt="Calendar text field" class="align-center" src="_images/fig10b5.png" />
+<p>All fields are accompanied by a short description/explanation line, as shown below:</p>
+<img alt="Short description example" class="align-center" src="_images/fig10b6.png" />
+</div>
+</div>
+<div class="section" id="import-language-resources">
+<h3><a class="toc-backref" href="#id34">Import Language Resources</a><a class="headerlink" href="#import-language-resources" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prepare-the-import-file">
+<h4><a class="toc-backref" href="#id35">Prepare the Import File</a><a class="headerlink" href="#prepare-the-import-file" title="Permalink to this headline">¶</a></h4>
+<p>To be able to import new LRs, the user must first create XML <em>metadata files</em>
+for each LR, that follow the META-SHARE metadata XML Schema. This compliance can
+be validated using the META-SHARE <em>XML Schema (XSD)</em>; the current version can be
+found in the <tt class="docutils literal"><span class="pre">misc/schema/v3.0</span></tt> folder.</p>
+</div>
+<div class="section" id="upload-using-the-import-script">
+<h4><a class="toc-backref" href="#id36">Upload Using the Import Script</a><a class="headerlink" href="#upload-using-the-import-script" title="Permalink to this headline">¶</a></h4>
+<p>The META-SHARE node administrator (cf.
+<a class="reference internal" href="#basic-user-roles-and-permissions">Basic User Roles and Permissions</a>) may
+import XML metadata from the command line using the <tt class="docutils literal"><span class="pre">import_xml.py</span></tt> script which
+can be found within the <cite>metashare</cite> installation folder. Basic usage information is
+given when called without any arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python import_xml.py
+  usage: import_xml.py [--id-file=idfile] &lt;file.xml|archive.zip&gt; \ [&lt;file.xml|archive.zip&gt; ...]
+  --id-file=idfile : print identifier of imported resources in idfile
+</pre></div>
+</div>
+<p>The script reports errors and gives import statistics when finished.
+A single XML file can be imported as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python import_xml.py my_LR.xml
+Done.  Successfully imported 1 files into the database,
+errors occurred in 0 cases.
+</pre></div>
+</div>
+<p>Multiple LRs can be imported using the “*” wildcard or by packaging the xml
+file into a zip file:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python import_xml.py metashare-v1-resources.zip
+Done.  Successfully imported 1,277 files into the database,
+errors occurred in 0 cases.
+</pre></div>
+</div>
+<p>Importing a large zip file, or a large amount of XML files, takes some time;
+this is normal. The last line of the <tt class="docutils literal"><span class="pre">import_xml.py</span></tt> output should report no
+errors. After successful import of these files, the new resources should be
+available on the META-SHARE node.</p>
+</div>
+<div class="section" id="upload-using-the-web-interface">
+<h4><a class="toc-backref" href="#id37">Upload Using the Web Interface</a><a class="headerlink" href="#upload-using-the-web-interface" title="Permalink to this headline">¶</a></h4>
+<p>An editor user can upload an XML metadata file by clicking on the “Upload”
+link at the top left of the “META-SHARE backend for resource providers”
+page. Uploading works as follows:</p>
+<ol class="arabic simple">
+<li>Choose a file by clicking on the “Browse button”;</li>
+<li>Click on “Upload Terms” check-box to accept them;</li>
+<li>Click on the “Upload” button.</li>
+</ol>
+</div>
+<div class="section" id="conversion-of-existing-lrs">
+<h4><a class="toc-backref" href="#id38">Conversion of Existing LRs</a><a class="headerlink" href="#conversion-of-existing-lrs" title="Permalink to this headline">¶</a></h4>
+<p>The conversion of the existing LRs from several different XML schema to
+META-NET XML schema has been made with XSL transformations.</p>
+<p>The process was the following:</p>
+<ul class="simple">
+<li>The first step was to map all the elements of the other XML schema to
+the elements of META-NET XML schema, one by one.</li>
+<li>Then, an XSL file was created, which contains the structure of META-NET XML
+schema, and XSLT lines harvesting the information from the files of the other
+XML schema format.</li>
+<li>The conversion process was executed for all given files.</li>
+</ul>
+<p>Example:</p>
+<p>Element <tt class="docutils literal"><span class="pre">resource_periodofcoverage</span></tt> from ELRA format has been mapped to
+<tt class="docutils literal"><span class="pre">timeCoverage</span></tt> element in META-SHARE schema format.</p>
+<p><em>Line in ELRA XML file:</em></p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;resource_periodofcoverage&gt;</span>Between 1992 and 1999<span class="nt">&lt;/resource_periodofcoverage&gt;</span>
+</pre></div>
+</div>
+<p><em>XSL conversion file:</em></p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;xsl:variable</span> <span class="na">name=</span><span class="s">&#39;time&#39;</span> <span class="na">select=</span><span class="s">&#39;preceding-sibling::resource_periodofcoverage&#39;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;xsl:if</span> <span class="na">test=</span><span class="s">&#39;$time!=&quot;&quot;&#39;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;timeCoverageInfo&gt;</span>
+      <span class="nt">&lt;timeCoverage&gt;</span>
+         <span class="nt">&lt;xsl:value-of</span> <span class="na">select=</span><span class="s">&#39;$time&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/timeCoverage&gt;</span>
+   <span class="nt">&lt;/timeCoverageInfo&gt;</span>
+<span class="nt">&lt;/xsl:if&gt;</span>
+</pre></div>
+</div>
+<p><em>Lines in final META-SHARE XML file:</em></p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;timeCoverageInfo&gt;</span>
+   <span class="nt">&lt;timeCoverage&gt;</span>Between 1992 and 1999<span class="nt">&lt;/timeCoverage&gt;</span>
+<span class="nt">&lt;/timeCoverageInfo&gt;</span>
+</pre></div>
+</div>
+<p>In the example above, the element <em>“timeCoverage”</em> is part of the meta-share
+XML structure. The content inside the element is added by the line
+<tt class="docutils literal"><span class="pre">&lt;xsl:value-of</span> <span class="pre">select='$time'/&gt;</span></tt>, where <tt class="docutils literal"><span class="pre">$time</span></tt> is a XSL variable, defined
+before, as the (xpath) <tt class="docutils literal"><span class="pre">preceding-sibling</span></tt> with the name
+<tt class="docutils literal"><span class="pre">resource_periodofcoverage</span></tt>. If the variable is empty, the element does not
+appear in the final XSL file.</p>
+<p>This is the way to construct, little by little, a META-SHARE compliant XML file.</p>
+<p>For the conversion, there are many things that need to be taken into account,
+such as mandatory fields, unique fields, repeated fields, elements that have the
+enumeration constraint (i.e., that can only contain a value from a set of
+acceptable values), etc. Thus, the conversion files may contain far more
+complicated transformations than the one displayed before.</p>
+<p>Due the complexity of the META-SHARE schema and the significant differentiation
+between this and the other formats,  some tools and mechanisms were used to
+simplify the conversion process.</p>
+<p>In the case of ILSP and PSP resources conversion, the tool Altova-MapForce was
+used for the mapping between schemata and the production of the XSL files. Yet,
+there were quite a few cases where the automatically produced files had to be
+manually edited in order to fully comply with META-SHARE schema.</p>
+<p>In the case of ELRA resources conversion, there was a pre-conversion stage, where
+the ELRA format files were converted in simple XML flat list files, with the
+following format:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;resource</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;resource_id&gt;</span>1<span class="nt">&lt;/resource_id&gt;</span>
+   <span class="nt">&lt;resource_reference&gt;</span>ELRA-S0148<span class="nt">&lt;/resource_reference&gt;</span>
+   …
+<span class="nt">&lt;/resource&gt;</span>
+<span class="nt">&lt;resource</span> <span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+     …
+</pre></div>
+</div>
+<p>Files with this format were the input to the XSL file that were converted in
+META-SHARE format. The tool Altova-MapForce, facilitated here as well the mapping
+process.</p>
+</div>
+</div>
+<div class="section" id="add-downloadable-content-to-resources">
+<h3><a class="toc-backref" href="#id39">Add  Downloadable Content to Resources</a><a class="headerlink" href="#add-downloadable-content-to-resources" title="Permalink to this headline">¶</a></h3>
+<p>Each META-SHARE resource can contain <em>downloadable</em> content. At the moment,
+it is possible to add exactly one archive file to a resource. Its name is
+fixed to <tt class="docutils literal"><span class="pre">archive.{'zip',</span> <span class="pre">'tar.gz',</span> <span class="pre">'gz',</span> <span class="pre">'tgz',</span> <span class="pre">'tar',</span> <span class="pre">'bzip2'}</span></tt>.</p>
+<p>After upload, the <tt class="docutils literal"><span class="pre">archive.ext</span></tt>, where <tt class="docutils literal"><span class="pre">.ext</span></tt> will be the file extension of
+the original file, will be placed inside the dedicated <em>storage folder</em> of the
+resource: each <tt class="docutils literal"><span class="pre">StorageObject</span></tt> has a local folder attached to it which is used
+to store associated downloadable data.</p>
+<div class="section" id="adding-downloadable-content">
+<h4><a class="toc-backref" href="#id40">Adding Downloadable content</a><a class="headerlink" href="#adding-downloadable-content" title="Permalink to this headline">¶</a></h4>
+<p>There are two ways of adding downloadable content to an existing
+META-SHARE resource:</p>
+<ol class="arabic simple">
+<li>Upload via the web interface (for editor users), or</li>
+<li>Upload using the command line <tt class="docutils literal"><span class="pre">storage_admin.py</span></tt> script (for node
+administrators only)</li>
+</ol>
+<div class="section" id="upload-via-the-web-interface">
+<h5><a class="toc-backref" href="#id41">Upload via the Web Interface</a><a class="headerlink" href="#upload-via-the-web-interface" title="Permalink to this headline">¶</a></h5>
+<p>To upload data via the Web Interface, the provider has to go to the
+META-SHARE web editor page for <em>an existing resource</em>. It is <em>not</em> possible
+to upload files for new LRs. On the top-right of the browser window, there is
+a button &#8220;Upload Data&#8221; next to &#8220;Export Resource Description to XML&#8221;.</p>
+<img alt="Export to XML button" class="align-center" src="_images/fig10c.png" />
+<p>Clicking the &#8220;Upload Data&#8221; button will load an upload page for the current LR.</p>
+<div class="align-center figure">
+<img alt="Upload data for a LR" src="_images/fig11.png" />
+<p class="caption">Figure 11: Upload data for a LR</p>
+</div>
+<p>The “Path” information is displayed for convenience and allows to
+quickly retrieve the file system path of the <cite>StorageObject</cite>&#8216;s
+downloadable content.</p>
+<p>Both fields are required. In case the provider attempts to upload without
+having filled them in, the fields are highlighted in red, with the
+message “This field is required”.</p>
+<div class="align-center figure">
+<img alt="Required fields for the upload" src="_images/fig12.png" />
+<p class="caption">Figure 12: Required fields for the upload</p>
+</div>
+<p><em>Note:</em> It is required to click the “Upload Permission?” check-box to
+verify that the editor user accepts liability for the file he intends
+to upload. The editor user should only upload an archive to a META-SHARE
+resource if he is allowed to do so; if not, it is better to ask the
+original owner of the resource to do so.</p>
+<p>Once the upload is successful, the file is copied to the
+<tt class="docutils literal"><span class="pre">StorageObject</span></tt>&#8216;s storage folder as <tt class="docutils literal"><span class="pre">archive.ext</span></tt> (see above).
+The user gets redirected to the editor page for the current resource,
+i.e., the page where he started the upload process.</p>
+<p><em>Limitation:</em> The web interface upload page only allows files smaller than
+MAXIMUM_UPLOAD_SIZE = 1 * 1024 * 1024 bytes to be uploaded. This is a robustness
+fix which ensures that the web editor page does not crash due to a very large
+file being uploaded.
+<a class="reference internal" href="#upload-using-the-command-line-storage-admin-py-script">Upload Using the Command Line storage_admin.py Script</a> offers a solution
+for uploading larger files.</p>
+</div>
+<div class="section" id="upload-using-the-command-line-storage-admin-py-script">
+<h5><a class="toc-backref" href="#id42">Upload Using the Command Line <tt class="docutils literal"><span class="pre">storage_admin.py</span></tt> Script</a><a class="headerlink" href="#upload-using-the-command-line-storage-admin-py-script" title="Permalink to this headline">¶</a></h5>
+<p>When you need to add a <em>large file</em> as downloadable content to an existing
+resource, the node administrator can use the <tt class="docutils literal"><span class="pre">storage_admin.py</span></tt> script,
+which is available within the <tt class="docutils literal"><span class="pre">metashare/</span></tt> folder.</p>
+<p>If called without arguments, the script provides an overview on available options:</p>
+<div class="highlight-sh"><div class="highlight"><pre>metashare <span class="nv">$ </span>python2.7 storage_admin.py
+    usage: storage_admin.py MODE ARGS...
+
+    <span class="nv">MODE</span> <span class="o">=</span> <span class="o">[</span>purge, checksum, folder, <span class="nb">help</span><span class="o">]</span>
+    Use storage_admin.py <span class="nb">help </span>MODE <span class="k">for </span>detailed usage instructions.
+</pre></div>
+</div>
+<p>To add a large file as downloadable content, you simply have to manually copy
+it over to the <em>storage folder</em> belonging to the resource. The <em>storage folder
+path</em> can be found in the web interface upload view (see
+<a class="reference internal" href="#upload-via-the-web-interface">Upload via the Web Interface</a>).</p>
+<p>Once having copied a file named <tt class="docutils literal"><span class="pre">archive.ext</span></tt> to the <em>storage folder path</em>, you
+have to update the file checksum to “activate” the new downloadable content. This
+is the relevant usage of <tt class="docutils literal"><span class="pre">storage_admin.py</span></tt>:</p>
+<div class="highlight-sh"><div class="highlight"><pre>metatashare <span class="nv">$ </span>python2.7 storage_admin.py checksum &lt;storage-object-id&gt;
+...
+Checksum: d41d8cd98f00b204e9800998ecf8427e
+</pre></div>
+</div>
+<p>You obtain the <tt class="docutils literal"><span class="pre">&lt;storage-object-id&gt;</span></tt> from the last bit of the storage
+folder path: the ID is a 64-char hexadecimal String, e.g.,
+c0b9a36b50ce11e1a4570017f20dda8ac8066602350044549d62c1bdb750883c.</p>
+<p>If no file <tt class="docutils literal"><span class="pre">archive.ext</span></tt> can be found within the storage folder for
+<tt class="docutils literal"><span class="pre">&lt;storage-object-id&gt;</span></tt> the storage_admin.py script will return
+<tt class="docutils literal"><span class="pre">Checksum:</span> <span class="pre">None</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="known-limitations">
+<h4><a class="toc-backref" href="#id43">Known Limitations</a><a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h4>
+<p>It is mandatory to follow the naming scheme. The provider has to make sure
+that the downloadable data is contained within one archive file. This file
+needs to have one of the following, allowed extensions (as defined in
+<tt class="docutils literal"><span class="pre">storage/models.py</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ALLOWED_ARCHIVE_EXTENSIONS</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;zip&#39;</span><span class="p">,</span> <span class="s">&#39;tar.gz&#39;</span><span class="p">,</span> <span class="s">&#39;gz&#39;</span><span class="p">,</span> <span class="s">&#39;tgz&#39;</span><span class="p">,</span> <span class="s">&#39;tar&#39;</span><span class="p">,</span> <span class="s">&#39;bzip2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="glossary">
+<h2><a class="toc-backref" href="#id44">4  Glossary</a><a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Ingest: Within the META-SHARE context, ingesting a LR into the database is a
+one-time, irreversible step. It is preceded by a phase of editing an “internal”
+LR, visible only to the LR owners and to the members of the editor group of the
+LR. Once the decision is taken that the metadata for a particular LR is “ready”
+to make the entry more widely visible, the provider “ingests” the LR into the
+database. An ingested LR is still visible only in the web editor. Ingested LRs
+are synchronized to other META-SHARE nodes.</p>
+</li>
+<li><p class="first">Media types: Within the META-SHARE context, the media types of a LR depend on
+its resource type. Thus, a Corpus LR can contain one or more of the following
+media types: text, audio, video, image, text-numerical and text-ngram. A
+Lexical-Conceptual Resource must contain a text media type and can also
+contain audio, video and image media types. A Language Description LR must
+contain a text media type and can also contain video and image media types. A
+Tool/Service does not contain any media types.</p>
+</li>
+<li><p class="first">Metadata: All the information that describes a given LR. Within the META-SHARE
+context, metadata can describe all different aspects of a LR, varying from
+details on the creation of the LR, to content or language or size information.</p>
+</li>
+<li><p class="first">Publish: Within the META-SHARE context, publishing a LR means making it
+visible to all META-SHARE users, registered and anonymous.</p>
+</li>
+<li><p class="first">Resource type: Within the META-SHARE context, the resource type of a LR has to be strictly one of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Corpus</li>
+<li>Lexical-Conceptual Resource</li>
+<li>Language Description</li>
+<li>Tool / Service</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Unpublish: Within the META-SHARE context, unpublishing a LR means making it visible only to META-SHARE editors.</p>
+</li>
+<li><p class="first">XML metadata file: A XML format file that contains metadata on a LR.</p>
+</li>
+<li><p class="first">XML Schema (XSD): An XML Schema is a description of a specific XML type of
+files. It contains the structure that these XML files should have, along with
+all the constraints that should be respected so that the XML files are valid,
+such as the uniqueness of elements, the specific values that elements should
+contain etc.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="funding">
+<h2><a class="toc-backref" href="#id45">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<p>This document is part of the Network of Excellence “Multilingual Europe
+Technology Alliance (META-NET)”, co-funded by the 7th Framework
+Programme of the European Commission through the T4ME grant agreement
+no.: 249119.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">META-SHARE Provider Manual</a><ul>
+<li><a class="reference internal" href="#executive-summary">Executive Summary</a></li>
+<li><a class="reference internal" href="#user-and-access-rights-management">User and Access Rights Management</a><ul>
+<li><a class="reference internal" href="#basic-user-roles-and-permissions">Basic User Roles and Permissions</a></li>
+<li><a class="reference internal" href="#resource-ownership-and-access">Resource Ownership and Access</a><ul>
+<li><a class="reference internal" href="#resource-owners">Resource Owners</a></li>
+<li><a class="reference internal" href="#editor-groups-for-resources">Editor Groups for Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-user-accounts">Managing User Accounts</a><ul>
+<li><a class="reference internal" href="#managing-editor-users">Managing Editor Users</a><ul>
+<li><a class="reference internal" href="#creating-and-managing-editor-groups">Creating and Managing Editor Groups</a></li>
+<li><a class="reference internal" href="#applying-for-editor-group-memberships">Applying for Editor Group Memberships</a></li>
+<li><a class="reference internal" href="#directly-adding-a-user-account-to-an-existing-editor-group">Directly Adding a User Account to an Existing Editor Group</a></li>
+<li><a class="reference internal" href="#removing-users-from-editor-groups">Removing Users from Editor Groups</a></li>
+<li><a class="reference internal" href="#managing-editor-group-managers">Managing Editor Group Managers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-organizations">Managing Organizations</a><ul>
+<li><a class="reference internal" href="#creating-and-managing-organizations">Creating and Managing Organizations</a></li>
+<li><a class="reference internal" href="#applying-for-organization-memberships">Applying for Organization Memberships</a></li>
+<li><a class="reference internal" href="#directly-adding-a-user-account-to-an-existing-organization">Directly Adding a User Account to an Existing  Organization</a></li>
+<li><a class="reference internal" href="#removing-users-from-organizations">Removing Users from Organizations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-organization-managers">Managing Organization Managers</a></li>
+<li><a class="reference internal" href="#managing-superusers">Managing Superusers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#granting-permissions">Granting Permissions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#provider-oriented-documentation">Provider-Oriented Documentation</a><ul>
+<li><a class="reference internal" href="#add-a-language-resource">Add a Language Resource</a><ul>
+<li><a class="reference internal" href="#edit-language-resources">Edit Language Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-other-metadata-entities">Add Other Metadata Entities</a></li>
+<li><a class="reference internal" href="#manage-language-resources">Manage Language Resources</a></li>
+<li><a class="reference internal" href="#export-lr-descriptions-to-xml">Export LR Descriptions to XML</a></li>
+<li><a class="reference internal" href="#details-of-adding-and-editing-metadata-information">Details of Adding and Editing Metadata Information</a><ul>
+<li><a class="reference internal" href="#metadata-fields">Metadata Fields</a></li>
+<li><a class="reference internal" href="#input-types">Input Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#import-language-resources">Import Language Resources</a><ul>
+<li><a class="reference internal" href="#prepare-the-import-file">Prepare the Import File</a></li>
+<li><a class="reference internal" href="#upload-using-the-import-script">Upload Using the Import Script</a></li>
+<li><a class="reference internal" href="#upload-using-the-web-interface">Upload Using the Web Interface</a></li>
+<li><a class="reference internal" href="#conversion-of-existing-lrs">Conversion of Existing LRs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-downloadable-content-to-resources">Add  Downloadable Content to Resources</a><ul>
+<li><a class="reference internal" href="#adding-downloadable-content">Adding Downloadable content</a><ul>
+<li><a class="reference internal" href="#upload-via-the-web-interface">Upload via the Web Interface</a></li>
+<li><a class="reference internal" href="#upload-using-the-command-line-storage-admin-py-script">Upload Using the Command Line <tt class="docutils literal"><span class="pre">storage_admin.py</span></tt> Script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#known-limitations">Known Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#glossary">4  Glossary</a></li>
+<li><a class="reference internal" href="#funding">Funding</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="META-SHARE_Installation_Manual.html"
+                        title="previous chapter">META-SHARE Installation Manual</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="META-SHARE_User_Manual.html"
+                        title="next chapter">META-SHARE Provider Manual</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/META-SHARE_Provider_Manual.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="META-SHARE_User_Manual.html" title="META-SHARE Provider Manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="META-SHARE_Installation_Manual.html" title="META-SHARE Installation Manual"
+             >previous</a> |</li>
+        <li><a href="index.html">META-SHARE 3.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Christian Federmann, Marc Schröder, Christian Spurk, Victoria Arranz, Ioanna Giannopoulou, Olivier Hamon, Bernardo Magnini, Manuela Speranza, Dimitris Mavroeidis, Christian Girardi, Sergio Oller.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
