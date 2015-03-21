@@ -1,5 +1,5 @@
 ============================
-META-SHARE Provider Manual
+META-SHARE User Manual
 ============================
 
 .. figure:: _static/metanet_logo.png
@@ -286,7 +286,7 @@ Access as a registered user
 Users can register to META-SHARE and log in to META-SHARE in order to
 have access to further functionalities of the portal, such as downloading a LR. 
 Being a registered user is also prerequisite for becoming a LR provider (see the 
-`META-SHARE Provider Manual`_ for more information).
+:doc:`META-SHARE_User_Manual` for more information).
 
 3.4.1 Register as a new user
 In order to register to META-SHARE and get an account:
