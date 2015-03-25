@@ -59,9 +59,10 @@ env:
     # GH_REF:
     #- secure: "not generated"
   matrix:
-    - TEST_SUITE=
-    - TEST_SUITE="--selenium-only"
+    - TEST_SUITE="basic"
+    - TEST_SUITE="selenium"
     - TEST_SUITE="docs"
+    - TEST_SUITE="multitest"
 python:
   - "2.7"
 # commands to install dependencies
@@ -72,10 +73,12 @@ install:
   - "./install-dependencies.sh"
 # command to run tests
 script:
-  - "[ \"x$TEST_SUITE\" = \"xdocs\" ] && ./misc/test-ci/autoupdate-docs.sh || echo \"Not building docs\""
-  - "[ \"x$TEST_SUITE\" != \"xdocs\" ] && ./run-testsuite.sh ${TEST_SUITE} || echo \"Not running tests\""
+  - "if [ \"x$TEST_SUITE\" = \"xbasic\" ]; then ./run-testsuite.sh; fi"
+  - "if [ \"x$TEST_SUITE\" = \"xselenium\" ]; then ./run-testsuite.sh --selenium-only; fi"
+  - "if [ \"x$TEST_SUITE\" = \"xdocs\" ] ; then ./misc/test-ci/autoupdate-docs.sh; fi"
+  - "if [ \"x$TEST_SUITE\" = \"xmultitest\" ] ; then ./misc/test-ci/multitest.sh; fi"
 after_success:
-  - "[ \"x$TEST_SUITE\" != \"xdocs\" ] && coveralls"
+  - "if [ \"x$TEST_SUITE\" != \"xdocs\" ]; then coveralls; fi"
 
 addons:
   sauce_connect: true

@@ -12,6 +12,5 @@ git config user.email "travis@travis-ci.org"
 rm -rf dev
 mv ../META-SHARE/misc/docs/_build/html/ dev || exit 1
 git add --all dev || exit 1
-git commit -m "Automatic update of documentation" || exit 1
-git push origin gh-pages
-
+git commit -m "Automatic update of documentation" && git push origin gh-pages
+exit 0
