@@ -62,6 +62,7 @@ env:
     - TEST_SUITE=
     - TEST_SUITE="--selenium-only"
     - TEST_SUITE="docs"
+    - TEST_SUITE="multitest"
 python:
   - "2.7"
 # commands to install dependencies
@@ -74,6 +75,7 @@ install:
 script:
   - "[ \"x$TEST_SUITE\" = \"xdocs\" ] && ./misc/test-ci/autoupdate-docs.sh || echo \"Not building docs\""
   - "[ \"x$TEST_SUITE\" != \"xdocs\" ] && ./run-testsuite.sh ${TEST_SUITE} || echo \"Not running tests\""
+  - "[ \"x$TEST_SUITE\" = \"xmultitest\" ] && ./misc/test-ci/multitest.sh || echo \"Not running multitest\""
 after_success:
   - "[ \"x$TEST_SUITE\" != \"xdocs\" ] && coveralls"
 

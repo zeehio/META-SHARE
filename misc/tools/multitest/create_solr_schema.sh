@@ -26,7 +26,7 @@ create_django_settings "$NODE_NAME" $SOLR_PORT "$DATABASE_FILE" \
 
 cd $METASHARE_DIR
 mkdir -p "$(basename $SCHEMA_FILE)"
-python manage.py build_solr_schema --filename="$SCHEMA_FILE"
+$PYTHON manage.py build_solr_schema --filename="$SCHEMA_FILE"
 cd $CURRENT_DIR
 
 META_LOG=`get_meta_log`

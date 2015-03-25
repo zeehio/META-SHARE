@@ -49,13 +49,13 @@ fi
 cd $METASHARE_DIR
 echo "NODE_DIR = $NODE_DIR"
 echo "Creating database ...."
-"$PYTHON"  manage.py syncdb --noinput
+$PYTHON  manage.py syncdb --noinput
 ret_val=$?
 if [[ $ret_val -ne 0 ]] ; then
 	echo "Cannot build database"
 	exit $ret_val
 fi
-"$PYTHON"  manage.py createsuperuserwithpassword --username=admin --password=secret
+$PYTHON  manage.py createsuperuserwithpassword --username=admin --password=secret
 ret_val=$?
 if [[ $ret_val -ne 0 ]] ; then
 	echo "Cannot create superuser"

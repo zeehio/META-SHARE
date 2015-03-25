@@ -20,7 +20,7 @@ tearDown()
 
 test_filesets()
 {
-	"$PYTHON" check_fset.py
+	$PYTHON check_fset.py
 	local ret_val=$?
 	return $ret_val
 }
