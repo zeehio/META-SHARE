@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # Include environment variables and utility functions
-. _meta_dir.sh
-. _python.sh
-. _solr.sh
-. _node_info.sh
-. _django.sh
+THISFILEDIR=$(dirname $0)
+. ${THISFILEDIR}/_meta_dir.sh
+. ${THISFILEDIR}/_python.sh
+. ${THISFILEDIR}/_solr.sh
+. ${THISFILEDIR}/_node_info.sh
+. ${THISFILEDIR}/_django.sh
 
 
 
@@ -49,11 +50,11 @@ fi
 if [[ "$OP" == "start" ]] ; then
 
 	# Copy settings.py and local_settings.sample
-	./create_settings_files.sh
+	. ${THISFILEDIR}/create_settings_files.sh
 
 	if [[ "$CREATE_DB" == "1" ]] ; then
 		# Create a new empty database compatible with the models.py
-		./create_db.sh -r
+		. ${THISFILEDIR}/create_db.sh -r
 		ret_val=$?
 		if [[ $ret_val -ne 0 ]] ; then
 			if [[ "$DET_FILE" != "" ]] ; then
@@ -62,10 +63,10 @@ if [[ "$OP" == "start" ]] ; then
 			exit $ret_val
 		fi
 	fi
-
+        
 	if [[ "$CREATE_SOLR_SCHEMA" == "1" ]] ; then
 		# Create a new SOLR schema compatible with the models.py
-		./create_solr_schema.sh
+		. ${THISFILEDIR}/create_solr_schema.sh
 		ret_val=$?
 		if [[ $ret_val -ne 0 ]] ; then
 			if [[ "$DET_FILE" != "" ]] ; then
@@ -96,8 +97,8 @@ while get_node_info $counter NODE_NAME &> /dev/null ; do
 	NODE_SETTINGS_DIR=$NODE_DIR/dj_settings
 	cd "$TEST_DIR"
 	if [[ "$OP" == "start" ]] ; then
-		mkdir "$NODE_NAME"
-		mkdir "$NODE_SETTINGS_DIR"
+		mkdir -p "$TEST_DIR/$NODE_NAME"
+		mkdir -p "$TEST_DIR/$NODE_SETTINGS_DIR"
 		ret_val=$?
 		if [[ $ret_val -ne 0 ]] ; then
 			if [[ "$DET_FILE" != "" ]] ; then

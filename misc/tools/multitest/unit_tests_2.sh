@@ -4,7 +4,7 @@ THIS_DIR=$(dirname "$0")
 . "${THIS_DIR}/setvars.sh"
 . "${THIS_DIR}/_meta_dir.sh"
 . "${THIS_DIR}/_python.sh"
-cd "$MSERV_DIR"
+#cd "$MSERV_DIR"
 
 TESTSUITE_NAME="MultiNodeServerTest"
 
@@ -20,7 +20,10 @@ tearDown()
 
 test_start()
 {
-	cd "$MSERV_DIR"
+	#cd "$MSERV_DIR"
+        echo "hola_begin"
+        echo $PWD
+        echo "hola_end"
 	local DET_FILE=`tempfile`
 	"$MSERV_DIR"/mserv.sh --det-file "$DET_FILE" start
 	local ret_val=$?

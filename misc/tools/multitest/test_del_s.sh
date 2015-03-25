@@ -20,9 +20,11 @@ delete_res_on_node()
 	echo "PYTHON = $PYTHON"
 	echo "PYTHON_CMD = '$PYTHON_CMD'"
 	echo "RES_ID = $RES_ID"
-	cd "$METASHARE_DIR"
-	pwd
-	echo "$PYTHON_CMD" | $PYTHON manage.py shell 1>/dev/null 2>/dev/null 5>"$RES_ID"
+	#cd "$METASHARE_DIR"
+	#pwd
+        echo $PWD
+	echo "$PYTHON_CMD" | $PYTHON metashare/manage.py shell 1>/dev/null 2>/dev/null 5>"$RES_ID"
+        echo $PWD
 	local ret_val=$?
 	return $ret_val
 }
@@ -37,9 +39,9 @@ check_resource_deleted()
 	NODE_DIR="$TEST_DIR/$NODE_NAME"
 	export NODE_DIR
 	local IDENT=`cat "$RES_ID"`
-	cd "$METASHARE_DIR"
+	#cd "$METASHARE_DIR"
 	PYTHON_CMD="res_id=\"$IDENT\"; execfile(\"$CHECK_DEL_SCR\")"
-	echo "$PYTHON_CMD" | $PYTHON manage.py shell 1>/dev/null 2>/dev/null
+	echo "$PYTHON_CMD" | $PYTHON metashare/manage.py shell 1>/dev/null 2>/dev/null
 	local ret_val=$?
 	return $ret_val
 }

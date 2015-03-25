@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. _meta_dir.sh
+. ${THISFILEDIR}/_meta_dir.sh
 
 MULTI_TEST_SETT_MARKER="# __MultiNode__settings__file__"
 
