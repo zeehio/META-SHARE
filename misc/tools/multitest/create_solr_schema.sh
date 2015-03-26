@@ -1,16 +1,16 @@
 #!/bin/bash
 
-THISFILEDIR=$(dirname $0)
+MSERV_DIR=$(dirname $0)
 
-. ${THISFILEDIR}/_meta_dir.sh
-. ${THISFILEDIR}/_python.sh
-. ${THISFILEDIR}/_utils.sh
-. ${THISFILEDIR}/_django.sh
+. ${MSERV_DIR}/_meta_dir.sh
+. ${MSERV_DIR}/_python.sh
+. ${MSERV_DIR}/_utils.sh
+. ${MSERV_DIR}/_django.sh
 
 CURRENT_DIR=`pwd`
 SCHEMA_FILE=$CURRENT_DIR/init_data/schema.xml
 
-cp $THISFILEDIR/init_data/settings_multitest.py $METASHARE_DIR/settings.py
+cp $MSERV_DIR/init_data/settings_multitest.py $METASHARE_DIR/settings.py
 
 NODE_NAME="NodeSolr"
 DJANGO_PORT=12345

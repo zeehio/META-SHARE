@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Include environment variables and utility functions
-THISFILEDIR=$(dirname $0)
-. ${THISFILEDIR}/_meta_dir.sh
-. ${THISFILEDIR}/_python.sh
-. ${THISFILEDIR}/_solr.sh
-. ${THISFILEDIR}/_node_info.sh
-. ${THISFILEDIR}/_django.sh
+MSERV_DIR=$(dirname "$0")
+. "${MSERV_DIR}/_meta_dir.sh"
+. "${MSERV_DIR}/_python.sh"
+. "${MSERV_DIR}/_solr.sh"
+. "${MSERV_DIR}/_node_info.sh"
+. "${MSERV_DIR}/_django.sh"
 
 
 
@@ -50,11 +50,11 @@ fi
 if [[ "$OP" == "start" ]] ; then
 
 	# Copy settings.py and local_settings.sample
-	. ${THISFILEDIR}/create_settings_files.sh
+	$MSERV_DIR/create_settings_files.sh
 
 	if [[ "$CREATE_DB" == "1" ]] ; then
 		# Create a new empty database compatible with the models.py
-		. ${THISFILEDIR}/create_db.sh -r
+		$MSERV_DIR/create_db.sh -r
 		ret_val=$?
 		if [[ $ret_val -ne 0 ]] ; then
 			if [[ "$DET_FILE" != "" ]] ; then
@@ -66,7 +66,7 @@ if [[ "$OP" == "start" ]] ; then
         
 	if [[ "$CREATE_SOLR_SCHEMA" == "1" ]] ; then
 		# Create a new SOLR schema compatible with the models.py
-		. ${THISFILEDIR}/create_solr_schema.sh
+		$MSERV_DIR/create_solr_schema.sh
 		ret_val=$?
 		if [[ $ret_val -ne 0 ]] ; then
 			if [[ "$DET_FILE" != "" ]] ; then
