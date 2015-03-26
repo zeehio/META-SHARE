@@ -29,7 +29,7 @@ from dj_settings.multilocal_settings import *\n\
 from dj_settings.node_settings import *\n\
 $root_path_line\n\
 " >> /tmp/sed.scr
-        sed -f /tmp/sed.scr $MSERV_DIR/init_data/settings_original.py > $MSERV_DIR/init_data/settings_multitest.py
+        sed -f /tmp/sed.scr "$MSERV_DIR/init_data/settings_original.py" > "$MSERV_DIR/init_data/settings_multitest.py"
         rm /tmp/sed.scr
     fi 
 }

@@ -2,7 +2,7 @@
 
 # Assume it is being called from base metashare directory
 # MSERV_DIR is the directory where this script lives
-MSERV_DIR=$(dirname "$0")
+MSERV_DIR=$(readlink -f $(dirname "$0"))
 . "${MSERV_DIR}/setvars.sh"
 . "${MSERV_DIR}/_meta_dir.sh"
 . "${MSERV_DIR}/_python.sh"

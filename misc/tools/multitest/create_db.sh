@@ -7,8 +7,6 @@
 # if already exists and created empty.
 
 MSERV_DIR=$(dirname "$0")
->&2 echo "$PWD"
->&2 echo "$MSERV_DIR"
 . "${MSERV_DIR}/_meta_dir.sh"
 . "${MSERV_DIR}/_python.sh"
 . "${MSERV_DIR}/_utils.sh"

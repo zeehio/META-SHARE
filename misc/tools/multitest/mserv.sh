@@ -208,7 +208,7 @@ while get_node_info $counter NODE_NAME &> /dev/null ; do
 			exit $ret_val
 		fi
 	else
-		rm -r "$NODE_NAME"
+		rm -r "$TEST_DIR/$NODE_NAME"
 		ret_val=$?
 		if [[ $ret_val -ne 0 ]] ; then
 			if [[ "$DET_FILE" != "" ]] ; then
