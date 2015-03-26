@@ -95,7 +95,7 @@ while get_node_info $counter NODE_NAME &> /dev/null ; do
 	echo "Processing " $NODE_NAME
 	# Create a directory for Node
 	NODE_SETTINGS_DIR=$NODE_DIR/dj_settings
-	cd "$TEST_DIR"
+	#cd "$TEST_DIR"
 	if [[ "$OP" == "start" ]] ; then
 		mkdir -p "$TEST_DIR/$NODE_NAME"
 		mkdir -p "$TEST_DIR/$NODE_SETTINGS_DIR"

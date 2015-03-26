@@ -8,7 +8,7 @@ MSERV_DIR=$(dirname $0)
 . ${MSERV_DIR}/_django.sh
 
 CURRENT_DIR=`pwd`
-SCHEMA_FILE=$CURRENT_DIR/init_data/schema.xml
+SCHEMA_FILE=$MSERV_DIR/init_data/schema.xml
 
 cp $MSERV_DIR/init_data/settings_multitest.py $METASHARE_DIR/settings.py
 
