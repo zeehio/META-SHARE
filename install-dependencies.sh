@@ -25,16 +25,16 @@ else
   if [ "$PYTHON" == "python" ] ; then
     echo "expected $EXPECTED_PYTHON_VERSION, but found $PYTHON_VERSION"
     echo "trying to install a local version in $BASEDIR/opt"
-    cd "$BASEDIR/installable-packages"
-    echo "Downloading python:"
-    wget "https://www.python.org/ftp/python/2.7.8/Python-2.7.8.tgz" || exit 1
+    wget "https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz" || exit 1
     echo "Verifying python"
-    md5sum -c "Python-2.7.8.sig" || exit 1
-    tar xzf "Python-2.7.8.tgz" || exit 1
-    cd "Python-2.7.8" || exit 1
+    echo "5eebcaa0030dc4061156d3429657fb83  Python-2.7.9.tgz" | md5sum -c - || exit 1
+    tar xzf "Python-2.7.9.tgz" || exit 1
+    cd "Python-2.7.9" || exit 1
     ./configure --prefix="$BASEDIR/opt" || exit 1
     make || exit 1
     make install || exit 1
+    cd ".."
+    rm -rf "Python-2.7.9"
   else
     echo "expected $EXPECTED_PYTHON_VERSION, but found $PYTHON_VERSION in local install"
     echo "something is messed up, aborting."
@@ -48,13 +48,16 @@ fi
 
 echo "Create the virtual environment for package installation:"
 # Select current version of virtualenv:
-VENV_VERSION="1.11.6"
 VENV_DIR="${BASEDIR}/venv"
+VENV_VERSION="12.0.7"
 URL_BASE="http://pypi.python.org/packages/source/v/virtualenv"
 
 echo "Download virtualenv..."
-wget "$URL_BASE/virtualenv-${VENV_VERSION}.tar.gz"
-tar xzf "virtualenv-${VENV_VERSION}.tar.gz"
+wget "$URL_BASE/virtualenv-${VENV_VERSION}.tar.gz" || exit 1
+echo "Verify virtualenv..."
+echo "e08796f79d112f3bfa6653cc10840114  virtualenv-12.0.7.tar.gz" | md5sum -c - || exit 1
+echo "Extracting virtualenv"
+tar xzf "virtualenv-${VENV_VERSION}.tar.gz" || exit 1
 echo "Create the virtual environment:"
 "$PYTHON" "virtualenv-${VENV_VERSION}/virtualenv.py" "${VENV_DIR}"
 # Don't need this anymore.
