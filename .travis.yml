@@ -59,10 +59,13 @@ env:
     # GH_REF:
     #- secure: "not generated"
   matrix:
+    # basic runs the metashare testsuite without selenium tests, followed
+    # by the multitest that checks node syncing.
+    # selenium runs the selenium tests only
+    # docs builds the documentation and pushes it to gh-pages
     - TEST_SUITE="basic"
     - TEST_SUITE="selenium"
     - TEST_SUITE="docs"
-    - TEST_SUITE="multitest"
 python:
   - "2.7"
 # commands to install dependencies
@@ -76,7 +79,7 @@ script:
   - "if [ \"x$TEST_SUITE\" = \"xbasic\" ]; then ./run-testsuite.sh; fi"
   - "if [ \"x$TEST_SUITE\" = \"xselenium\" ]; then ./run-testsuite.sh --selenium-only; fi"
   - "if [ \"x$TEST_SUITE\" = \"xdocs\" ] ; then ./misc/test-ci/autoupdate-docs.sh; fi"
-  - "if [ \"x$TEST_SUITE\" = \"xmultitest\" ] ; then ./misc/test-ci/multitest.sh; fi"
+  - "if [ \"x$TEST_SUITE\" = \"xbasic\" ] ; then ./misc/test-ci/multitest.sh; fi"
 after_success:
   - "if [ \"x$TEST_SUITE\" != \"xdocs\" ]; then coveralls; fi"
 
