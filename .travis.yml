@@ -76,8 +76,8 @@ install:
   - "./install-dependencies.sh"
 # command to run tests
 script:
-  - "if [ \"x$TEST_SUITE\" = \"xbasic\" ]; then ./run-testsuite.sh; fi"
-  - "if [ \"x$TEST_SUITE\" = \"xselenium\" ]; then ./run-testsuite.sh --selenium-only; fi"
+  - "if [ \"x$TEST_SUITE\" = \"xbasic\" ]; then ./misc/test-ci/run-testsuite.sh; fi"
+  - "if [ \"x$TEST_SUITE\" = \"xselenium\" ]; then ./misc/test-ci/run-testsuite.sh --selenium-only; fi"
   - "if [ \"x$TEST_SUITE\" = \"xdocs\" ] ; then ./misc/test-ci/autoupdate-docs.sh; fi"
   - "if [ \"x$TEST_SUITE\" = \"xbasic\" ] ; then ./misc/test-ci/multitest.sh; fi"
 after_success:
