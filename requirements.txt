@@ -1,7 +1,7 @@
 git+git://github.com/zeehio/django.git@fac11b4d80a310d0895d880bca6e6b8512c26982
 Unidecode==0.04.16
 django-analytical==0.12.1
-git+git://github.com/toastdriven/django-haystack.git@ea5dbd570f847ceb39ff741d9a27c77df09c9e3d                 
+git+git://github.com/zeehio/django-haystack.git@ea5dbd570f847ceb39ff741d9a27c77df09c9e3d                 
 django-jenkins==0.11.1
 git+git://github.com/zeehio/django-kronos.git@f22f638120920b722edd7619d6a037289edc678e
 git+git://github.com/zeehio/django-selectable.git@0641d278f19e367ce7e5170708b005e6a6a3022b
