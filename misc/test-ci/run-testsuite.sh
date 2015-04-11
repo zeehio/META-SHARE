@@ -50,6 +50,7 @@ fi
 rm -f metashare/testing.db
 source venv/bin/activate || exit 1
 pip install coverage || exit 1
+export PYTHONWARNINGS="d"
 python manage.py syncdb --noinput || exit 1
 #python manage.py dumpdata > metashare/django-dump.json
 rm metashare/initial_data.json || exit 1
