@@ -35,15 +35,12 @@ else
     make install || exit 1
     cd ".."
     rm -rf "Python-2.7.9"
+    PYTHON="$BASEDIR/opt/bin/python"
   else
     echo "expected $EXPECTED_PYTHON_VERSION, but found $PYTHON_VERSION in local install"
     echo "something is messed up, aborting."
     exit 1
   fi  
-fi
-
-if [ "$PYTHON" != "python" ] ; then
-  echo "Python was installed locally -- make sure to include $BASEDIR/opt/bin at the beginning of your PATH!"
 fi
 
 echo "Create the virtual environment for package installation:"
@@ -66,7 +63,7 @@ rm -rf "virtualenv-${VENV_VERSION}" "virtualenv-${VENV_VERSION}.tar.gz"
 echo "Python virtual environment created"
 
 echo "Install metashare python dependencies"
-"${VENV_DIR}/bin/pip" install -r "${BASEDIR}/requirements.txt"
+"${VENV_DIR}/bin/pip" install -r "${BASEDIR}/requirements.txt" || exit 1
 
 echo
 echo
