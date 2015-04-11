@@ -30,6 +30,10 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 DEBUG_JS = DEBUG
 
+# Please set the SECRET_KEY to a unique random string
+# The installation manual can give more information on how to create it
+SECRET_KEY = ''
+
 LOG_FILENAME = join(tempfile.gettempdir(), "metashare.log")
 
 # Configure administrators for this django project.  If DEBUG=False, errors
@@ -182,7 +186,7 @@ PROXIED_NODES = {
 #    },
 }
 
-# You cann add custom web analytics application settings here through the Django
+# You can add custom web analytics application settings here through the Django
 # Analytical framework which is integrated in META-SHARE. By default, all
 # META-SHARE services are monitored with a common Google Analytics tracking
 # code; see the Installation Manual for more information on this.
