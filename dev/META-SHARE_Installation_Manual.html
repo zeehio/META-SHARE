@@ -52,7 +52,7 @@
           <div class="body">
             
   <div class="section" id="meta-share-installation-manual">
-<h1><a class="toc-backref" href="#id1">META-SHARE Installation Manual</a><a class="headerlink" href="#meta-share-installation-manual" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id3">META-SHARE Installation Manual</a><a class="headerlink" href="#meta-share-installation-manual" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-center">
 <img alt="METANET logo" src="_images/metanet_logo.png" />
 <p class="caption"><em>A Network of Excellence forging the Multilingual Europe Technology Alliance</em></p>
@@ -61,74 +61,74 @@
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#meta-share-installation-manual" id="id1">META-SHARE Installation Manual</a><ul>
-<li><a class="reference internal" href="#executive-summary" id="id2">Executive Summary</a></li>
-<li><a class="reference internal" href="#backing-up-meta-share" id="id3">Backing up META-SHARE</a></li>
-<li><a class="reference internal" href="#upgrading-meta-share" id="id4">Upgrading META-SHARE</a></li>
-<li><a class="reference internal" href="#installing-meta-share" id="id5">Installing META-SHARE</a><ul>
-<li><a class="reference internal" href="#software-dependencies" id="id6">Software Dependencies</a><ul>
-<li><a class="reference internal" href="#database-software" id="id7">Database Software</a></li>
-<li><a class="reference internal" href="#python-interpreter" id="id8">Python interpreter</a></li>
-<li><a class="reference internal" href="#python-modules" id="id9">Python Modules</a></li>
-<li><a class="reference internal" href="#web-server" id="id10">Web Server</a></li>
+<li><a class="reference internal" href="#meta-share-installation-manual" id="id3">META-SHARE Installation Manual</a><ul>
+<li><a class="reference internal" href="#executive-summary" id="id4">Executive Summary</a></li>
+<li><a class="reference internal" href="#backing-up-meta-share" id="id5">Backing up META-SHARE</a></li>
+<li><a class="reference internal" href="#upgrading-meta-share" id="id6">Upgrading META-SHARE</a></li>
+<li><a class="reference internal" href="#installing-meta-share" id="id7">Installing META-SHARE</a><ul>
+<li><a class="reference internal" href="#software-dependencies" id="id8">Software Dependencies</a><ul>
+<li><a class="reference internal" href="#database-software" id="id9">Database Software</a></li>
+<li><a class="reference internal" href="#python-interpreter" id="id10">Python interpreter</a></li>
+<li><a class="reference internal" href="#python-modules" id="id11">Python Modules</a></li>
+<li><a class="reference internal" href="#web-server" id="id12">Web Server</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#development-server" id="id11">Development Server</a></li>
-<li><a class="reference internal" href="#local-settings-for-meta-share-nodes" id="id12">Local Settings for META-SHARE Nodes</a></li>
+<li><a class="reference internal" href="#development-server" id="id13">Development Server</a></li>
+<li><a class="reference internal" href="#local-settings-for-meta-share-nodes" id="id14">Local Settings for META-SHARE Nodes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#deployment-server" id="id13">Deployment Server</a></li>
-<li><a class="reference internal" href="#solr-server-for-browsing-and-searching" id="id14">Solr Server for Browsing and Searching</a><ul>
-<li><a class="reference internal" href="#installing-solr" id="id15">Installing Solr</a></li>
-<li><a class="reference internal" href="#keeping-the-solr-configuration-up-to-date" id="id16">Keeping the Solr Configuration Up-to-Date</a></li>
-<li><a class="reference internal" href="#manually-updating-the-solr-configuration" id="id17">Manually Updating the Solr Configuration</a></li>
+<li><a class="reference internal" href="#deployment-server" id="id15">Deployment Server</a></li>
+<li><a class="reference internal" href="#solr-server-for-browsing-and-searching" id="id16">Solr Server for Browsing and Searching</a><ul>
+<li><a class="reference internal" href="#installing-solr" id="id17">Installing Solr</a></li>
+<li><a class="reference internal" href="#keeping-the-solr-configuration-up-to-date" id="id18">Keeping the Solr Configuration Up-to-Date</a></li>
+<li><a class="reference internal" href="#manually-updating-the-solr-configuration" id="id19">Manually Updating the Solr Configuration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#linking-your-node-with-the-meta-share-network" id="id18">Linking your Node with the META-SHARE Network</a><ul>
-<li><a class="reference internal" href="#overview" id="id19">Overview</a></li>
-<li><a class="reference internal" href="#step-by-step-instructions" id="id20">Step-by-Step Instructions</a></li>
+<li><a class="reference internal" href="#linking-your-node-with-the-meta-share-network" id="id20">Linking your Node with the META-SHARE Network</a><ul>
+<li><a class="reference internal" href="#overview" id="id21">Overview</a></li>
+<li><a class="reference internal" href="#step-by-step-instructions" id="id22">Step-by-Step Instructions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#importing-and-exporting-resources" id="id21">Importing and Exporting Resources</a><ul>
-<li><a class="reference internal" href="#importing-xml-files-into-meta-share" id="id22">Importing XML Files into META-SHARE</a><ul>
-<li><a class="reference internal" href="#importing-from-the-command-line" id="id23">Importing from the Command Line</a></li>
-<li><a class="reference internal" href="#importing-from-the-editor" id="id24">Importing from the Editor</a></li>
+<li><a class="reference internal" href="#importing-and-exporting-resources" id="id23">Importing and Exporting Resources</a><ul>
+<li><a class="reference internal" href="#importing-xml-files-into-meta-share" id="id24">Importing XML Files into META-SHARE</a><ul>
+<li><a class="reference internal" href="#importing-from-the-command-line" id="id25">Importing from the Command Line</a></li>
+<li><a class="reference internal" href="#importing-from-the-editor" id="id26">Importing from the Editor</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#exporting-xml-files-from-meta-share" id="id25">Exporting XML Files from META-SHARE</a><ul>
-<li><a class="reference internal" href="#exporting-from-the-command-line" id="id26">Exporting from the Command Line</a></li>
-<li><a class="reference internal" href="#exporting-from-the-editor" id="id27">Exporting from the Editor</a></li>
+<li><a class="reference internal" href="#exporting-xml-files-from-meta-share" id="id27">Exporting XML Files from META-SHARE</a><ul>
+<li><a class="reference internal" href="#exporting-from-the-command-line" id="id28">Exporting from the Command Line</a></li>
+<li><a class="reference internal" href="#exporting-from-the-editor" id="id29">Exporting from the Editor</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#copying-data-between-meta-share-nodes" id="id28">Copying Data between META-SHARE Nodes</a></li>
+<li><a class="reference internal" href="#copying-data-between-meta-share-nodes" id="id30">Copying Data between META-SHARE Nodes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#setting-up-editor-user-accounts" id="id29">Setting up Editor User Accounts</a></li>
-<li><a class="reference internal" href="#search-engine-optimization-and-web-analytics" id="id30">Search Engine Optimization and Web Analytics</a></li>
-<li><a class="reference internal" href="#frequently-asked-questions" id="id31">Frequently Asked Questions</a><ul>
-<li><a class="reference internal" href="#i-want-to-use-mysql-and-or-apache" id="id32">I Want to use MySQL and/or Apache</a></li>
-<li><a class="reference internal" href="#i-need-help-configuring-lighttpd" id="id33">I Need Help Configuring lighttpd</a></li>
-<li><a class="reference internal" href="#i-am-getting-storage-errors-when-importing-or-saving" id="id34">I am Getting Storage Errors when Importing or Saving</a></li>
-<li><a class="reference internal" href="#why-can-django-not-serve-the-static-files" id="id35">Why Can Django not Serve the Static Files?</a></li>
-<li><a class="reference internal" href="#postgresql-error-message" id="id36">PostgreSQL Error Message</a></li>
-<li><a class="reference internal" href="#problems-with-importing-xml-files" id="id37">Problems with Importing XML Files</a></li>
-<li><a class="reference internal" href="#updating-the-geoip-database-for-statistics-collection" id="id38">Updating the GeoIP Database for Statistics Collection</a></li>
+<li><a class="reference internal" href="#setting-up-editor-user-accounts" id="id31">Setting up Editor User Accounts</a></li>
+<li><a class="reference internal" href="#search-engine-optimization-and-web-analytics" id="id32">Search Engine Optimization and Web Analytics</a></li>
+<li><a class="reference internal" href="#frequently-asked-questions" id="id33">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#i-want-to-use-mysql-and-or-apache" id="id34">I Want to use MySQL and/or Apache</a></li>
+<li><a class="reference internal" href="#i-need-help-configuring-lighttpd" id="id35">I Need Help Configuring lighttpd</a></li>
+<li><a class="reference internal" href="#i-am-getting-storage-errors-when-importing-or-saving" id="id36">I am Getting Storage Errors when Importing or Saving</a></li>
+<li><a class="reference internal" href="#why-can-django-not-serve-the-static-files" id="id37">Why Can Django not Serve the Static Files?</a></li>
+<li><a class="reference internal" href="#postgresql-error-message" id="id38">PostgreSQL Error Message</a></li>
+<li><a class="reference internal" href="#problems-with-importing-xml-files" id="id39">Problems with Importing XML Files</a></li>
+<li><a class="reference internal" href="#updating-the-geoip-database-for-statistics-collection" id="id40">Updating the GeoIP Database for Statistics Collection</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#funding" id="id39">Funding</a></li>
+<li><a class="reference internal" href="#funding" id="id41">Funding</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="executive-summary">
-<h2><a class="toc-backref" href="#id2">Executive Summary</a><a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Executive Summary</a><a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
 <p>This document is a guide for installing META-SHARE V3.1. It is intended
 for system administrators setting up META-SHARE nodes. It also contains
 a section on how to upgrade an existing META-SHARE V3.0.x installation
 to V3.1.</p>
 </div>
 <div class="section" id="backing-up-meta-share">
-<h2><a class="toc-backref" href="#id3">Backing up META-SHARE</a><a class="headerlink" href="#backing-up-meta-share" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Backing up META-SHARE</a><a class="headerlink" href="#backing-up-meta-share" title="Permalink to this headline">¶</a></h2>
 <p>META-SHARE stores the information in two places: a database and a storage
 directory. Please follow these instructions to back up both things
 before any upgrade, to revert to the previous version in case of problems.</p>
@@ -154,7 +154,7 @@ you can just copy the SQLite file pointed in the <tt class="docutils literal"><s
 Be aware that the SQLite database is not recommended on production servers.</p>
 </div>
 <div class="section" id="upgrading-meta-share">
-<h2><a class="toc-backref" href="#id4">Upgrading META-SHARE</a><a class="headerlink" href="#upgrading-meta-share" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Upgrading META-SHARE</a><a class="headerlink" href="#upgrading-meta-share" title="Permalink to this headline">¶</a></h2>
 <p>If you have an installation of META-SHARE previous to V3.0 and you would
 like to migrate your resource descriptions, uploaded resource data, user
 accounts and statistics to a new META-SHARE installation, then you should
@@ -184,6 +184,10 @@ current installation.</p>
 <li><p class="first">Copy <tt class="docutils literal"><span class="pre">/path/to/old/MetaShareNode-3.0/metashare/local_settings.py</span></tt>
 to <tt class="docutils literal"><span class="pre">/path/to/MetaShareNode-3.1/metashare/local_settings.py</span></tt></p>
 </li>
+<li><p class="first">Edit the <tt class="docutils literal"><span class="pre">local_settings.py</span></tt>. Add a <tt class="docutils literal"><span class="pre">SECRET_KEY</span></tt> variable and a
+<tt class="docutils literal"><span class="pre">ALLOWED_HOSTS</span></tt> variable.
+See <a class="reference internal" href="#local-settings-for-meta-share-nodes">Local Settings for META-SHARE Nodes</a> for information on how to generate it.</p>
+</li>
 <li><p class="first">Adapt any customization you had on the old <tt class="docutils literal"><span class="pre">start-server.sh</span></tt>,
 <tt class="docutils literal"><span class="pre">stop-server.sh</span></tt> scripts into the new script version.</p>
 </li>
@@ -192,7 +196,7 @@ to <tt class="docutils literal"><span class="pre">/path/to/MetaShareNode-3.1/met
 </ol>
 </div>
 <div class="section" id="installing-meta-share">
-<h2><a class="toc-backref" href="#id5">Installing META-SHARE</a><a class="headerlink" href="#installing-meta-share" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Installing META-SHARE</a><a class="headerlink" href="#installing-meta-share" title="Permalink to this headline">¶</a></h2>
 <p>This section explains how to download and install META-SHARE V3.1 and
 its dependencies.</p>
 <p>Start by downloading META-SHARE from the
@@ -200,9 +204,9 @@ its dependencies.</p>
 <p>Extract the downloaded software into a designated META-SHARE
 folder, e.g., <tt class="docutils literal"><span class="pre">/path/to/local/MetaShareNode/</span></tt>.</p>
 <div class="section" id="software-dependencies">
-<h3><a class="toc-backref" href="#id6">Software Dependencies</a><a class="headerlink" href="#software-dependencies" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Software Dependencies</a><a class="headerlink" href="#software-dependencies" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="database-software">
-<h4><a class="toc-backref" href="#id7">Database Software</a><a class="headerlink" href="#database-software" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id9">Database Software</a><a class="headerlink" href="#database-software" title="Permalink to this headline">¶</a></h4>
 <p><em>Note:</em> if you just want to run META-SHARE in <strong>development mode</strong>, or
 if you are upgrading META-SHARE you can skip the database setup.</p>
 <p>We currently use SQLite or PostgreSQL as our database software. SQLite
@@ -233,7 +237,7 @@ createdb --owner=metashare_user metashare_db</pre>
 </div></blockquote>
 </div>
 <div class="section" id="python-interpreter">
-<h4><a class="toc-backref" href="#id8">Python interpreter</a><a class="headerlink" href="#python-interpreter" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id10">Python interpreter</a><a class="headerlink" href="#python-interpreter" title="Permalink to this headline">¶</a></h4>
 <p><em>Note:</em> If you are upgrading from a previous META-SHARE installation
 AND python-2.7 was installed during the previous installation in
 <tt class="docutils literal"><span class="pre">/path/to/old/MetaShareNode3.0/</span></tt> please make sure to remove
@@ -256,7 +260,7 @@ command to get all required build dependencies:</p>
 </div></blockquote>
 </div>
 <div class="section" id="python-modules">
-<h4><a class="toc-backref" href="#id9">Python Modules</a><a class="headerlink" href="#python-modules" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id11">Python Modules</a><a class="headerlink" href="#python-modules" title="Permalink to this headline">¶</a></h4>
 <p>META-SHARE V3.1 does not bundle anymore all the python dependencies.
 Instead of doing that, we follow the standard way of working with
 python apps, based on <a class="reference external" href="https://virtualenv.pypa.io">virtualenv</a> and
@@ -291,7 +295,7 @@ created virtual environment.</li>
 listed in the <cite>requirements.txt</cite> file.</p>
 </div>
 <div class="section" id="web-server">
-<h4><a class="toc-backref" href="#id10">Web Server</a><a class="headerlink" href="#web-server" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id12">Web Server</a><a class="headerlink" href="#web-server" title="Permalink to this headline">¶</a></h4>
 <p><em>Note:</em> if you just want to run META-SHARE in <strong>development mode</strong>, you
 can skip the web server setup.</p>
 <p>META-SHARE is a web application that builds on a web server. Deployment
@@ -304,7 +308,7 @@ give you an idea on how to set this up.</p>
 </div>
 </div>
 <div class="section" id="development-server">
-<h3><a class="toc-backref" href="#id11">Development Server</a><a class="headerlink" href="#development-server" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Development Server</a><a class="headerlink" href="#development-server" title="Permalink to this headline">¶</a></h3>
 <p>To verify that you have installed all dependencies correctly, you should
 first set up a development server. Proceed as follows.</p>
 <ol class="arabic">
@@ -312,7 +316,7 @@ first set up a development server. Proceed as follows.</p>
 <div class="highlight-python"><pre>cp metashare/local_settings.sample metashare/local_settings.py</pre>
 </div>
 <p>Edit at least the following constants: <tt class="docutils literal"><span class="pre">DJANGO_URL</span></tt>, <tt class="docutils literal"><span class="pre">DJANGO_BASE</span></tt>,
-<tt class="docutils literal"><span class="pre">STORAGE_PATH</span></tt>, <tt class="docutils literal"><span class="pre">DEBUG</span></tt>, <tt class="docutils literal"><span class="pre">ADMINS</span></tt>, <tt class="docutils literal"><span class="pre">DATABASES</span></tt>, and <tt class="docutils literal"><span class="pre">EMAIL_BACKEND</span></tt>. More
+<tt class="docutils literal"><span class="pre">STORAGE_PATH</span></tt>, <tt class="docutils literal"><span class="pre">DEBUG</span></tt>, <tt class="docutils literal"><span class="pre">SECRET_KEY</span></tt>, <tt class="docutils literal"><span class="pre">ADMINS</span></tt>, <tt class="docutils literal"><span class="pre">DATABASES</span></tt>, and <tt class="docutils literal"><span class="pre">EMAIL_BACKEND</span></tt>. More
 information is available in <a class="reference internal" href="#local-settings-for-meta-share-nodes">Local Settings for META-SHARE
 Nodes</a></p>
 <p><strong>Note:</strong> If you are upgrading from a previous META-SHARE version,
@@ -360,7 +364,7 @@ development mode. This means that all required Python and Django
 dependencies are functioning correctly.</p>
 </div>
 <div class="section" id="local-settings-for-meta-share-nodes">
-<h3><a class="toc-backref" href="#id12">Local Settings for META-SHARE Nodes</a><a class="headerlink" href="#local-settings-for-meta-share-nodes" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Local Settings for META-SHARE Nodes</a><a class="headerlink" href="#local-settings-for-meta-share-nodes" title="Permalink to this headline">¶</a></h3>
 <p><strong>Note:</strong> If you are upgrading a META-SHARE installation, you can now
 follow the rest of the <a class="reference internal" href="#upgrading-meta-share">Upgrading META-SHARE</a> instructions as the
 <tt class="docutils literal"><span class="pre">local_settings.py</span></tt> file will be copied from the previous META-SHARE
@@ -398,6 +402,10 @@ applications and lighttpd; it basically messes up the URL after HTTP
 submits. <tt class="docutils literal"><span class="pre">FORCE_SCRIPT_NAME=</span> <span class="pre">&quot;&quot;</span></tt> fixes the issue and hence is
 required for lighttpd use.</p>
 </li>
+<li><p class="first"><a href="#id1"><span class="problematic" id="id2">``</span></a>ALLOWED_HOSTS = [ &#8216;www.example.com&#8217; ]</p>
+<p>A list of strings representing the host/domain names this META-SHARE
+instance can be served at.</p>
+</li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">STORAGE_PATH</span> <span class="pre">=</span> <span class="pre">'/path/to/storage/path'</span></tt></p>
 <p>Absolute path to the local storage base, i.e., the folder in which
 your language resource data is stored. You need to supply an existing
@@ -411,6 +419,21 @@ resource data that you would like to upload.</p>
 stacktraces on the website, for example. This may include sensitive
 information, so use with care, preferably only for local development
 servers.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">SECRET_KEY</span></tt></p>
+<p>Set this variable to a random value. This is used by django to salt the
+passwords stored in the database and generate tokens.
+See <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/settings/#secret-key">SECRET_KEY django documentation</a>
+for further information.
+The following python code can help you to generate a random string:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="c"># From: https://gist.github.com/mattseymour/9205591</span>
+<span class="kn">import</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">random</span>
+<span class="n">chars</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\&#39;</span><span class="s">&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\\</span><span class="s">&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">SystemRandom</span><span class="p">()</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div></blockquote>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">ADMINS</span></tt></p>
 <p>Configure the administrators for this Django project. If
@@ -481,7 +504,7 @@ restarted!</p>
 </div>
 </div>
 <div class="section" id="deployment-server">
-<h2><a class="toc-backref" href="#id13">Deployment Server</a><a class="headerlink" href="#deployment-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Deployment Server</a><a class="headerlink" href="#deployment-server" title="Permalink to this headline">¶</a></h2>
 <p>For deployment, we assume that you have downloaded and installed the
 lighttpd web server (see also <a class="reference internal" href="#i-want-to-use-mysql-and-or-apache">I Want to use MySQL and/or Apache</a>) and a
 <tt class="docutils literal"><span class="pre">PostgreSQL</span> <span class="pre">database</span></tt>. You have to adapt <tt class="docutils literal"><span class="pre">start_server.sh</span></tt> and
@@ -501,7 +524,7 @@ nodes, for periodic database cleanups, etc. The <tt class="docutils literal"><sp
 script automatically uninstalls these cron jobs again.</p>
 </div>
 <div class="section" id="solr-server-for-browsing-and-searching">
-<h2><a class="toc-backref" href="#id14">Solr Server for Browsing and Searching</a><a class="headerlink" href="#solr-server-for-browsing-and-searching" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Solr Server for Browsing and Searching</a><a class="headerlink" href="#solr-server-for-browsing-and-searching" title="Permalink to this headline">¶</a></h2>
 <p>The META-SHARE release comes with a pre-configured Solr server used to
 index the META-SHARE database for browsing and searching.</p>
 <p>To start the preconfigured Solr server, go to the <tt class="docutils literal"><span class="pre">metashare</span></tt> folder
@@ -518,7 +541,7 @@ deployment server.</p>
 subsections are required only for people who want to understand in depth
 how to operate and configure the Solr server.</p>
 <div class="section" id="installing-solr">
-<h3><a class="toc-backref" href="#id15">Installing Solr</a><a class="headerlink" href="#installing-solr" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Installing Solr</a><a class="headerlink" href="#installing-solr" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Make sure you have Java 1.6 or later (run <tt class="docutils literal"><span class="pre">java</span> <span class="pre">-version</span></tt> to check!).</p>
 </li>
@@ -549,7 +572,7 @@ Solr’s admin interface for the main core.</p>
 </ol>
 </div>
 <div class="section" id="keeping-the-solr-configuration-up-to-date">
-<h3><a class="toc-backref" href="#id16">Keeping the Solr Configuration Up-to-Date</a><a class="headerlink" href="#keeping-the-solr-configuration-up-to-date" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Keeping the Solr Configuration Up-to-Date</a><a class="headerlink" href="#keeping-the-solr-configuration-up-to-date" title="Permalink to this headline">¶</a></h3>
 <p>As development on the search functionality continues, you may have to
 occasionally recreate your Solr configuration. Before doing that you
 have to shut down your Solr server (<tt class="docutils literal"><span class="pre">Ctrl+C</span></tt>). Now you can either:</p>
@@ -562,7 +585,7 @@ following steps.</li>
 </ul>
 </div>
 <div class="section" id="manually-updating-the-solr-configuration">
-<h3><a class="toc-backref" href="#id17">Manually Updating the Solr Configuration</a><a class="headerlink" href="#manually-updating-the-solr-configuration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Manually Updating the Solr Configuration</a><a class="headerlink" href="#manually-updating-the-solr-configuration" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Create Solr schema files automatically by running:</p>
 <div class="highlight-python"><pre>source venv/bin/activate
@@ -595,9 +618,9 @@ itself).</p>
 </div>
 </div>
 <div class="section" id="linking-your-node-with-the-meta-share-network">
-<h2><a class="toc-backref" href="#id18">Linking your Node with the META-SHARE Network</a><a class="headerlink" href="#linking-your-node-with-the-meta-share-network" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">Linking your Node with the META-SHARE Network</a><a class="headerlink" href="#linking-your-node-with-the-meta-share-network" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overview">
-<h3><a class="toc-backref" href="#id19">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
 <p>META-SHARE aims to provide an infrastructure that makes language
 resources available in a network of many META-SHARE Nodes, the
 META-SHARE Network. A number of nodes with certain technical and
@@ -614,7 +637,7 @@ In <a class="reference internal" href="#step-by-step-instructions">Step-by-Step 
 required for this.</p>
 </div>
 <div class="section" id="step-by-step-instructions">
-<h3><a class="toc-backref" href="#id20">Step-by-Step Instructions</a><a class="headerlink" href="#step-by-step-instructions" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Step-by-Step Instructions</a><a class="headerlink" href="#step-by-step-instructions" title="Permalink to this headline">¶</a></h3>
 <p>These are the steps which are required for linking your META-SHARE node
 with the META-SHARE Network:</p>
 <ul>
@@ -651,14 +674,14 @@ Nodes of the META-SHARE Network.</p>
 </div>
 </div>
 <div class="section" id="importing-and-exporting-resources">
-<h2><a class="toc-backref" href="#id21">Importing and Exporting Resources</a><a class="headerlink" href="#importing-and-exporting-resources" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">Importing and Exporting Resources</a><a class="headerlink" href="#importing-and-exporting-resources" title="Permalink to this headline">¶</a></h2>
 <p>Metadata descriptions of language resources can be imported into the
 META-SHARE software from XML files obeying the META-SHARE schema format.
 Likewise, the metadata descriptions in the META-SHARE database can be
 exported into XML files in the format defined by the META-SHARE XML
 schema.</p>
 <div class="section" id="importing-xml-files-into-meta-share">
-<h3><a class="toc-backref" href="#id22">Importing XML Files into META-SHARE</a><a class="headerlink" href="#importing-xml-files-into-meta-share" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Importing XML Files into META-SHARE</a><a class="headerlink" href="#importing-xml-files-into-meta-share" title="Permalink to this headline">¶</a></h3>
 <p>There are two possibilities of importing language resource XML
 descriptions which are outlined in the following sections.</p>
 <p>In general, all files to import should be schema-valid according to the
@@ -673,7 +696,7 @@ so:</p>
 efforts are made to import partial or erroneous XML files. However, in
 order to avoid loosing data, please try to make your files schema valid.</p>
 <div class="section" id="importing-from-the-command-line">
-<h4><a class="toc-backref" href="#id23">Importing from the Command Line</a><a class="headerlink" href="#importing-from-the-command-line" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id25">Importing from the Command Line</a><a class="headerlink" href="#importing-from-the-command-line" title="Permalink to this headline">¶</a></h4>
 <p>META-SHARE comes with a tool called <tt class="docutils literal"><span class="pre">import_xml.py</span></tt> to import XML
 files describing language resources into the system. To import, run
 <tt class="docutils literal"><span class="pre">import_xml.py</span></tt> as follows:</p>
@@ -687,7 +710,7 @@ files containing XML files. The script will print a summary count of
 successfully imported and erroneous files at the end.</p>
 </div>
 <div class="section" id="importing-from-the-editor">
-<h4><a class="toc-backref" href="#id24">Importing from the Editor</a><a class="headerlink" href="#importing-from-the-editor" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id26">Importing from the Editor</a><a class="headerlink" href="#importing-from-the-editor" title="Permalink to this headline">¶</a></h4>
 <p>An alternative way of importing resources is provided by the “Upload”
 menu item of the editor. There you can also provide individual XML files
 or zip files containing XML files. Compared to the shell importer, the
@@ -695,13 +718,13 @@ upload size is limited, though.</p>
 </div>
 </div>
 <div class="section" id="exporting-xml-files-from-meta-share">
-<h3><a class="toc-backref" href="#id25">Exporting XML Files from META-SHARE</a><a class="headerlink" href="#exporting-xml-files-from-meta-share" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Exporting XML Files from META-SHARE</a><a class="headerlink" href="#exporting-xml-files-from-meta-share" title="Permalink to this headline">¶</a></h3>
 <p>META-SHARE aims to be an open platform and therefore allows for the
 export of resources in the original XML format. As with the import,
 there are two possible ways for exporting, both of which are described
 in the following sections.</p>
 <div class="section" id="exporting-from-the-command-line">
-<h4><a class="toc-backref" href="#id26">Exporting from the Command Line</a><a class="headerlink" href="#exporting-from-the-command-line" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id28">Exporting from the Command Line</a><a class="headerlink" href="#exporting-from-the-command-line" title="Permalink to this headline">¶</a></h4>
 <p>The script <tt class="docutils literal"><span class="pre">export_xml.py</span></tt> will export all entries from the database
 into a zip archive containing one XML file per resource. The script
 requires a valid META-SHARE V3.1 database. It can be run as follows:</p>
@@ -714,7 +737,7 @@ deactivate</pre>
 later) installation.</p>
 </div>
 <div class="section" id="exporting-from-the-editor">
-<h4><a class="toc-backref" href="#id27">Exporting from the Editor</a><a class="headerlink" href="#exporting-from-the-editor" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id29">Exporting from the Editor</a><a class="headerlink" href="#exporting-from-the-editor" title="Permalink to this headline">¶</a></h4>
 <p>As an alternative to the shell exporter you may export resource
 descriptions from the editor.</p>
 <ul class="simple">
@@ -729,7 +752,7 @@ or later installation.</li>
 </div>
 </div>
 <div class="section" id="copying-data-between-meta-share-nodes">
-<h3><a class="toc-backref" href="#id28">Copying Data between META-SHARE Nodes</a><a class="headerlink" href="#copying-data-between-meta-share-nodes" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">Copying Data between META-SHARE Nodes</a><a class="headerlink" href="#copying-data-between-meta-share-nodes" title="Permalink to this headline">¶</a></h3>
 <p>Since V3.0, META-SHARE supports the automatic synchronization of
 metadata between a configurable set of META-SHARE nodes. You should
 usually not manually copy resource descriptions by exporting and
@@ -739,12 +762,12 @@ resource description.</p>
 </div>
 </div>
 <div class="section" id="setting-up-editor-user-accounts">
-<h2><a class="toc-backref" href="#id29">Setting up Editor User Accounts</a><a class="headerlink" href="#setting-up-editor-user-accounts" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">Setting up Editor User Accounts</a><a class="headerlink" href="#setting-up-editor-user-accounts" title="Permalink to this headline">¶</a></h2>
 <p>For information on how to set up and manage user accounts, please see
 the META-SHARE Provider Manual.</p>
 </div>
 <div class="section" id="search-engine-optimization-and-web-analytics">
-<h2><a class="toc-backref" href="#id30">Search Engine Optimization and Web Analytics</a><a class="headerlink" href="#search-engine-optimization-and-web-analytics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Search Engine Optimization and Web Analytics</a><a class="headerlink" href="#search-engine-optimization-and-web-analytics" title="Permalink to this headline">¶</a></h2>
 <p>META-SHARE integrates the most common techniques for Search Engine
 Optimization (SEO). In order to check whether SEO works as it should,
 META-SHARE also integrates “django-analytical”, a package for easily
@@ -762,16 +785,16 @@ have to remove the snippet if you would like to use your own Google
 Analytics tracking code via django-analytical!</p>
 </div>
 <div class="section" id="frequently-asked-questions">
-<h2><a class="toc-backref" href="#id31">Frequently Asked Questions</a><a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Frequently Asked Questions</a><a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
 <p>This section compiles a number of the most frequently asked questions.</p>
 <div class="section" id="i-want-to-use-mysql-and-or-apache">
-<h3><a class="toc-backref" href="#id32">I Want to use MySQL and/or Apache</a><a class="headerlink" href="#i-want-to-use-mysql-and-or-apache" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">I Want to use MySQL and/or Apache</a><a class="headerlink" href="#i-want-to-use-mysql-and-or-apache" title="Permalink to this headline">¶</a></h3>
 <p>It may be possible to get these to work, but we have not tested these
 configurations and therefore cannot provide any support for them. The
 recommended database and web server technologies are listed in <a class="reference internal" href="#software-dependencies">Software Dependencies</a>.</p>
 </div>
 <div class="section" id="i-need-help-configuring-lighttpd">
-<h3><a class="toc-backref" href="#id33">I Need Help Configuring lighttpd</a><a class="headerlink" href="#i-need-help-configuring-lighttpd" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">I Need Help Configuring lighttpd</a><a class="headerlink" href="#i-need-help-configuring-lighttpd" title="Permalink to this headline">¶</a></h3>
 <p>The release includes a sample lighttpd.conf configuration file under
 <tt class="docutils literal"><span class="pre">metashare/lighttpd-ssl.conf.sample</span></tt> (or
 <tt class="docutils literal"><span class="pre">metashare/lighttpd-ssl.conf.sample</span></tt> for the non-SSL variant) which
@@ -783,7 +806,7 @@ which should show you how to start up and shut down the production
 server.</p>
 </div>
 <div class="section" id="i-am-getting-storage-errors-when-importing-or-saving">
-<h3><a class="toc-backref" href="#id34">I am Getting Storage Errors when Importing or Saving</a><a class="headerlink" href="#i-am-getting-storage-errors-when-importing-or-saving" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">I am Getting Storage Errors when Importing or Saving</a><a class="headerlink" href="#i-am-getting-storage-errors-when-importing-or-saving" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>File "/usr/local/MetaShareNode/metashare/../metashare/storage/models.py",=  line 254, in save
 mkdir(self._storage_folder()) OSError: [Errno 2] No such file or directory:
 '/home/storage/b557040eff1d11= e09075080027fee6a9b7ffe41433e94b19844c6038a825a145'
@@ -796,7 +819,7 @@ mkdir(self._storage_folder())  OSError: [Errno 2] No such file or directory:
 <a class="reference internal" href="#local-settings-for-meta-share-nodes">Local Settings for META-SHARE Nodes</a> for details.</p>
 </div>
 <div class="section" id="why-can-django-not-serve-the-static-files">
-<h3><a class="toc-backref" href="#id35">Why Can Django not Serve the Static Files?</a><a class="headerlink" href="#why-can-django-not-serve-the-static-files" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id37">Why Can Django not Serve the Static Files?</a><a class="headerlink" href="#why-can-django-not-serve-the-static-files" title="Permalink to this headline">¶</a></h3>
 <p>While in principle, Django could also serve those static files, this is
 not recommended for production use – it makes a lot more sense to have a
 dedicated, lightweight web server handle that task. Some more
@@ -804,7 +827,7 @@ information on combining Django and lighttpd is available
 <a class="reference external" href="https://docs.djangoproject.com/en/1.3/howto/deployment/fastcgi/#lighttpd-setup">here</a></p>
 </div>
 <div class="section" id="postgresql-error-message">
-<h3><a class="toc-backref" href="#id36">PostgreSQL Error Message</a><a class="headerlink" href="#postgresql-error-message" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">PostgreSQL Error Message</a><a class="headerlink" href="#postgresql-error-message" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>--- File "/usr/lib/python2.7/site-packages/django/db/backends/postgresql_psycopg2/base.py", line 24, in &lt;module&gt;
 raiseImproperlyConfigured("Error loading psycopg2 module: %s" % e) django.core.exceptions.ImproperlyConfigured:
 Error loading psycopg2 module: No module named psycopg2 ---</pre>
@@ -813,7 +836,7 @@ Error loading psycopg2 module: No module named psycopg2 ---</pre>
 the <tt class="docutils literal"><span class="pre">psycopg2</span></tt> dependency. See <a class="reference internal" href="#python-modules">Python Modules</a> for how to install it.</p>
 </div>
 <div class="section" id="problems-with-importing-xml-files">
-<h3><a class="toc-backref" href="#id37">Problems with Importing XML Files</a><a class="headerlink" href="#problems-with-importing-xml-files" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">Problems with Importing XML Files</a><a class="headerlink" href="#problems-with-importing-xml-files" title="Permalink to this headline">¶</a></h3>
 <p>We are trying to use <tt class="docutils literal"><span class="pre">import_xml.py</span></tt> to import XML files into the
 database. We are using an XML file that validates against the schema,
 but we get the following&nbsp; error:</p>
@@ -830,7 +853,7 @@ there might be a bug – please send us the example file if possible so
 that we can reproduce and fix it: <a class="reference external" href="mailto:helpdesk-technical&#37;&#52;&#48;meta-share&#46;eu">helpdesk-technical<span>&#64;</span>meta-share<span>&#46;</span>eu</a></p>
 </div>
 <div class="section" id="updating-the-geoip-database-for-statistics-collection">
-<h3><a class="toc-backref" href="#id38">Updating the GeoIP Database for Statistics Collection</a><a class="headerlink" href="#updating-the-geoip-database-for-statistics-collection" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id40">Updating the GeoIP Database for Statistics Collection</a><a class="headerlink" href="#updating-the-geoip-database-for-statistics-collection" title="Permalink to this headline">¶</a></h3>
 <p>The country-based statistics do not seem to properly work anymore.</p>
 <p>For statistical purposes, META-SHARE collects information about the
 country of origin of web site visitors. In this process, the IP address
@@ -846,7 +869,7 @@ the <tt class="docutils literal"><span class="pre">GEOIP_DATA_URL</span></tt> ke
 </div>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id39">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p>This document is part of the Network of Excellence “Multilingual Europe
 Technology Alliance (META-NET)”, co-funded by the 7th Framework
 Programme of the European Commission through the T4ME grant agreement
