@@ -8,8 +8,6 @@ source venv/bin/activate || exit 1
 pip install coveralls || exit 1
 deactivate || exit 1
 
-export PYTHONWARNINGS="d"
-
 ./misc/test-ci/run-testsuite.sh || exit 1
 ./misc/test-ci/run-testsuite.sh --selenium-only || exit 1
 ./misc/test-ci/multitest.sh || exit 1
