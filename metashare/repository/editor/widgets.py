@@ -1,5 +1,6 @@
 import base64
 import logging
+import urlparse
 try:
     import cPickle as pickle
 except:
@@ -26,6 +27,34 @@ LOGGER.addHandler(settings.LOG_HANDLER)
 # the maximum length (in characters) where `TextInput` widgets will still be
 # used; for larger sizes we use `Textarea` widgets
 _MAX_TEXT_INPUT_SIZE = 150
+
+
+class MetaShareAutoCompleteWidget(AutoCompleteWidget):
+    """ This class extends AutoCompleteWidget to provide a render
+        method that includes a search icon
+    """
+    def render(self, name, value, attrs=None):
+        icon = u'<img src="{0}img/admin/selector-search.gif" width="16" height="16" title="Type to search" />'.format(urlparse.urljoin(settings.STATIC_URL, 'admin/'))
+        return mark_safe(icon + super(MetaShareAutoCompleteWidget, self).render(name, value, attrs))
+
+class MetaShareAutoCompleteSelectWidget(AutoCompleteSelectWidget):
+    """ This class replaces the __init__ method of AutoCompleteSelectWidget
+        to use the custom MetaShareAutoCompleteWidget instead of AutoCompleteWidget
+    """
+    def __init__(self, lookup_class, *args, **kwargs):
+        self.lookup_class = lookup_class
+        self.allow_new = kwargs.pop('allow_new', False)
+        self.limit = kwargs.pop('limit', None)
+        query_params = kwargs.pop('query_params', {})
+        widgets = [
+            MetaShareAutoCompleteWidget(
+                lookup_class, allow_new=self.allow_new,
+                limit=self.limit, query_params=query_params
+            ),
+            forms.HiddenInput(attrs={u'data-selectable-type': 'hidden'})
+        ]
+        super(AutoCompleteSelectWidget, self).__init__(widgets, *args, **kwargs)
+
 
 
 class DictWidget(widgets.Widget):
@@ -352,7 +381,7 @@ class MultiFieldWidget(widgets.Widget):
             # Define context for container template rendering.
             _context = {'id': _id, 'field_widget': _field_widget,
               'widget_id': self.widget_id,
-              'admin_media_prefix': settings.STATIC_URL + 'admin/',
+              'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/'),
               'field_name': name}
             
             # If there have been any validation errors, add the message.
@@ -370,7 +399,7 @@ class MultiFieldWidget(widgets.Widget):
             _field_widget = self._render_input_widget(name, '', _field_attrs)
             _context = {'id': _id, 'field_widget': _field_widget,
               'widget_id': self.widget_id,
-              'admin_media_prefix': settings.STATIC_URL + 'admin/',
+              'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/'),
               'field_name': name}
             
             _container = self._render_container(_context)
@@ -378,7 +407,7 @@ class MultiFieldWidget(widgets.Widget):
         
             _field_widget = self._render_input_widget(name, '', _field_attrs)
             _context = {'id': _id, 'field_widget': _field_widget,
-              'admin_media_prefix': settings.STATIC_URL + 'admin/'}
+                        'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/')}
         
         # The JavaScript code needs an empty "template" to create new input
         # widgets dynamically; this is pre-rendered and added to the template
@@ -387,7 +416,7 @@ class MultiFieldWidget(widgets.Widget):
         _context = {'empty_widget': _empty_widget,
           'field_widgets': mark_safe(u'\n'.join(_field_widgets)),
           'widget_id': self.widget_id,
-          'admin_media_prefix': settings.STATIC_URL + 'admin/',
+          'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/'),
           'field_name': name}
         
         # Render final HTML for this MultiFieldWidget instance.
@@ -621,7 +650,7 @@ class AutoCompleteSelectMultipleEditWidget(SelectableMultiWidget, SelectableMedi
             attrs.update(more_attrs)
         query_params = kwargs.pop('query_params', {})
         widget_list = [
-            AutoCompleteWidget(
+            MetaShareAutoCompleteWidget(
                 lookup_class, allow_new=False,
                 limit=self.limit, query_params=query_params, attrs=attrs
             ),
@@ -691,7 +720,7 @@ class LookupMultipleHiddenInputMS(LookupMultipleHiddenInput):
             inputs.append(u'<input%s />' % flatatt(input_attrs))
         return mark_safe(u'\n'.join(inputs))
 
-class AutoCompleteSelectSingleWidget(AutoCompleteSelectWidget):
+class AutoCompleteSelectSingleWidget(MetaShareAutoCompleteSelectWidget):
 
     def __init__(self, lookup_class, *args, **kwargs):
         self.lookup_class = lookup_class
@@ -703,7 +732,7 @@ class AutoCompleteSelectSingleWidget(AutoCompleteSelectWidget):
             u'data-selectable-use-state-error': 'false',
         }
         widget_list = [
-            AutoCompleteWidget(
+            MetaShareAutoCompleteWidget(
                 lookup_class, allow_new=self.allow_new,
                 limit=self.limit, query_params=query_params, attrs=attrs
             ),

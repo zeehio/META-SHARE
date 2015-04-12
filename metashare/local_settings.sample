@@ -19,8 +19,15 @@ DJANGO_BASE = 'path/to/metashare/'
 USE_L10N = True
 LANGUAGE_CODE = 'en-us'
 
+# Allowed hosts: Host and domain names that this django site can serve:
+ALLOWED_HOSTS = ['www.example.com']
+
 # Path to the local storage layer path used for persistent object storage.
 STORAGE_PATH = '/path/to/storage/path'
+
+# Path to the local directory where all the static files (images, js, css) will 
+# be collected and served by the web server in STATIC_URL
+STATIC_ROOT = '/path/to/static/path'
 
 # Directory in which lock files will temporarily be created.
 LOCK_DIR = join(tempfile.gettempdir(), 'metashare-locks')

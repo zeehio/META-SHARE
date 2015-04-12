@@ -89,8 +89,10 @@ Here are now the steps you should follow for a successful migration:
 5. Copy ``/path/to/old/MetaShareNode-3.0/metashare/local_settings.py``
    to ``/path/to/MetaShareNode-3.1/metashare/local_settings.py``
 
-6. Edit the ``local_settings.py`` and add a ``SECRET_KEY`` variable.
+6. Edit the ``local_settings.py``. Add a ``SECRET_KEY`` variable and a
+   ``ALLOWED_HOSTS`` variable.
    See `Local Settings for META-SHARE Nodes`_ for information on how to generate it.
+
 
 7. Adapt any customization you had on the old ``start-server.sh``,
    ``stop-server.sh`` scripts into the new script version.
@@ -348,6 +350,11 @@ The local settings are the following:
    applications and lighttpd; it basically messes up the URL after HTTP
    submits. ``FORCE_SCRIPT_NAME= ""`` fixes the issue and hence is
    required for lighttpd use.
+
+-  ``ALLOWED_HOSTS = [ 'www.example.com' ]
+
+   A list of strings representing the host/domain names this META-SHARE
+   instance can be served at.
 
 -  ``STORAGE_PATH = '/path/to/storage/path'``
 
