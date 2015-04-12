@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static from staticfiles %}
 
 {% block content %}
 
 {% if not myres %}
     <script>window.location.replace("{% url metashare.views.frontpage %}stats/top/");</script>
 {% endif %}
-<link rel="stylesheet" href="{% get_static_prefix %}/css/view_stats.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static "/css/view_stats.css" %}" type="text/css" media="screen" />
 
 <div class='tab-container'>
  <ul class='etabs'>
@@ -36,7 +36,7 @@
    {% for lr in data %} 
     <tr class="{% cycle odd,even %}">
         <td class=resourceName>
-        <a href="{% url metashare.views.frontpage %}editor/repository/resourceinfotype_model/{{ lr.0 }}/"><img src="{% get_static_prefix %}admin/img/admin/icon_changelink.gif"></a>&nbsp;
+        <a href="{% url metashare.views.frontpage %}editor/repository/resourceinfotype_model/{{ lr.0 }}/"><img src="{% static "admin/img/admin/icon_changelink.gif" %}"></a>&nbsp;
         {% get_icon lr.2.resourceComponentType.as_subclass.resourceType %}&nbsp;
         
         {% if lr.3 == 'p' %}
@@ -47,7 +47,7 @@
         </td>
         <td align=right nowrap>
             {% for stat in lr.4 %}
-                <img src="{% get_static_prefix %}stats/img/{{ stat.action }}_icon.gif"
+                <img src="{% static "stats/img"|add:stat.action|add:"_icon.gif" %}"
                     alt="Last {{ stat.action }}: {{ stat.last }}" title="Last {{ stat.action }}: {{ stat.last }}" />
                     <b>{{  stat.count }}</b>&nbsp;
             {% endfor %}

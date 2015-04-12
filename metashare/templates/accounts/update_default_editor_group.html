@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static from staticfiles %}
 {% block title %}{{ title }} &ndash; META-SHARE{% endblock %}
 
 {% block messages %}
@@ -10,7 +10,7 @@
 
 {% block links %}
 {{ form.media }}
-<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/widgets.css"/>
+<link rel="stylesheet" type="text/css" href="{% static "css/widgets.css" %}"/>
 {% endblock %}
 
 {% block content %}

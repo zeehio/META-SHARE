@@ -50,9 +50,9 @@ class SchemaModelAdmin(admin.ModelAdmin, RelatedAdminMixin, SchemaModelLookup):
     inlines = ()
     
     class Media:
-        js = (settings.STATIC_URL + 'js/addCollapseToAllStackedInlines.js',
-              settings.STATIC_URL + 'js/jquery-ui.min.js',
-              settings.STATIC_URL + 'js/help.js',
+        js = (settings.STATIC_URL + 'metashare/js/addCollapseToAllStackedInlines.js',
+              settings.STATIC_URL + 'metashare/js/jquery-ui.min.js',
+              settings.STATIC_URL + 'metashare/js/help.js',
               settings.STATIC_URL + 'admin/js/collapse.min.js',)
         css = {'all': (settings.STATIC_URL + 'admin/css/themes/smoothness/jquery-ui.css',)}
 

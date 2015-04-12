@@ -208,14 +208,15 @@ class LangDictWidget(DictWidget):
         from the JavaScript of `DictWidget` and CSS specific to this widget.
         """
         # pylint: disable-msg=E1101
-        return Media(js = ('js/jquery-ui.min.js',
-                           '{}admin/js/pycountry.js'\
+        return Media(js = ('{}metashare/js/jquery-ui.min.js'\
                            .format(settings.STATIC_URL),
-                           '{}admin/js/autocomp.js'\
+                           '{}metashare/js/pycountry.js'\
                            .format(settings.STATIC_URL),
-                           '{}admin/js/lang_dict_widget.js'\
+                           '{}metashare/js/autocomp.js'\
+                           .format(settings.STATIC_URL),
+                           '{}metashare/js/lang_dict_widget.js'\
                            .format(settings.STATIC_URL),)) \
-            + Media(css={'all': ('{}admin/css/lang_dict_widget.css'.format(
+            + Media(css={'all': ('{}metashare/css/lang_dict_widget.css'.format(
                                         settings.STATIC_URL),)})
     media = property(_media)
 
@@ -229,7 +230,7 @@ class SubclassableRelatedFieldWidgetWrapper(RelatedFieldWidgetWrapper):
     """
     class Media:
         js = (
-          settings.STATIC_URL + "js/choice-type-widget.js",
+          settings.STATIC_URL + "metashare/js/choice-type-widget.js",
         )
 
     def __init__(self, widget, rel, admin_site, *args, **kwargs):
@@ -302,9 +303,9 @@ class MultiFieldWidget(widgets.Widget):
         Media sub class to inject custom CSS and JavaScript code.
         """
         css = {
-          'all': ('css/repository.css',)
+          'all': ('metashare/css/repository.css',)
         }
-        js = ('js/multi-field-widget.js',)
+        js = ('metashare/js/multi-field-widget.js',)
     
     def __init__(self, widget_id, max_length=None, **kwargs):
         """
@@ -530,11 +531,11 @@ class ComboWidget(AdminTextInputWidget):
         css = {
           'all': ('{}admin/css/themes/smoothness/jquery-ui.css'
                     .format(settings.STATIC_URL),
-                  '{}admin/css/combo.css'.format(settings.STATIC_URL))
+                  '{}metashare/css/combo.css'.format(settings.STATIC_URL))
         }
-        js = ('js/jquery-ui.min.js',
-              '{}admin/js/pycountry.js'.format(settings.STATIC_URL),
-              '{}admin/js/autocomp.js'.format(settings.STATIC_URL),)
+        js = ('{}metashare/js/jquery-ui.min.js'.format(settings.STATIC_URL),
+              '{}metashare/js/pycountry.js'.format(settings.STATIC_URL),
+              '{}metashare/js/autocomp.js'.format(settings.STATIC_URL),)
 
     def __init__(self, field_type=None, attrs=None):
         self.field_type = field_type
@@ -568,9 +569,9 @@ class MultiComboWidget(MultiFieldWidget):
                     .format(settings.STATIC_URL),
                   '{}admin/css/combo.css'.format(settings.STATIC_URL))
         }
-        js = ('js/jquery-ui.min.js',
-              '{}admin/js/pycountry.js'.format(settings.STATIC_URL),
-              '{}admin/js/autocomp.js'.format(settings.STATIC_URL),)
+        js = ('{}metashare/js/jquery-ui.min.js'.format(settings.STATIC_URL),
+              '{}metashare/js/pycountry.js'.format(settings.STATIC_URL),
+              '{}metashare/js/autocomp.js'.format(settings.STATIC_URL),)
 
     def __init__(self, field_type=None, attrs=None, widget_id=None, max_length=None, **kwargs):
         self.field_type = field_type
@@ -608,9 +609,9 @@ class MultiComboWidget(MultiFieldWidget):
 
 class LangAutoCompleteWidget(widgets.Widget):
     class Media:
-        js = ('js/jquery-ui.min.js',
-              '{}admin/js/pycountry.js'.format(settings.STATIC_URL),
-              '{}admin/js/autocomp.js'.format(settings.STATIC_URL),)
+        js = ('{}metashare/js/jquery-ui.min.js'.format(settings.STATIC_URL),
+              '{}metashare/js/pycountry.js'.format(settings.STATIC_URL),
+              '{}metashare/js/autocomp.js'.format(settings.STATIC_URL),)
         css = {}
         
     def __init__(self, attrs=None):

@@ -19,7 +19,7 @@ fastcgi.server = (
 
 url.rewrite-once = (
     "^(/static.*)$" => "$1",
-    "^/favicon\.ico$" => "/static/images/favicon.ico",
+    "^/favicon\.ico$" => "/static/metashare/images/favicon.ico",
     "^(/.*)$" => "/metashare.fcgi$1",
 )
 
