@@ -9,6 +9,18 @@ from logging.handlers import RotatingFileHandler
 # DATABASE_* settings, ADMINS, etc.
 from local_settings import *
 
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+# No user-uploaded media on META-SHARE
+MEDIA_ROOT = ''
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+# No user-uploaded media on META-SHARE
+MEDIA_URL = ''
+
 # Logging settings for this Django project.
 LOG_LEVEL = logging.INFO
 LOG_FORMAT = "[%(asctime)s] %(name)s::%(levelname)s %(message)s"
@@ -114,7 +126,8 @@ MEDIA_URL = '/{0}site_media/'.format(DJANGO_BASE)
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '{0}admin/'.format(STATIC_URL)
 
-STATICFILES_DIRS = ( '{0}/media/'.format(ROOT_PATH), )
+STATICFILES_DIRS = ( '{0}/media/'.format(ROOT_PATH), 
+                     '{0}/media_ordered/'.format(ROOT_PATH),)
 
 #ADMIN_MEDIA_ROOT = '{0}/media/admin/'.format(ROOT_PATH)
 
@@ -144,6 +157,7 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.media',
+    'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     "django.core.context_processors.request",
 )
@@ -176,6 +190,9 @@ INSTALLED_APPS = (
     'metashare.stats',
     'metashare.recommendations',
     'metashare.repository',
+    
+    # Other apps:
+    'selectable',
 )
 
 # add Kronos to installed apps if not running on Windows

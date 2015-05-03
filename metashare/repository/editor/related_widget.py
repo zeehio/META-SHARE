@@ -13,7 +13,7 @@ from django.utils.html import escape
 class RelatedFieldWidgetWrapper(widgets.RelatedFieldWidgetWrapper):
     
     class Media:
-        js = (settings.STATIC_URL + "js/related-widget-wrapper.js",)
+        js = (settings.STATIC_URL + "metashare/js/related-widget-wrapper.js",)
     
     def __init__(self, *args, **kwargs):
         self.can_change_related = kwargs.pop('can_change_related', None)

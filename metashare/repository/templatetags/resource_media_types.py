@@ -78,27 +78,27 @@ class ResourceMediaTypes(template.Node):
         # use images instead of plain text when displaying media types
         image_tag = ""
         if "text" in result:
-            image_tag = ' <img title="text" src="{}css/sexybuttons/images/icons/silk/page' \
+            image_tag = ' <img title="text" src="{}metashare/css/sexybuttons/images/icons/silk/page' \
               '_white_text_media_type.png" /> &nbsp;' \
               .format(STATIC_URL)
         if "audio" in result:
-            image_tag = image_tag + ' <img title="audio" src="{}css/sexybuttons/images/' \
+            image_tag = image_tag + ' <img title="audio" src="{}metashare/css/sexybuttons/images/' \
               'icons/silk/sound_none.png" /> &nbsp; ' \
               .format(STATIC_URL)
         if "image" in result:
-            image_tag = image_tag + ' <img title="image" src="{}css/sexybuttons/images/' \
+            image_tag = image_tag + ' <img title="image" src="{}metashare/css/sexybuttons/images/' \
               'icons/silk/picture.png" /> &nbsp; ' \
               .format(STATIC_URL)
         if "video" in result:
-            image_tag = image_tag + ' <img title="video" src="{}css/sexybuttons/images/' \
+            image_tag = image_tag + ' <img title="video" src="{}metashare/css/sexybuttons/images/' \
               'icons/silk/film.png" />' \
               .format(STATIC_URL)
         if "textNumerical" in result:
-            image_tag = image_tag + ' <img title="textNumerical" src="{}css/sexybuttons/images/' \
+            image_tag = image_tag + ' <img title="textNumerical" src="{}metashare/css/sexybuttons/images/' \
               'icons/silk/eye.png" />' \
               .format(STATIC_URL)
         if "textNgram" in result:
-            image_tag = image_tag + ' <img title="textNgram" src="{}css/sexybuttons/images/' \
+            image_tag = image_tag + ' <img title="textNgram" src="{}metashare/css/sexybuttons/images/' \
               'icons/silk/text_align_left.png" />' \
               .format(STATIC_URL)
 
