@@ -90,4 +90,5 @@ branches:
   only:
     - master
     - using_django1.4
+    - using_django_1.4_staticfiles2
 

@@ -108,14 +108,6 @@ METASHARE_VERSION = '3.0'
 # to load the internationalization machinery.
 USE_I18N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '{0}/media/'.format(ROOT_PATH)
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/{0}site_media/'.format(DJANGO_BASE)
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -124,10 +116,8 @@ MEDIA_URL = '/{0}site_media/'.format(DJANGO_BASE)
 # cf. http://stackoverflow.com/questions/1081596/django-serving-admin-media-files
 
 STATIC_URL = '/static/'
-ADMIN_MEDIA_PREFIX = '{0}admin/'.format(STATIC_URL)
 
-STATICFILES_DIRS = ( '{0}/media/'.format(ROOT_PATH), 
-                     '{0}/media_ordered/'.format(ROOT_PATH),)
+STATICFILES_DIRS = ( '{0}/static/'.format(ROOT_PATH),)
 
 #ADMIN_MEDIA_ROOT = '{0}/media/admin/'.format(ROOT_PATH)
 
