@@ -100,7 +100,7 @@ div#header a:link, a:visited,a:hover,a:active{
 
 .topright{	
 	display: block;
-	background-image: url(../../images/button_top_bg2.png);
+	background-image: url(../../metashare/images/button_top_bg2.png);
 	background-repeat: repeat-x;
 	border: none;
 	width: 70px;
@@ -121,7 +121,7 @@ div#header a:link, a:visited,a:hover,a:active{
 }
 
 a:hover .topright{	
-	background-image: url(../../images/button_top_bg.png);
+	background-image: url(../../metashare/images/button_top_bg.png);
 	text-decoration: none; 
 }
 
@@ -179,7 +179,7 @@ div.form-row.distributionInfo > div.field-box, div.form-row.usageInfo > div.fiel
 
 #jsddm li a{	
 	display: block;
-	background-image: url(../../images/button_top_bg.png);
+	background-image: url(../../metashare/images/button_top_bg.png);
 	background-repeat: repeat-x;
 	border: none;
 	padding: 5px 12px;
@@ -202,7 +202,7 @@ div.form-row.distributionInfo > div.field-box, div.form-row.usageInfo > div.fiel
 
 #jsddm li a:hover
 {	
-	background-image: url(../../images/button_top_bg2.png);
+	background-image: url(../../metashare/images/button_top_bg2.png);
 	text-decoration: none; 
 }
 
@@ -221,12 +221,12 @@ div.form-row.distributionInfo > div.field-box, div.form-row.usageInfo > div.fiel
 	
 #jsddm li ul li a{
 	width: auto;
-	background-image: url(../../images/button_top_gray_bg.png); 
+	background-image: url(../../metashare/images/button_top_gray_bg.png); 
 	text-shadow: none !important;
 }
 	
 #jsddm li ul li a:hover{
-	background-image: url(../../images/button_top_bg.png); 
+	background-image: url(../../metashare/images/button_top_bg.png); 
 	text-shadow: none !important;
 }
 
@@ -350,7 +350,7 @@ h2.help_link {
 
 
 div.split{
-	background-image: url(../../images/trenner02.png);
+	background-image: url(../../metashare/images/trenner02.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	z-index: 10;
