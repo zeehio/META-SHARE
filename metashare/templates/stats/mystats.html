@@ -36,7 +36,7 @@
    {% for lr in data %} 
     <tr class="{% cycle odd,even %}">
         <td class=resourceName>
-        <a href="{% url metashare.views.frontpage %}editor/repository/resourceinfotype_model/{{ lr.0 }}/"><img src="{% static "admin/img/admin/icon_changelink.gif" %}"></a>&nbsp;
+        <a href="{% url metashare.views.frontpage %}editor/repository/resourceinfotype_model/{{ lr.0 }}/"><img src="{% static "metashare/img/admin/icon_changelink.gif" %}"></a>&nbsp;
         {% get_icon lr.2.resourceComponentType.as_subclass.resourceType %}&nbsp;
         
         {% if lr.3 == 'p' %}

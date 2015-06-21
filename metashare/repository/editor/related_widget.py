@@ -57,7 +57,6 @@ class RelatedFieldWidgetWrapper(widgets.RelatedFieldWidgetWrapper):
         rendered_widget = mark_safe(rendered_widget)
         context = {'widget': rendered_widget,
                    'name': name,
-                   'media_prefix': settings.STATIC_URL + 'admin/',
                    'can_change_related': self.can_change_related,
                    'can_add_related': self.can_add_related,
                    'can_delete_related': self.can_delete_related}
