@@ -34,7 +34,7 @@ class MetaShareAutoCompleteWidget(AutoCompleteWidget):
         method that includes a search icon
     """
     def render(self, name, value, attrs=None):
-        icon = u'<img src="{0}img/admin/selector-search.gif" width="16" height="16" title="Type to search" />'.format(urlparse.urljoin(settings.STATIC_URL, 'admin/'))
+        icon = u'<img src="{0}img/admin/selector-search.gif" width="16" height="16" title="Type to search" />'.format(urlparse.urljoin(settings.STATIC_URL, 'metashare/'))
         return mark_safe(icon + super(MetaShareAutoCompleteWidget, self).render(name, value, attrs))
 
 class MetaShareAutoCompleteSelectWidget(AutoCompleteSelectWidget):
@@ -382,7 +382,7 @@ class MultiFieldWidget(widgets.Widget):
             # Define context for container template rendering.
             _context = {'id': _id, 'field_widget': _field_widget,
               'widget_id': self.widget_id,
-              'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/'),
+              'static_prefix': settings.STATIC_URL,
               'field_name': name}
             
             # If there have been any validation errors, add the message.
@@ -400,7 +400,7 @@ class MultiFieldWidget(widgets.Widget):
             _field_widget = self._render_input_widget(name, '', _field_attrs)
             _context = {'id': _id, 'field_widget': _field_widget,
               'widget_id': self.widget_id,
-              'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/'),
+              'static_prefix': settings.STATIC_URL,
               'field_name': name}
             
             _container = self._render_container(_context)
@@ -408,7 +408,7 @@ class MultiFieldWidget(widgets.Widget):
         
             _field_widget = self._render_input_widget(name, '', _field_attrs)
             _context = {'id': _id, 'field_widget': _field_widget,
-                        'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/')}
+                        'static_prefix': settings.STATIC_URL}
         
         # The JavaScript code needs an empty "template" to create new input
         # widgets dynamically; this is pre-rendered and added to the template
@@ -417,7 +417,7 @@ class MultiFieldWidget(widgets.Widget):
         _context = {'empty_widget': _empty_widget,
           'field_widgets': mark_safe(u'\n'.join(_field_widgets)),
           'widget_id': self.widget_id,
-          'admin_media_prefix': urlparse.urljoin(settings.STATIC_URL, 'admin/'),
+          'static_prefix': settings.STATIC_URL,
           'field_name': name}
         
         # Render final HTML for this MultiFieldWidget instance.

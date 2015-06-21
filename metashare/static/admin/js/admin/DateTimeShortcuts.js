@@ -12,16 +12,16 @@ var DateTimeShortcuts = {
     clockDivName: 'clockbox',        // name of clock <div> that gets toggled
     clockLinkName: 'clocklink',      // name of the link that is used to toggle
     shortCutsClass: 'datetimeshortcuts', // class of the clock and cal shortcuts
-    admin_media_prefix: '',
+    static_prefix: '',
     init: function() {
-        // Get admin_media_prefix by grabbing it off the window object. It's
+        // Get static_prefix by grabbing it off the window object. It's
         // set in the admin/base.html template, so if it's not there, someone's
         // overridden the template. In that case, we'll set a clearly-invalid
         // value in the hopes that someone will examine HTTP requests and see it.
-        if (window.__admin_media_prefix__ != undefined) {
-            DateTimeShortcuts.admin_media_prefix = window.__admin_media_prefix__;
+        if (window.__static_prefix__ != undefined) {
+            DateTimeShortcuts.static_prefix = window.__static_prefix__;
         } else {
-            DateTimeShortcuts.admin_media_prefix = '/missing-admin-media-prefix/';
+            DateTimeShortcuts.static_prefix = '/missing-static-prefix/';
         }
 
         var inputs = document.getElementsByTagName('input');
@@ -50,7 +50,7 @@ var DateTimeShortcuts = {
         var clock_link = document.createElement('a');
         clock_link.setAttribute('href', 'javascript:DateTimeShortcuts.openClock(' + num + ');');
         clock_link.id = DateTimeShortcuts.clockLinkName + num;
-        quickElement('img', clock_link, '', 'src', DateTimeShortcuts.admin_media_prefix + 'img/admin/icon_clock.gif', 'alt', gettext('Clock'));
+        quickElement('img', clock_link, '', 'src', DateTimeShortcuts.static_prefix + 'metashare/img/admin/icon_clock.gif', 'alt', gettext('Clock'));
         shortcuts_span.appendChild(document.createTextNode('\240'));
         shortcuts_span.appendChild(now_link);
         shortcuts_span.appendChild(document.createTextNode('\240|\240'));
@@ -138,7 +138,7 @@ var DateTimeShortcuts = {
         var cal_link = document.createElement('a');
         cal_link.setAttribute('href', 'javascript:DateTimeShortcuts.openCalendar(' + num + ');');
         cal_link.id = DateTimeShortcuts.calendarLinkName + num;
-        quickElement('img', cal_link, '', 'src', DateTimeShortcuts.admin_media_prefix + 'img/admin/icon_calendar.gif', 'alt', gettext('Calendar'));
+        quickElement('img', cal_link, '', 'src', DateTimeShortcuts.static_prefix + 'metashare/img/admin/icon_calendar.gif', 'alt', gettext('Calendar'));
         shortcuts_span.appendChild(document.createTextNode('\240'));
         shortcuts_span.appendChild(today_link);
         shortcuts_span.appendChild(document.createTextNode('\240|\240'));
