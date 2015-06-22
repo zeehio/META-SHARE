@@ -50,7 +50,7 @@ var SelectFilter = {
 
         var search_filter_label = quickElement('label', filter_p, '', 'for', field_id + "_input", 'style', 'width:16px;padding:2px');
 
-        var search_selector_img = quickElement('img', search_filter_label, '', 'src', static_prefix + 'metashare/img/admin/selector-search.gif');
+        var search_selector_img = quickElement('img', search_filter_label, '', 'src', static_prefix + 'img/admin/selector-search.gif');
         search_selector_img.alt = gettext("Filter");
 
         filter_p.appendChild(document.createTextNode(' '));
