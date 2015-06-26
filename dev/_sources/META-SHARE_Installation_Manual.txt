@@ -15,10 +15,10 @@ Authors: Christian Federmann, Marc Schröder,  Christian Spurk and Sergio Oller
 Executive Summary
 -----------------
 
-This document is a guide for installing META-SHARE V3.1. It is intended
+This document is a guide for installing META-SHARE V3.0.3. It is intended
 for system administrators setting up META-SHARE nodes. It also contains
 a section on how to upgrade an existing META-SHARE V3.0.x installation
-to V3.1.
+to V3.0.3.
 
 Backing up META-SHARE 
 ----------------------
@@ -87,7 +87,7 @@ Here are now the steps you should follow for a successful migration:
 4. Make sure your META-SHARE instances are stopped (no development server running).
 
 5. Copy ``/path/to/old/MetaShareNode-3.0/metashare/local_settings.py``
-   to ``/path/to/MetaShareNode-3.1/metashare/local_settings.py``
+   to ``/path/to/MetaShareNode-3.0.3/metashare/local_settings.py``
 
 6. Edit the ``local_settings.py``. Add a ``SECRET_KEY`` variable and a
    ``ALLOWED_HOSTS`` variable.
@@ -103,7 +103,7 @@ Here are now the steps you should follow for a successful migration:
 Installing META-SHARE
 --------------------------
 
-This section explains how to download and install META-SHARE V3.1 and
+This section explains how to download and install META-SHARE V3.0.3 and
 its dependencies.
 
 Start by downloading META-SHARE from the
@@ -162,7 +162,7 @@ AND python-2.7 was installed during the previous installation in
 from your ``PATH`` variable ``/path/to/old/MetaShareNode3.0/opt/bin``.
 No path modifications are required anymore.
 
-META-SHARE V3.1 requires Python 2.7. Most Linux/Unix distributions come
+META-SHARE V3.0.3 requires Python 2.7. Most Linux/Unix distributions come
 already with a preinstalled version of Python. You may check the installed
 python version with ``python2 --version``.
 
@@ -185,7 +185,7 @@ command to get all required build dependencies:
 Python Modules
 ^^^^^^^^^^^^^^^^^^
 
-META-SHARE V3.1 does not bundle anymore all the python dependencies.
+META-SHARE V3.0.3 does not bundle anymore all the python dependencies.
 Instead of doing that, we follow the standard way of working with
 python apps, based on `virtualenv <https://virtualenv.pypa.io>`__ and
 `pip <https://pip.pypa.io>`__. Virtualenv allows us to create
@@ -301,7 +301,7 @@ requested details.
          Quit the server with CONTROL-C.
        deactivate
 
-Congratulations: you have successfully started a META-SHARE V3.1 node in
+Congratulations: you have successfully started a META-SHARE V3.0.3 node in
 development mode. This means that all required Python and Django
 dependencies are functioning correctly.
 
@@ -720,7 +720,7 @@ Exporting from the Command Line
 
 The script ``export_xml.py`` will export all entries from the database
 into a zip archive containing one XML file per resource. The script
-requires a valid META-SHARE V3.1 database. It can be run as follows:
+requires a valid META-SHARE V3.0.3 database. It can be run as follows:
 
 ::
 

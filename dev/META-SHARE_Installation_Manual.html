@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>META-SHARE Installation Manual &mdash; META-SHARE 3.1-beta documentation</title>
+    <title>META-SHARE Installation Manual &mdash; META-SHARE 3.0.3-beta documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '3.1-beta',
+        VERSION:     '3.0.3-beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="META-SHARE 3.1-beta documentation" href="index.html" />
+    <link rel="top" title="META-SHARE 3.0.3-beta documentation" href="index.html" />
     <link rel="next" title="META-SHARE Provider Manual" href="META-SHARE_Provider_Manual.html" />
     <link rel="prev" title="Welcome to META-SHARE’s documentation!" href="index.html" /> 
   </head>
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to META-SHARE’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">META-SHARE 3.1-beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">META-SHARE 3.0.3-beta documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -122,10 +122,10 @@
 </div>
 <div class="section" id="executive-summary">
 <h2><a class="toc-backref" href="#id4">Executive Summary</a><a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
-<p>This document is a guide for installing META-SHARE V3.1. It is intended
+<p>This document is a guide for installing META-SHARE V3.0.3. It is intended
 for system administrators setting up META-SHARE nodes. It also contains
 a section on how to upgrade an existing META-SHARE V3.0.x installation
-to V3.1.</p>
+to V3.0.3.</p>
 </div>
 <div class="section" id="backing-up-meta-share">
 <h2><a class="toc-backref" href="#id5">Backing up META-SHARE</a><a class="headerlink" href="#backing-up-meta-share" title="Permalink to this headline">¶</a></h2>
@@ -182,7 +182,7 @@ current installation.</p>
 <li><p class="first">Make sure your META-SHARE instances are stopped (no development server running).</p>
 </li>
 <li><p class="first">Copy <tt class="docutils literal"><span class="pre">/path/to/old/MetaShareNode-3.0/metashare/local_settings.py</span></tt>
-to <tt class="docutils literal"><span class="pre">/path/to/MetaShareNode-3.1/metashare/local_settings.py</span></tt></p>
+to <tt class="docutils literal"><span class="pre">/path/to/MetaShareNode-3.0.3/metashare/local_settings.py</span></tt></p>
 </li>
 <li><p class="first">Edit the <tt class="docutils literal"><span class="pre">local_settings.py</span></tt>. Add a <tt class="docutils literal"><span class="pre">SECRET_KEY</span></tt> variable and a
 <tt class="docutils literal"><span class="pre">ALLOWED_HOSTS</span></tt> variable.
@@ -197,7 +197,7 @@ See <a class="reference internal" href="#local-settings-for-meta-share-nodes">Lo
 </div>
 <div class="section" id="installing-meta-share">
 <h2><a class="toc-backref" href="#id7">Installing META-SHARE</a><a class="headerlink" href="#installing-meta-share" title="Permalink to this headline">¶</a></h2>
-<p>This section explains how to download and install META-SHARE V3.1 and
+<p>This section explains how to download and install META-SHARE V3.0.3 and
 its dependencies.</p>
 <p>Start by downloading META-SHARE from the
 <a class="reference external" href="https://github.com/metashare/META-SHARE/downloads">download page</a>.</p>
@@ -243,7 +243,7 @@ AND python-2.7 was installed during the previous installation in
 <tt class="docutils literal"><span class="pre">/path/to/old/MetaShareNode3.0/</span></tt> please make sure to remove
 from your <tt class="docutils literal"><span class="pre">PATH</span></tt> variable <tt class="docutils literal"><span class="pre">/path/to/old/MetaShareNode3.0/opt/bin</span></tt>.
 No path modifications are required anymore.</p>
-<p>META-SHARE V3.1 requires Python 2.7. Most Linux/Unix distributions come
+<p>META-SHARE V3.0.3 requires Python 2.7. Most Linux/Unix distributions come
 already with a preinstalled version of Python. You may check the installed
 python version with <tt class="docutils literal"><span class="pre">python2</span> <span class="pre">--version</span></tt>.</p>
 <p>In case the output is something like &#8220;2.7.x&#8221;, nothing else needs to be done.</p>
@@ -261,7 +261,7 @@ command to get all required build dependencies:</p>
 </div>
 <div class="section" id="python-modules">
 <h4><a class="toc-backref" href="#id11">Python Modules</a><a class="headerlink" href="#python-modules" title="Permalink to this headline">¶</a></h4>
-<p>META-SHARE V3.1 does not bundle anymore all the python dependencies.
+<p>META-SHARE V3.0.3 does not bundle anymore all the python dependencies.
 Instead of doing that, we follow the standard way of working with
 python apps, based on <a class="reference external" href="https://virtualenv.pypa.io">virtualenv</a> and
 <a class="reference external" href="https://pip.pypa.io">pip</a>. Virtualenv allows us to create
@@ -359,7 +359,7 @@ deactivate</pre>
 </div>
 </li>
 </ol>
-<p>Congratulations: you have successfully started a META-SHARE V3.1 node in
+<p>Congratulations: you have successfully started a META-SHARE V3.0.3 node in
 development mode. This means that all required Python and Django
 dependencies are functioning correctly.</p>
 </div>
@@ -727,7 +727,7 @@ in the following sections.</p>
 <h4><a class="toc-backref" href="#id28">Exporting from the Command Line</a><a class="headerlink" href="#exporting-from-the-command-line" title="Permalink to this headline">¶</a></h4>
 <p>The script <tt class="docutils literal"><span class="pre">export_xml.py</span></tt> will export all entries from the database
 into a zip archive containing one XML file per resource. The script
-requires a valid META-SHARE V3.1 database. It can be run as follows:</p>
+requires a valid META-SHARE V3.0.3 database. It can be run as follows:</p>
 <div class="highlight-python"><pre>source venv/bin/activate
 cd metashare
 python export_xml.py &lt;archive.zip&gt;
@@ -984,7 +984,7 @@ no.: 249119.</p>
         <li class="right" >
           <a href="index.html" title="Welcome to META-SHARE’s documentation!"
              >previous</a> |</li>
-        <li><a href="index.html">META-SHARE 3.1-beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">META-SHARE 3.0.3-beta documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
