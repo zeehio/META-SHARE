@@ -87,6 +87,5 @@ addons:
     packages:
     - libpq-dev
     - python-sphinx
-
 sudo: false
 
