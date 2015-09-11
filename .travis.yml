@@ -69,8 +69,9 @@ env:
 python:
   - "2.7"
 # commands to install dependencies
+before_install:
+  - pip install codecov
 install:
-  - "pip install coveralls"
   - "./install-dependencies.sh"
 # command to run tests
 script:
@@ -79,7 +80,7 @@ script:
   - "if [ \"x$TEST_SUITE\" = \"xdocs\" ] ; then ./misc/test-ci/autoupdate-docs.sh; fi"
   - "if [ \"x$TEST_SUITE\" = \"xbasic\" ] ; then ./misc/test-ci/multitest.sh; fi"
 after_success:
-  - "if [ \"x$TEST_SUITE\" != \"xdocs\" ]; then coveralls; fi"
+  - "if [ \"x$TEST_SUITE\" != \"xdocs\" ]; then codecov; fi"
 
 addons:
   sauce_connect: true
