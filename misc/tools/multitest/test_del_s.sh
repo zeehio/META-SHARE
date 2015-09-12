@@ -42,7 +42,7 @@ check_resource_deleted()
 	local IDENT=`cat "$RES_ID"`
 	#cd "$METASHARE_DIR"
 	PYTHON_CMD="res_id=\"$IDENT\"; execfile(\"$CHECK_DEL_SCR\")"
-	echo "$PYTHON_CMD" | $PYTHON manage.py shell 1>/dev/null 2>/dev/null
+	echo "$PYTHON_CMD" | $PYTHON manage.py shell
 	local ret_val=$?
 	return $ret_val
 }
