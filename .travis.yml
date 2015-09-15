@@ -68,6 +68,7 @@ env:
     - TEST_SUITE="docs"
 python:
   - "2.7"
+  - "3.4"  # Builds python
 # commands to install dependencies
 before_install:
   - pip install codecov
@@ -88,5 +89,13 @@ addons:
     packages:
     - libpq-dev
     - python-sphinx
+    - build-essential # The following packages are used to build python
+    - libncursesw5-dev
+    - libreadline-dev
+    - libssl-dev
+    - libgdbm-dev
+    - libc6-dev
+    - libsqlite3-dev
+    - libbz2-dev  # The previous packages are used to build python
 sudo: false
 
